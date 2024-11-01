@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Formulario from './Formulario';
 import ResultadoIMC from './ResultadoIMC';
-import Style from'./CalculadoraIMCStyle.module.css';
 
 function CalculadoraIMC() {
   const [nombre, setNombre] = useState('');
@@ -43,7 +42,7 @@ function CalculadoraIMC() {
           </div>
         </nav>
       </section>
-      <div className={Style.Calculadora}>
+      <div className="Calculadora">
         <h1>Calculadora del Índice de Masa Corporal</h1>
         <Formulario
           nombre={nombre}

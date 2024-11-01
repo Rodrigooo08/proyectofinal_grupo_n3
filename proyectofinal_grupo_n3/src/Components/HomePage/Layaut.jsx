@@ -47,7 +47,7 @@ function Layout() {
         <nav className="navbar navbar-expand-lg bg-body-tertiary ">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
-              <img src="Image/KillGame.png" alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />
+            <img src="Image/HomePage/KillGame.png" alt="Bootstrap" width="30" height="24" />
               FUNDAMENTOS DE PROGRAMACION WEB - 2024
             </Link>
           </div>

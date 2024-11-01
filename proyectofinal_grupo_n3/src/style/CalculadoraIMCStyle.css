@@ -1,0 +1,61 @@
+:root {
+    --colorBg:  rgb(195, 172, 208) ;
+    --colorBoton1: rgb(41,167,68); 
+    --colorBoton2: rgb(150, 201, 62);
+    --colorLetra1: rgb(103, 65, 136);
+    --colorLetra2: white;
+    --colorBgCalculator:rgb(247, 239, 229) ; 
+    --colorBorder: rgb(103, 65, 136);
+    --colorInput1:rgb(154, 193, 231) ;
+    --colorInput2: rgb(255, 251, 245);
+}
+.Calculadora {
+    background-color: var(--colorBgCalculator);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 10px solid var(--colorBorder);
+    border-radius: 8px;
+    
+}
+.entradaIMC {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: var(--colorInput2);
+
+}
+.entradaIMC:hover{
+    background-color: var(--colorInput1)
+}
+.letras {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--colorLetra1);
+}
+.resultado {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 20px;
+    color: var(--colorBorder);
+    text-align: center;
+    border: 5px solid var(--colorBorder);
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.boton {
+    background-color: rgb(117, 115, 184);
+    color: #000000;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+.boton:hover {
+    background-color: var(--colorBg);
+}   

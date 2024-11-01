@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Formulario from './Formulario';
 import ResultadoIMC from './ResultadoIMC';
+import '../../style/CalculadoraIMCStyle.css'
 
 function CalculadoraIMC() {
   const [nombre, setNombre] = useState('');

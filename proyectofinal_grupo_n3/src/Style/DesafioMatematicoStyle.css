@@ -1,0 +1,75 @@
+.image-container {
+    position: fixed; 
+    right: -100px;
+    top: 50%; 
+    transform: translateY(-150%);
+    z-index: 10;
+  }
+  
+  .image-container img {
+    max-width: 80%;
+    
+    height: auto;
+  }
+  
+  .imagenTarjeta {
+    position: fixed; 
+    right: 100px;
+    top: 50%; 
+    transform: translateY(-25%);
+    z-index: 9;
+  }
+  
+  .imagenTarjeta img {
+    max-width: 80%;
+    
+    height: auto;
+  }
+  
+  .card-desafio {
+    position: fixed;
+    right: 350px; 
+    top: 50%; 
+    transform: translateY(20%); 
+    z-index: 11;
+      width: 22rem;
+     
+      
+    }
+    
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    
+.FondoDM {
+  background-image: url('../public/image/DesafioMatematicoIMG/VegetaFondo.png');
+  background-size: cover;
+  margin: 0;
+  display:block;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+    
+.botonDM {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1.5em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.botonDM:hover {
+  border-color: #646cff;
+}
+.botonDM:focus,
+.botonDM:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

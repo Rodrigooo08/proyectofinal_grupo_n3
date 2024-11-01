@@ -3,7 +3,7 @@ import Inicio from './Inicio.jsx';
 import Juego from './Juego.jsx'
 import LogoDesafio from './LogoDesafio.jsx';
 import Radar from './RadarDB.jsx';
-import '../../Style/DesafioMatematicoStyle.css'
+import '../../Style/DesafioMatematicoStyle.css' //ruta absoluta no da
 
 function DesafioMatematico(){
     const[juegoIniciado,setJuegoIniciado] = useState(false);

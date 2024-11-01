@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "image": "/Image/HomePage/download.jpg",
+        "name": "Lucas Ivan Fabrego",
+        "descripcion": "Entusiasta de los videojuegos y estudiante de programación de videojuegos. Me encanta experimentar con cada juego y disfrutar de cada detalle. Siempre estoy explorando nuevos géneros y experimentando con las mecanicas que tienen para ofrecer."
+    },
+    {
+        "id": 2,
+        "image": "/Image/HomePage/futuristic-blue-glasses-metaverse-boy-avatar-mascot-gaming-vector.jpg",
+        "name": "Fines Rodrigo",
+        "descripcion": "Alumno de fundamento Web"
+    },
+    {
+        "id": 3,
+        "image": "/Image/HomePage/draw-your-gaming-avatar.webp",
+        "name": "Noemi Cintia Flores",
+        "descripcion": "Hola, soy una chica apasionada por la música y el deporte. Me encanta tocar el violín, es mi forma de expresarme y relajarme. Cuando no estoy tocando, me gusta mantenerme activa y hacer ejercicio."
+    },
+    {
+        "id": 4,
+        "image": "/Image/HomePage/AJ.png",
+        "name": "Axel Jurado",
+        "descripcion": "Solo juego multijugadores si es con amigos sino solo juego casuales o de cartas. Aguanten las novelas graficas y las bandas sonoras. Esperando que salga tjoc en steam."
+    },
+    {
+        "id": 5,
+        "image": "/Image/HomePage/images.jpg",
+        "name": "Milagros Flores",
+        "descripcion": "Estudiante de la carrera de videojuegos de UNJU_FI. Me dedico mayormente a la ilustracion en especial cuando se trata de diseños de personajes. Constantemente busco aprender dentro de este entorno, en lo que se refiera a la animaciÓn y la programación."
+    }
+]

@@ -3,8 +3,9 @@ import Inicio from './Inicio.jsx';
 import Juego from './Juego.jsx'
 import LogoDesafio from './LogoDesafio.jsx';
 import Radar from './RadarDB.jsx';
+import '../../Style/DesafioMatematicoStyle.css'
 
-function App(){
+function DesafioMatematico(){
     const[juegoIniciado,setJuegoIniciado] = useState(false);
 
     const inciarJuego = () => {
@@ -12,7 +13,7 @@ function App(){
     };
 
     return(
-        <div className="App">
+        <div className="FondoDM">
             {!juegoIniciado ? <Inicio onStart={inciarJuego}/>:<Juego/>}
             <LogoDesafio />
             <Radar />
@@ -21,4 +22,4 @@ function App(){
     );
 }
 
-export default App;
+export default DesafioMatematico;

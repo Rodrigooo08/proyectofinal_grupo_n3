@@ -24,10 +24,10 @@ class Escena2 extends Phaser.Scene{
         this.textoBalas.setText('Balas Recolectadas: ' + this.balasRecolectadas);     
     }
     preload(){
-        this.load.image('cielo2','public/resource/image/gamenave.png'),
-        this.load.spritesheet('nave','public/resource/image/nave.png', {frameWidth:75,frameHeight:80}),
-        this.load.image('meteoro2','public/resource/image/asteroide_32x32.png')
-        this.load.image('bala','public/resource/image/bala.png');
+        this.load.image('cielo2','public/Image/JuegoNavegamenave.png'),
+        this.load.spritesheet('nave','public/Image/JuegoNave/nave.png', {frameWidth:75,frameHeight:80}),
+        this.load.image('meteoro2','public/Image/JuegoNave/asteroide_32x32.png')
+        this.load.image('bala','public/Image/JuegoNave/bala.png');
        
     }
     create(){
@@ -106,15 +106,15 @@ class Escena2 extends Phaser.Scene{
         this.textoPuntaje.setText('Puntaje: '+this.puntaje);
         //condicion para pasar de escena
         if(this.tiempoTranscurrido >= 20){
-            if(this.musicaFondo != null){
-                this.musicaFondo.stop();}
+           /* if(this.musicaFondo != null){
+                this.musicaFondo.stop();}*/
             this.scene.start('EscenaBonus',{puntaje:this.puntaje,balasRecolectadas: this.balasRecolectadas,musicaFondo:this.musicaFondo});
         }
     }
 
     gameOver(jugador,meteoro){
-        if(this.musicaFondo != null){
-            this.musicaFondo.stop();}
+      /*  if(this.musicaFondo != null){
+            this.musicaFondo.stop();}*/
         this.scene.start('GameOver',{puntaje: this.puntaje});
     }
 }

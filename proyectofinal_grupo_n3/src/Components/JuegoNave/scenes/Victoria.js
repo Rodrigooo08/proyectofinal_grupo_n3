@@ -5,8 +5,8 @@ class Victoria extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('Victoria', 'public/resource/image/Victoria.png');
-        this.load.audio('Final', 'public/resource/sound/FinalGame.mp3');
+        this.load.image('Victoria', 'public/Image/JuegoNave/Victoria.png');
+     //   this.load.audio('Final', 'public/resource/sound/FinalGame.mp3');
     }
 
     init(data) {
@@ -14,11 +14,11 @@ class Victoria extends Phaser.Scene {
     }
 
     create() {
-        this.Final = this.sound.add('Final');
+      /*  this.Final = this.sound.add('Final');
         const soundConfig = { volume: 1, loop: false };
         if (!this.sound.locked) {
             this.Final.play(soundConfig);
-        }
+        }*/
 
         // Ajustar la imagen
         let victoriaImage = this.add.image(this.scale.width / 2, this.scale.height / 2, 'Victoria');

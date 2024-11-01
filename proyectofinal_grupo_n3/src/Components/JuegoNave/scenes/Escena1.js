@@ -13,17 +13,17 @@ class Escena1 extends Phaser.Scene{
         this.contadorTexto.setText('Tiempo: ' + this.tiempoTranscurrido); 
     }
     preload(){
-        this.load.image('cielo','public/resource/image/Espacio.jpg'),
-        this.load.spritesheet('nave','public/resource/image/nave2.png', {frameWidth:75,frameHeight:80}),
-        this.load.image('meteoro','public/resource/image/asteroide.png'),
-        this.load.audio('musicaFondo','public/resource/sound/Star Wars.mp3')
+        this.load.image('cielo','public/Image/JuegoNave/Espacio.jpg'),
+        this.load.spritesheet('nave','public/Image/JuegoNave/nave2.png', {frameWidth:75,frameHeight:80}),
+        this.load.image('meteoro','public/Image/JuegoNave/asteroide.png')
+       // this.load.audio('musicaFondo','public/resource/sound/Star Wars.mp3')
     }
     create(){
-        this.musicaFondo = this.sound.add('musicaFondo');
+      /*  this.musicaFondo = this.sound.add('musicaFondo');
         const soundConfig={volume:1,loop:true};
         if(!this.sound.locked){
             this.musicaFondo.play(soundConfig);
-        }
+        }*/
         //fondo escena
         this.add.image(400,300,'cielo');
         //jugador
@@ -102,8 +102,8 @@ class Escena1 extends Phaser.Scene{
   
     gameOver(jugador,meteoro){
         // this.scene.start('GameOver');
-        if(this.musicaFondo != null){
-            this.musicaFondo.stop();}
+      /*  if(this.musicaFondo != null){
+            this.musicaFondo.stop();}*/
         this.scene.start('GameOver',{puntaje: this.puntaje,musicaFondo:this.musicaFondo});
     }
 }

@@ -6,7 +6,7 @@ class GameOver extends Phaser.Scene {
 
     preload() {
         this.load.image('GameOver', 'public/resource/image/GameOverS2.png');
-        this.load.audio('Final', 'public/resource/sound/Final.mp3')
+       // this.load.audio('Final', 'public/resource/sound/Final.mp3')
     }
 
     init(data) {
@@ -14,11 +14,11 @@ class GameOver extends Phaser.Scene {
     }
 
     create() {
-        this.Final = this.sound.add('Final');
+       /* this.Final = this.sound.add('Final');
         const soundConfig={volume:1,loop:true};
         if(!this.sound.locked){
             this.Final.play(soundConfig);
-        }
+        }*/
         this.add.image(390, 250, 'GameOver');
 
        

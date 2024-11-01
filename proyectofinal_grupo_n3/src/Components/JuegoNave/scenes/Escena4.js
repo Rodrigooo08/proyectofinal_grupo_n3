@@ -17,8 +17,8 @@ class Escena4 extends Phaser.Scene {
             bala.body.reset(this.jugador.x, this.jugador.y);
             bala.body.enable = true;
             bala.setVelocityX(400);
-            const sonidoDisparo = this.sound.add('disparoFx'); 
-            sonidoDisparo.play(); 
+            /*const sonidoDisparo = this.sound.add('disparoFx'); 
+            sonidoDisparo.play(); */
         }
     }
     generarMeteoros() {
@@ -89,40 +89,40 @@ class Escena4 extends Phaser.Scene {
  }
     Victoria() {
 
-    if (this.audioEscena4 != null) {
+   /* if (this.audioEscena4 != null) {
         this.audioEscena4.stop();
-    }
+    }*/
  
     this.scene.start('Victoria', { puntaje: this.puntaje });
 }
     gameOver(jugador, meteoro) {
         // this.scene.start('GameOver');
-        if (this.audioEscena4 != null) {
+      /*  if (this.audioEscena4 != null) {
             this.audioEscena4.stop();
-        }
+        }*/
         this.scene.start('GameOver', { puntaje: this.puntaje });
     }
     preload() {
-        this.load.image('cielo4', 'public/resource/image/EspacioHorizontal.png'),
-        this.load.spritesheet('naveVer', 'public/resource/image/naveVer.png', { frameWidth: 82, frameHeight: 77 }),
-        this.load.image('bala', 'public/resource/image/bala.png'),
-        this.load.image('meteoro', 'public/resource/image/asteroide.png')
-        this.load.spritesheet('jefeFinal', 'public/resource/image/Jefe Final.png', { frameWidth: 304, frameHeight: 235 }),
-        this.load.spritesheet('vida', 'public/resource/image/spritesheet_cascotime_32x32.png', { frameWidth: 32, frameHeight: 32 });
-        this.load.audio('audioEscena4','public/resource/sound/Boss_theme.mp3');
-        this.load.spritesheet('enemigo','public/resource/image/Sprite enemigo.png', {frameWidth:46.5,frameHeight:41}),
-        this.load.spritesheet('proyectil','public/resource/image/spritesheet_bala.png',{frameWidth:39.4,frameHeight:28});
-        this.load.audio('disparoFx','public/resource/sound/LaserSound.mp3')
+        this.load.image('cielo4', 'public/Image/JuegoNave/EspacioHorizontal.png'),
+        this.load.spritesheet('naveVer', 'public/Image/JuegoNave/naveVer.png', { frameWidth: 82, frameHeight: 77 }),
+        this.load.image('bala', 'public/Image/JuegoNave/bala.png'),
+        this.load.image('meteoro', 'public/Image/JuegoNave/asteroide.png')
+        this.load.spritesheet('jefeFinal', 'public/Image/JuegoNave/Jefe Final.png', { frameWidth: 304, frameHeight: 235 }),
+        this.load.spritesheet('vida', 'public/Image/JuegoNave/spritesheet_cascotime_32x32.png', { frameWidth: 32, frameHeight: 32 });
+       // this.load.audio('audioEscena4','public/resource/sound/Boss_theme.mp3');
+        this.load.spritesheet('enemigo','public/Image/JuegoNave/Sprite enemigo.png', {frameWidth:46.5,frameHeight:41}),
+        this.load.spritesheet('proyectil','public/Image/JuegoNave/spritesheet_bala.png',{frameWidth:39.4,frameHeight:28});
+       // this.load.audio('disparoFx','public/resource/sound/LaserSound.mp3')
     }
     create() {
         //this.add.image(400,300,'cielo').setDisplaySize(this.scale.width, this.scale.height);
         this.fondo = this.add.tileSprite(400, 300, 800, 600, 'cielo4'); //(x,y,width,height) para marcar la posicion de la imagen y tamaño a ocupar
         //audioo
-        this.audioEscena4 = this.sound.add('audioEscena4');
+       /* this.audioEscena4 = this.sound.add('audioEscena4');
         const soundConfig={volume:1,loop:true};
         if(!this.sound.locked){
             this.audioEscena4.play(soundConfig);
-        }
+        }*/
         //jugador
         this.jugador = this.physics.add.sprite(10, 300, 'naveVer');
         this.jugador.angle = 90;

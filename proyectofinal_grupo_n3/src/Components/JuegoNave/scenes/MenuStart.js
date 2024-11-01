@@ -5,14 +5,14 @@ class MenuStart extends Phaser.Scene {
     }  
 
     preload() {  
-        this.load.image('menu','public/resource/image/fondo.jpg');
-        this.load.audio('menuMusic','public/resource/sound/MusicaMenu.mp3');
+        this.load.image('menu','public/Image/JuegoNave/fondo.jpg');
+       // this.load.audio('menuMusic','public/resource/sound/MusicaMenu.mp3');
         // carga imágen y sonido  
     }  
 
     create() {  
         //sonido menu
-        this.musicaMenu = this.sound.add('menuMusic');
+      /*  this.musicaMenu = this.sound.add('menuMusic');
         const soundConfig={volume:1,loop:true};
             if(!this.sound.locked){
                 this.musicaMenu.play(soundConfig);
@@ -21,7 +21,7 @@ class MenuStart extends Phaser.Scene {
                     this.musicaMenu.play(soundConfig);
                 });
                 
-            }
+            }*/
             
     
          //fondo menu
@@ -75,21 +75,21 @@ class MenuStart extends Phaser.Scene {
 
     startGame() {  
         console.log("Iniciando el juego...");
-      if(this.musicaMenu != null){
-        this.musicaMenu.stop();}
+     /* if(this.musicaMenu != null){
+        this.musicaMenu.stop();}*/
         this.scene.start('Escena1'); // Cambia a la escena 1  
     }  
 
     configGame() {  
         console.log("Configurando el juego...");
-      if(this.musicaMenu != null){
-        this.musicaMenu.stop();}
+     /* if(this.musicaMenu != null){
+        this.musicaMenu.stop();}*/
         this.scene.start('Ajustes'); // Cambia a la escena de ajustes  
     }  
 
     exitGame() {  
         console.log("Saliendo del juego...");  
-        this.musicaMenu.stop();
+     // this.musicaMenu.stop();
         this.game.destroy(true); // Destruir el juego  
     }  
 }  

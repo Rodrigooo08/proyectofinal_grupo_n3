@@ -61,21 +61,21 @@ class EscenaBonus extends Phaser.Scene{
     }
 
     preload(){
-         this.load.image('bgBonus','public/resource/image/BG_bonus.png'),
-         this.load.spritesheet('nave','public/resource/image/nave2.png', {frameWidth:75,frameHeight:80}),
-         this.load.image('herramienta2','public/resource/image/herramientas2_32x32.png'),
-         this.load.image('herramienta1','public/resource/image/herramientas_32x32.png'),
-         this.load.image('herramienta3','public/resource/image/herramienta3_32x32.png'),
-         this.load.audio('MusicaBonus','public/resource/sound/Bonus.mp3')
+         this.load.image('bgBonus','public/Image/JuegoNave/BG_bonus.png'),
+         this.load.spritesheet('nave','public/Image/JuegoNave/nave2.png', {frameWidth:75,frameHeight:80}),
+         this.load.image('herramienta2','public/Image/JuegoNave/herramientas2_32x32.png'),
+         this.load.image('herramienta1','public/Image/JuegoNave/herramientas_32x32.png'),
+         this.load.image('herramienta3','public/Image/JuegoNave/herramienta3_32x32.png')
+        // this.load.audio('MusicaBonus','public/resource/sound/Bonus.mp3')
     }
 
   
     create(){
-        this.MusicaBonus = this.sound.add('MusicaBonus');
+      /*  this.MusicaBonus = this.sound.add('MusicaBonus');
         const soundConfig={volume:1,loop:true};
         if(!this.sound.locked){
             this.MusicaBonus.play(soundConfig);
-        }
+        }*/
         //fondo escena
         this.add.image(400,300,'bgBonus');
         //jugador
@@ -150,8 +150,8 @@ class EscenaBonus extends Phaser.Scene{
 
         if (this.tiempoTranscurrido >= 20) {
             //this.scene.stop('EscenaBonus'); 
-            if(this.MusicaBonus != null){
-                this.MusicaBonus.stop();}
+           /* if(this.MusicaBonus != null){
+                this.MusicaBonus.stop();}*/
             this.scene.start('Escena3',{puntaje:this.puntaje,balasRecolectadas: this.balasRecolectadas,musicaFondo:this.musicaFondo})
             // this.scene.start('EscenaBonus', { puntaje: this.puntaje }); 
         }

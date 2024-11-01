@@ -5,9 +5,9 @@ class Ajustes extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image('fondoAjustes','public/resource/image/fondo.jpg');
-        this.load.image('botonFlechas','public/resource/image/flechas.png');
-        this.load.image('botonBarraEspaciadora','public/resource/image/barraEspaciadora.png');
+        this.load.image('fondoAjustes','public/Image/JuegoNave/fondo.jpg');
+        this.load.image('botonFlechas','public/Image/JuegoNave/flechas.png');
+        this.load.image('botonBarraEspaciadora','public/Image/JuegoNave/barraEspaciadora.png');
 
 
     }

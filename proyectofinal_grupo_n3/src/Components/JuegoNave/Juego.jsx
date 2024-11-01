@@ -28,5 +28,11 @@ function Juego(){
         }
         let game = new Phaser.Game(config);
     });
+    return ( 
+        <div id = "Conteiner">
+            <h1 id="Titulo">Esquivando Meteoros🚀</h1>
+            <div id="game-container"></div>
+        </div>
+    )
 }
 export default Juego;

@@ -12,14 +12,16 @@ const Juego = () => {
     const [intentos, setIntentos] = useState(0);
     const [puntos, setPuntos] = useState(0);
     const [botonHabilitado, setBotonHabilitado] = useState(true);
+    const [botonSiguiente, setBotonSiguiente] = useState(false);
     
     const manejarVerificacion = () =>{
         verificarRespuesta(respuesta, operacion,setResultado, setPuntos, puntos);
         setBotonHabilitado(false);
+        setBotonSiguiente(true);
     };
     
     const manejarSiguienteDesafio = () => {
-        siguienteDesafio(setOperacion, generarOperacion, setRespuesta, setResultado,setBotonHabilitado, intentos);
+        siguienteDesafio(setOperacion, generarOperacion, setRespuesta, setResultado,setBotonHabilitado, intentos, setBotonSiguiente);
         setIntentos(intentos + 1);
     };
     
@@ -38,6 +40,7 @@ const Juego = () => {
                 puntos={puntos}
                 resultado={resultado}
                 botonHabilitado={botonHabilitado}
+                botonSiguiente={botonSiguiente}
             />
         </div>
     );

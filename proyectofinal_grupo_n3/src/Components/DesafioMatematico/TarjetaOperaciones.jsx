@@ -36,7 +36,7 @@ const CardDesafio = ({
 
           <div className="d-flex justify-content-between">
             <button className="btn btn-primary"onClick={verificarRespuesta}disabled={!botonHabilitado}>Verificar Respuesta</button>
-            <button className="btn btn-secondary"onClick={siguienteDesafio}disable={!botonSiguiente}>Cambiar Desafio</button> 
+            <button className="btn btn-secondary"onClick={siguienteDesafio}disabled={!botonSiguiente}>Cambiar Desafio</button> 
           </div>
 
           <div>

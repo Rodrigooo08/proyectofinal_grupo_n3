@@ -1,13 +1,20 @@
-import { useState } from 'react'
-import './App.css'
-
+import Layout from './Components/Layout'
+import { Routes,Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Colaboradores from './Data/Colaboradores.json'
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
- 
-    </>
+        <div className='container'>
+        <Routes>
+          <Route path='/' element={<Layout />}/>
+            <Route index element={<Home />} />
+            <Route path="nosotros" element={<Nosotros lista={Colaboradores}/>} />
+            <Route path="*" element={<ErrorPage />} />
+            </Routes>
+       </div>
   )
 }
 

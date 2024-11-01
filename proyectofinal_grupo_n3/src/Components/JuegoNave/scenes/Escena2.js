@@ -24,7 +24,7 @@ class Escena2 extends Phaser.Scene{
         this.textoBalas.setText('Balas Recolectadas: ' + this.balasRecolectadas);     
     }
     preload(){
-        this.load.image('cielo2','public/Image/JuegoNavegamenave.png'),
+        this.load.image('cielo2','public/Image/JuegoNave/gamenave.png'),
         this.load.spritesheet('nave','public/Image/JuegoNave/nave.png', {frameWidth:75,frameHeight:80}),
         this.load.image('meteoro2','public/Image/JuegoNave/asteroide_32x32.png')
         this.load.image('bala','public/Image/JuegoNave/bala.png');

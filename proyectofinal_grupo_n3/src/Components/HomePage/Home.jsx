@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 function Home() {
     return (
-        <main>
+        <>
             <nav className="navbar bg-body-tertiary" data-bs-theme="dark">
                 <div className="container">
                     <Link className="navbar-brand" to="#">
@@ -81,7 +81,7 @@ function Home() {
                     </div>
                 </div>
             </section>
-        </main>
+        </>
     )
 }
 export default Home;

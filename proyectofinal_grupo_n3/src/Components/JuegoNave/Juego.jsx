@@ -27,7 +27,27 @@ function Juego() {
             },
         }
         let game = new Phaser.Game(config);
-    });
+    // Detener música antes de cambiar de página o desmontar el componente
+    const stopMusic = () => {
+        if (game.scene) {
+            const menuScene = game.scene.getScene('MenuStart');
+            if (menuScene && menuScene.musicaMenu) {
+                menuScene.musicaMenu.stop();
+            }
+        }
+    };
+
+    // Detener música al cambiar de página
+    window.addEventListener('beforeunload', stopMusic);
+
+    // Limpiar efectos al desmontar el componente
+    return () => {
+        stopMusic();
+        window.removeEventListener('beforeunload', stopMusic);
+        game.destroy(true); // Destruir el juego
+    };
+}, []);
+
     return (
         <div id="Conteiner">
             <h1 id="Titulo">Esquivando Meteoros🚀</h1>

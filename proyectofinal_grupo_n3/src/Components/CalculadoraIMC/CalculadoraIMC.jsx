@@ -36,7 +36,7 @@ function CalculadoraIMC() {
     <>
 
       <div className="Calculadora">
-        <h1>Calculadora del Índice de Masa Corporal</h1>
+        <h1 className='text-center'>Calculadora del Índice de Masa Corporal</h1>
         <Formulario
           nombre={nombre}
           apellido={apellido}

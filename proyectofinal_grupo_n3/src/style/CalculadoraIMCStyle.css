@@ -56,6 +56,8 @@
     margin-top: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    margin: 10px auto 0;
+    display: block;
 }
 .boton:hover {
     background-color: var(--colorBg);

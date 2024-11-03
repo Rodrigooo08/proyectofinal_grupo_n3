@@ -1,11 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function FormDatos( nombre, billetera, transaccion, setNombre, setBilletera, setTransaccion, agregarUsuarios,
-
- transacciones, billeteraMasTransacciones
-
-){
+function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, setTransaccion, agregarUsuarios, usuarios, billeteraMasTransacciones })
+{
 return (
     <div className="container">
       <div className="row">
@@ -52,7 +49,7 @@ return (
       <br />
       <h4 className="mt-4 text-center">Transacciones por Usuario:</h4>
       <ul className="container">
-        {transacciones.map((trans, index) => (
+        {usuarios.map((trans, index) => (
           <li key={index} className=" listagestor table-primary tabla-usuario">
             {trans.nombre} - {trans.billetera} - {trans.transaccion}
           </li>

@@ -2,28 +2,30 @@ import Phaser from 'phaser';
 class MenuStart extends Phaser.Scene {  
     constructor() {  
         super("MenuStart"); // Nombre clave de la escena
+        this.musicaMenu = null; // Inicia la variable de musica
     }  
 
     preload() {  
         this.load.image('menu','public/Image/JuegoNave/fondo.jpg');
-       // this.load.audio('menuMusic','public/resource/sound/MusicaMenu.mp3');
+        this.load.audio('menuMusic','sound/juegoNave/MusicaMenu.mp3');
         // carga imágen y sonido  
     }  
 
     create() {  
-        //sonido menu
-      /*  this.musicaMenu = this.sound.add('menuMusic');
-        const soundConfig={volume:1,loop:true};
-            if(!this.sound.locked){
-                this.musicaMenu.play(soundConfig);
-            } else {
-                this.input.once('pointerdown', () => {
-                    this.musicaMenu.play(soundConfig);
-                });
-                
-            }*/
-            
-    
+       // Solo cargar música si no está ya creada
+       if (!this.musicaMenu) {
+        this.musicaMenu = this.sound.add('menuMusic', { volume: 1, loop: true });
+    }
+    // Reproduce la música solo si no está sonando
+    if (!this.musicaMenu.isPlaying) {
+        this.musicaMenu.play();
+    }
+     // Agregar el evento para detener la música al cambiar de página
+     window.addEventListener('beforeunload', () => {
+        if (this.musicaMenu) {
+            this.musicaMenu.stop();
+        }
+    });
          //fondo menu
         this.add.image(400,300,'menu');
         
@@ -74,22 +76,27 @@ class MenuStart extends Phaser.Scene {
     }  
 
     startGame() {  
-        console.log("Iniciando el juego...");
-     /* if(this.musicaMenu != null){
-        this.musicaMenu.stop();}*/
+    console.log("Iniciando el juego...");
+      if(this.musicaMenu){
+        this.musicaMenu.stop();
+       }
         this.scene.start('Escena1'); // Cambia a la escena 1  
     }  
 
     configGame() {  
         console.log("Configurando el juego...");
-     /* if(this.musicaMenu != null){
-        this.musicaMenu.stop();}*/
+      if(this.musicaMenu){
+        this.musicaMenu.stop();
+    }
         this.scene.start('Ajustes'); // Cambia a la escena de ajustes  
     }  
 
     exitGame() {  
         console.log("Saliendo del juego...");  
-     // this.musicaMenu.stop();
+     if (this.musicaMenu){
+         this.musicaMenu.stop()
+     }
+
         this.game.destroy(true); // Destruir el juego  
     }  
 }  

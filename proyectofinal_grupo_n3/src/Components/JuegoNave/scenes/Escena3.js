@@ -27,8 +27,8 @@ class Escena3 extends Phaser.Scene{
                 bala.body.reset(this.jugador.x,this.jugador.y);
                 bala.body.enable=true;
                 bala.setVelocityY(-400);
-               // const sonidoDisparo = this.sound.add('disparoFx'); 
-               // sonidoDisparo.play(); 
+                const sonidoDisparo = this.sound.add('disparoFx'); 
+               sonidoDisparo.play(); 
 
             }
             this.balasRecolectadas--;
@@ -44,11 +44,11 @@ class Escena3 extends Phaser.Scene{
         this.load.spritesheet('nave','public/Image/JuegoNave/nave.png', {frameWidth:75,frameHeight:80}),
         this.load.image('meteoro3','public/Image/JuegoNave/Basurita_espacial2.png')
         this.load.image('meteoro4','public/Image/JuegoNave/Basurita_espacial.png')
-       // this.load.audio('disparoFx','public/resource/sound/LaserSound.mp3')
+        this.load.audio('disparoFx','/sound/juegoNave/LaserSound.mp3')
         this.load.image('meteoro5','public/Image/JuegoNave/Basurita_espacial3.png')
     }
     create(){
-       /* this.musicaFondo.play();*/
+        this.musicaFondo.play();
         //fondo escena
         this.add.image(400,300,'cielo3').setDisplaySize(this.scale.width, this.scale.height);
         this.jugador = this.physics.add.sprite(400,550,'nave');
@@ -140,14 +140,14 @@ class Escena3 extends Phaser.Scene{
          //condicion para detener de escena
          if(this.tiempoTranscurrido >= 20){
             this.scene.stop('Escena3');
-         /*   if(this.musicaFondo != null){
-                this.musicaFondo.stop();}*/
+          if(this.musicaFondo != null){
+                this.musicaFondo.stop();}
             this.scene.start('Escena4',{puntaje: this.puntaje, musicaFondo:this.musicaFondo});
         }
     }
     gameOver(jugador,meteoro){
-       /* if(this.musicaFondo != null){
-            this.musicaFondo.stop();}*/
+        if(this.musicaFondo != null){
+            this.musicaFondo.stop();}
         this.scene.start('GameOver',{puntaje: this.puntaje});
     }
 }

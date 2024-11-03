@@ -13,6 +13,7 @@
     background-color: var(--colorBgCalculator);
     max-width: 600px;
     margin: 0 auto;
+    box-shadow: 7px 15px 20px rgb(81, 206, 255);
     padding: 20px;
     border: 10px solid var(--colorBorder);
     border-radius: 8px;
@@ -55,6 +56,8 @@
     margin-top: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    margin: 10px auto 0;
+    display: block;
 }
 .boton:hover {
     background-color: var(--colorBg);

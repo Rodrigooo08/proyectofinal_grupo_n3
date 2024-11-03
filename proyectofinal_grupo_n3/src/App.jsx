@@ -9,6 +9,7 @@ import CalculadoraIMC from './Components/CalculadoraIMC/CalculadoraIMC';
 import DesafioMatematico from './Components/DesafioMatematico/DesafioMatematico';
 import ErrorPage from './Components/HomePage/ErrorPage';
 import  JuegoNave from './Components/JuegoNave/Juego';
+import  GestorTransacciones from './Components/GestorBilleteraVirtual/GestorTransaccion';
 import '../src/Style/HomeStyle.css';
 function App() {
   
@@ -22,7 +23,7 @@ function App() {
             <Route path="calculadoraIMC" element={<CalculadoraIMC />} />
             <Route path="juegonave" element={<JuegoNave />} />
             <Route path="desafiomatematico" element={<DesafioMatematico />} />
-            
+            <Route path="gestorbilleteras" element={<GestorTransacciones />} />
           </Route>
             <Route path="*" element={<ErrorPage />} />
             </Routes>

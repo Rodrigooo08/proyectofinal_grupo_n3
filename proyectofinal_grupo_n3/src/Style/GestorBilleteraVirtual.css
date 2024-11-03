@@ -1,0 +1,51 @@
+:root{
+    --color1: var(black);
+    --color2: var(#284abb;);
+    --color3: var (rgb(133, 238, 220));
+}
+
+table .tabla-usuario {  
+    display: block;
+    justify-content: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    color: var(--color1);
+}
+    
+p {
+    font-size: 18px;
+    color: var(--color1);
+    text-align: center;
+    margin-top: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+    
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--color2);
+    text-align: center;
+    margin-top: 20px;
+    font-family:'Times New Roman', Times, serif
+}
+
+.fondogestor {
+    background-image: url(../images/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+    background-color: rgb(226, 248, 243);
+    border-radius: 10px;
+    box-shadow: 7px 15px 20px rgb(81, 206, 255);
+    margin-top: 40px;
+    padding: 20px;
+}
+.listagestor{
+   list-style:disclosure-closed ;
+}

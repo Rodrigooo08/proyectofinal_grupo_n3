@@ -7,7 +7,7 @@ import '../../Style/DesafioMatematicoStyle.css'
 
 function DesafioMatematico(){
     const[juegoIniciado,setJuegoIniciado] = useState(false);
-    const[dificultad, setDificultad] = useState('');
+    const[dificultad, setDificultad] = useState('facil');
 
     const inciarJuego = () => {
         setJuegoIniciado(true);

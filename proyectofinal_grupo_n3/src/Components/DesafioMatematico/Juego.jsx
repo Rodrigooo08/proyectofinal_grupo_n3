@@ -21,7 +21,7 @@ const Juego = ({dificultad}) => {
     };
     
     const manejarSiguienteDesafio = () => {
-        siguienteDesafio(setOperacion, generarOperacion, setRespuesta, setResultado,setBotonHabilitado, intentos, setBotonSiguiente);
+        siguienteDesafio(setOperacion, ()=>generarOperacion(dificultad), setRespuesta, setResultado,setBotonHabilitado, intentos, setBotonSiguiente);
         setIntentos(intentos + 1);
     };
     

@@ -1,0 +1,23 @@
+body{
+    box-sizing: 10px;
+    background-color: aqua;
+    background-image: url("../../public/Image/HomePage/FondoPrueba.jpg");
+    background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+}
+article{
+    background-color: rgb(178, 129, 224);
+    margin: 10px;
+    padding: 10px;
+    border: 10px;
+}
+header{
+    background-color: rgb(227, 36, 218);
+}
+.main-content{
+    padding-top: 80px;
+}

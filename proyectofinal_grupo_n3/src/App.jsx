@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Colaboradores from './Data/Colaboradores.json';
 import Home from './Components/HomePage/Home';
 import AboutUs from './Components/HomePage/AboutUs';
+import GestorTransacciones from './Components/GestorBilleteraVirtual/GestorTransaccion';
 function App() {
   
 
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="nosotros" element={<AboutUs lista={Colaboradores}/>} />
+            <Route path="gestorbilleteras" element={<GestorTransacciones />} />
           </Route>
            {/* <Route path="*" element={<ErrorPage />} />*/}
             </Routes>

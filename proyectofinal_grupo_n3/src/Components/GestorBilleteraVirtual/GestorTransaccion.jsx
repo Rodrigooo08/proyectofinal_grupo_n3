@@ -1,5 +1,9 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import FormDatos from './FormDatos';
+import '../../style/GestorBilleteraVirtual.css'
 
+function GestorTransacciones(){
 const GestorTransacciones = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [nombre, setNombre] = useState('');
@@ -53,18 +57,18 @@ const GestorTransacciones = () => {
   
       setTransaccionMaxima(resultado);
       setListaMaximaTransaccionesVisible(true);
-    };
-  
-    // const cargaAlerta = () => {
-    //   Swal.fire({
-    //     text: "Se ha cargado correctamente",
-    //     icon: "success",
-    //   });
-    // };
+    }
   
     const ocultarListas = () => {
       setTransaccionMaxima('');
       setListaMaximaTransaccionesVisible(false);
     };
+    return (
+      <>
+      <FormDatos/>
+
+      </>
+    )
+}
 }
 export default GestorTransacciones;

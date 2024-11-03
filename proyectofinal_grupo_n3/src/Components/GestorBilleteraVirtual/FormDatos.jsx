@@ -1,6 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+function FormDatos(
+
+){
 return (
     <div className="container">
       <div className="row">
@@ -11,22 +14,14 @@ return (
       <form className="container">
         <div className="input-group mb-2">
           <label className="input-group-text" htmlFor="nombre">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            aria-label="First name"
-            className="form-control"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+          <input type="text"id="nombre"aria-label="First name"className="form-control"
+           value={nombre}onChange={(e) => setNombre(e.target.value)}
           />
         </div>
         <div className="input-group mb-2">
           <label className="input-group-text" htmlFor="billetera">Billeteras</label>
-          <select
-            className="form-select"
-            id="billetera"
-            value={billetera}
-            onChange={(e) => setBilletera(e.target.value)}
+          <select className="form-select" id="billetera"
+            value={billetera} onChange={(e) => setBilletera(e.target.value)}
           >
             <option value="">Selecciona una billetera</option>
             <option value="paypal">PayPal</option>
@@ -38,13 +33,8 @@ return (
         </div>
         <div className="input-group mb-2">
           <label className="input-group-text" htmlFor="transaccion">Número de transacción</label>
-          <input
-            type="number"
-            id="transaccion"
-            aria-label="Número de transacción"
-            className="form-control"
-            value={transaccion}
-            onChange={(e) => setTransaccion(e.target.value)}
+          <input type="number"id="transaccion"aria-label="Número de transacción"className="form-control"
+            value={transaccion} onChange={(e) => setTransaccion(e.target.value)}
           />
         </div>
       </form>
@@ -72,5 +62,5 @@ return (
       </form>
     </div>
   );
-
-export default FomularioDatos;
+}
+export default FormDatos;

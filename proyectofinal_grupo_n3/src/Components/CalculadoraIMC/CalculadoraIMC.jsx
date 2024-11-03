@@ -34,15 +34,7 @@ function CalculadoraIMC() {
 
   return (
     <>
-      <section className="section1">
-        <nav className="navbar bg-body-tertiary" data-bs-theme="dark">
-          <div className="container">
-            <Link className="navbar-brand" to="#">
-              <img src="..." alt="Bootstrap" width="30" height="24" />
-            </Link>
-          </div>
-        </nav>
-      </section>
+
       <div className="Calculadora">
         <h1>Calculadora del Índice de Masa Corporal</h1>
         <Formulario

@@ -1,4 +1,4 @@
-function siguienteDesafio(setOperacion, generarOperacion, setRespuesta, setResultado, setBotonHabilitado, intentos) {
+function siguienteDesafio(setOperacion, generarOperacion, setRespuesta, setResultado, setBotonHabilitado, intentos, setBotonSiguiente) {
     if (intentos >= 5) {
       return; // Si los intentos son 5 o más, no permitir avanzar
     }  
@@ -6,6 +6,7 @@ function siguienteDesafio(setOperacion, generarOperacion, setRespuesta, setResul
     setRespuesta('');
     setResultado(null);
     setBotonHabilitado(true);
+    setBotonSiguiente(false);
   }
 
   export default siguienteDesafio;

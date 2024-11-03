@@ -29,7 +29,7 @@ h1 {
     font-family:'Times New Roman', Times, serif
 }
 
-body {
+.fondogestor {
     background-image: url(../images/bg.png);
     background-size: cover;
     background-position: center;
@@ -46,6 +46,6 @@ body {
     margin-top: 40px;
     padding: 20px;
 }
-li{
+.listagestor{
    list-style:disclosure-closed ;
 }

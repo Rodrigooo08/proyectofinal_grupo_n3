@@ -2,13 +2,7 @@ import { Link } from 'react-router-dom';
 function Home() {
     return (
         <>
-            <nav className="navbar bg-body-tertiary" data-bs-theme="dark">
-                <div className="container">
-                    <Link className="navbar-brand" to="#">
-                        <img src="..." alt="Bootstrap" width="30" height="24" />
-                    </Link>
-                </div>
-            </nav>
+           
             <section className="section1">
                 <div id="carouselExample" className="carousel slide img-fluid">
                     <div className="carousel-inner">

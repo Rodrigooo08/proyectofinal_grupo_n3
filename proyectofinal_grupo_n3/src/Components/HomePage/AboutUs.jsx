@@ -10,13 +10,7 @@ function AboutUs({ lista }) {
         </div>));
     return (
         <> <section className="section1">
-            <nav className="navbar bg-body-tertiary" data-bs-theme="dark">
-                <div className="container">
-                    <a className="navbar-brand" href="#">
-                        <img src="..." alt="Bootstrap" width="30" height="24" />
-                    </a>
-                </div>
-            </nav>
+           
             <nav className="navbar bg-body-tertiary">
                 <div className="container-fluid">
                     <span className="navbar-brand mb-0 h1">Equipo de desarrollo del Grupo 3</span>

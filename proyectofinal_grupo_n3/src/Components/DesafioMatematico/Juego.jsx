@@ -5,8 +5,8 @@ import siguienteDesafio from './siguienteDesafio';
 import CardDesafio from './TarjetaOperaciones';
 import Puntuacion from './Puntuacion';
 
-const Juego = () => {
-    const [operacion, setOperacion] = useState(generarOperacion());
+const Juego = ({dificultad}) => {
+    const [operacion, setOperacion] = useState(generarOperacion(dificultad));
     const [respuesta, setRespuesta] = useState('');
     const [resultado, setResultado] = useState(null);
     const [intentos, setIntentos] = useState(0);
@@ -21,7 +21,7 @@ const Juego = () => {
     };
     
     const manejarSiguienteDesafio = () => {
-        siguienteDesafio(setOperacion, generarOperacion, setRespuesta, setResultado,setBotonHabilitado, intentos, setBotonSiguiente);
+        siguienteDesafio(setOperacion, ()=>generarOperacion(dificultad), setRespuesta, setResultado,setBotonHabilitado, intentos, setBotonSiguiente);
         setIntentos(intentos + 1);
     };
     

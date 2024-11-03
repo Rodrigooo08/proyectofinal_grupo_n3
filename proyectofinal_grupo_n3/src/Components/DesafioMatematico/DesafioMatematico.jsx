@@ -7,14 +7,18 @@ import '../../Style/DesafioMatematicoStyle.css'
 
 function DesafioMatematico(){
     const[juegoIniciado,setJuegoIniciado] = useState(false);
+    const[dificultad, setDificultad] = useState('facil');
 
     const inciarJuego = () => {
         setJuegoIniciado(true);
     };
+    const seleccionarDificultad = (nivel)=>{
+        setDificultad(nivel);
+    }
 
     return(
         <div className="FondoDM">
-            {!juegoIniciado ? <Inicio onStart={inciarJuego}/>:<Juego/>}
+            {!juegoIniciado ? <Inicio onStart={inciarJuego} onSelectDificultad={seleccionarDificultad}/>:<Juego dificultad={dificultad}/>}
             <LogoDesafio />
             <Radar />
         </div>

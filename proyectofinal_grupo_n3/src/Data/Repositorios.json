@@ -4,5 +4,17 @@
         "name": "Trabajo Practico N1: HTML-CSS",
         "descripcion": "En este proyecto debe construir un sitio web estático, simulando un portal de videojuegos",
         "url": "https://github.com/CintiaFlores/TP01FPWGrupo3"
+    },
+    {
+        "id": 2,
+        "name": "Proyecto 02 JS Indice de Masa Corporal (IMC) ",
+        "descripcion": "Escribir un programa donde el usuario ingrese el nombre, apellido, peso y altura. El programa debe calcular el IMC (Índice de Masa Corporal) de dicha persona",
+        "url": "https://github.com/Rodrigooo08/proyecto02js_IMC_grupo_03"
+    },
+    {
+        "id": 3,
+        "name": "Proyecto 03 JS Gestor de Transacciones en Billeteras Virtuales ",
+        "descripcion": "Se necesita ingresar la información de las cuentas de usuarios y el número de transacciones realizadas en sus billeteras virtuales, Se debe visualizar un listado con todos los usuarios registrados, mostrando el nombre del usuario, la billetera virtual y el número de transacciones realizadas. Finalmente, se debe mostrar el nombre de la billetera virtual con el mayor número de transacciones y el usuario que posee dicha cuenta.",
+        "url": "https://github.com/LIFabrego/proyecto03js_GestorBilleteraVirtual_grupo_3"
     }
 ]

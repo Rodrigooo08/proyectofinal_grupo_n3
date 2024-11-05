@@ -22,5 +22,11 @@
         "name": "Phaser Juego Esquivando Meteoros",
         "descripcion": "Desarrollen un juego en Phaser que permita al usuario controlar una nave para esquivar meteoros que caen desde la parte superior de la pantalla, el objetivo es derrotar al jefe final ",
         "url": "https://github.com/Rodrigooo08/ProyectoPhaser01_Grupo03"
+    },
+    {
+        "id": 5,
+        "name": "Proyecto 06: Desafio Matematico",
+        "descripcion": "El juego está pensado para niños de primer grado. El objetivo es resolver operaciones matemáticas de suma o resta.",
+        "url": "https://github.com/CintiaFlores/Proyecto06react_desafiomatematico_grupo_3"
     }
 ]

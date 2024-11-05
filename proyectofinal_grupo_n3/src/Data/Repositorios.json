@@ -16,5 +16,11 @@
         "name": "Proyecto 03 JS Gestor de Transacciones en Billeteras Virtuales ",
         "descripcion": "Se necesita ingresar la información de las cuentas de usuarios y el número de transacciones realizadas en sus billeteras virtuales, Se debe visualizar un listado con todos los usuarios registrados, mostrando el nombre del usuario, la billetera virtual y el número de transacciones realizadas. Finalmente, se debe mostrar el nombre de la billetera virtual con el mayor número de transacciones y el usuario que posee dicha cuenta.",
         "url": "https://github.com/LIFabrego/proyecto03js_GestorBilleteraVirtual_grupo_3"
+    },
+    {
+        "id": 4,
+        "name": "Phaser Juego Esquivando Meteoros",
+        "descripcion": "Desarrollen un juego en Phaser que permita al usuario controlar una nave para esquivar meteoros que caen desde la parte superior de la pantalla, el objetivo es derrotar al jefe final ",
+        "url": "https://github.com/Rodrigooo08/ProyectoPhaser01_Grupo03"
     }
 ]

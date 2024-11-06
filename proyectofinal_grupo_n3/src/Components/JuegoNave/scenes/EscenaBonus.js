@@ -61,7 +61,7 @@ class EscenaBonus extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bgBonus', 'public/Image/JuegoNave/BG_bonus.png'),
+        this.load.image('bgBonus', 'public/Image/JuegoNave/FondoEspacialBonus.png'),
             this.load.spritesheet('nave', 'public/Image/JuegoNave/nave2.png', { frameWidth: 75, frameHeight: 80 }),
             this.load.image('herramienta2', 'public/Image/JuegoNave/herramientas2_32x32.png'),
             this.load.image('herramienta1', 'public/Image/JuegoNave/herramientas_32x32.png'),
@@ -71,13 +71,14 @@ class EscenaBonus extends Phaser.Scene {
 
 
     create() {
+        
         this.MusicaBonus = this.sound.add('MusicaBonus');
-        const soundConfig = { volume: 1, loop: true };
+        const soundConfig = { volume: 0.3, loop: true };
         if (!this.sound.locked) {
             this.MusicaBonus.play(soundConfig);
         }
         //fondo escena
-        this.add.image(400, 300, 'bgBonus');
+        this.add.image(400, 400, 'bgBonus');
         //jugador
         this.jugador = this.physics.add.sprite(400, 550, 'nave');
         this.jugador.setCollideWorldBounds(true);

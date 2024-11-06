@@ -19,8 +19,9 @@ class Escena1 extends Phaser.Scene{
         this.load.audio('musicaFondo','/sound/juegoNave/Star Wars.mp3')
     }
     create(){
+       
        this.musicaFondo = this.sound.add('musicaFondo');
-        const soundConfig={volume:1,loop:true};
+        const soundConfig={volume:0.1,loop:true};
         if(!this.sound.locked){
             this.musicaFondo.play(soundConfig);
         }

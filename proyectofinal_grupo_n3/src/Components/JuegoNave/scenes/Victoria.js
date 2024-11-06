@@ -15,7 +15,7 @@ class Victoria extends Phaser.Scene {
 
     create() {
        this.Final = this.sound.add('Final');
-        const soundConfig = { volume: 1, loop: false };
+        const soundConfig = { volume: 0.3, loop: false };
         if (!this.sound.locked) {
             this.Final.play(soundConfig);
         }

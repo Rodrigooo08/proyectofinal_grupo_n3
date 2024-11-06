@@ -18,6 +18,7 @@ class Escena4 extends Phaser.Scene {
             bala.body.enable = true;
             bala.setVelocityX(400);
             const sonidoDisparo = this.sound.add('disparoFx');
+            sonidoDisparo.setVolume(0.3);
             sonidoDisparo.play();
         }
     }
@@ -115,11 +116,12 @@ class Escena4 extends Phaser.Scene {
         this.load.audio('disparoFx', '/sound/juegoNave/LaserSound.mp3')
     }
     create() {
+        
         //this.add.image(400,300,'cielo').setDisplaySize(this.scale.width, this.scale.height);
         this.fondo = this.add.tileSprite(400, 300, 800, 600, 'cielo4'); //(x,y,width,height) para marcar la posicion de la imagen y tamaño a ocupar
         //audioo
         this.audioEscena4 = this.sound.add('audioEscena4');
-        const soundConfig = { volume: 1, loop: true };
+        const soundConfig = { volume: 0.5, loop: true };
         if (!this.sound.locked) {
             this.audioEscena4.play(soundConfig);
         }

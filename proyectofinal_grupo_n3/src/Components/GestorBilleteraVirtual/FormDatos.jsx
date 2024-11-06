@@ -39,10 +39,10 @@ return (
       </form>
       <br />
       <div className="text-center">
-        <button type="button" className="btn btn-danger,btn" onClick={agregarUsuarios}>
+        <button type="button" className="btn" onClick={agregarUsuarios}>
           <h4>Agregar usuario</h4>
         </button>
-        <button type="button" className="btn btn-success,btn" onClick={billeteraMasTransacciones}>
+        <button type="button" className="btn" onClick={billeteraMasTransacciones}>
           <h4>Billetera con más transacciones</h4>
         </button>
       </div>

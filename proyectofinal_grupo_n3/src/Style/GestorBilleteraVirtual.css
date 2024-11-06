@@ -2,6 +2,7 @@
     --color1: var(black);
     --color2: var(#284abb;);
     --color3: var (rgb(133, 238, 220));
+    --Color4: var(rgb(209, 37, 37));
 }
 
 table .tabla-usuario {  
@@ -23,7 +24,7 @@ p {
 h1 {
     font-size: 40px;
     font-weight: bold;
-    color: var(--color2);
+    color: #284abb;
     text-align: center;
     margin-top: 20px;
     font-family:'Times New Roman', Times, serif
@@ -51,8 +52,14 @@ h1 {
 }
 
 .btn{
-    padding: 20px;
-    background-color:green;
+    padding: 15px;
+    background-color:rgb(221, 66, 66);
+    border-radius: 20px;
     margin: 40px;
+    color:rgb(226, 248, 243);
+    box-shadow: 2px 4px 10px rgb(221, 66, 66);
 
+}
+.btn:hover{
+    background-color: rgb(65, 204, 95);
 }

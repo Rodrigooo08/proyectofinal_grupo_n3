@@ -4,13 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, setTransaccion, agregarUsuarios, usuarios, billeteraMasTransacciones })
 {
 return (
-    <div className="container">
+    <div className="containerForm">
       <div className="row">
         <div className="col-12">
           <h1 className="text-center">Gestor de transacciones en Billeteras Virtuales</h1>
         </div>
       </div>
-      <form className="container">
+      <form className="containerForm">
         <div className="input-group mb-2">
           <label className="input-group-text" htmlFor="nombre">Nombre</label>
           <input type="text"id="nombre"aria-label="First name"className="form-control"
@@ -39,23 +39,23 @@ return (
       </form>
       <br />
       <div className="text-center">
-        <button type="button" className="btn btn-danger" onClick={agregarUsuarios}>
+        <button type="button" className="btn btn-danger,btn" onClick={agregarUsuarios}>
           <h4>Agregar usuario</h4>
         </button>
-        <button type="button" className="btn btn-success" onClick={billeteraMasTransacciones}>
+        <button type="button" className="btn btn-success,btn" onClick={billeteraMasTransacciones}>
           <h4>Billetera con más transacciones</h4>
         </button>
       </div>
       <br />
       <h4 className="mt-4 text-center">Transacciones por Usuario:</h4>
-      <ul className="container">
+      <ul className="containerForm">
         {usuarios.map((trans, index) => (
           <li key={index} className=" listagestor table-primary tabla-usuario">
             {trans.nombre} - {trans.billetera} - {trans.transaccion}
           </li>
         ))}
       </ul>
-      <form className="container">
+      <form className="containerForm">
         <h4 className="mt-4 text-center">Máximas Transacciones por Usuario:</h4>
         <p id="transaccionMaxima"></p>
       </form>

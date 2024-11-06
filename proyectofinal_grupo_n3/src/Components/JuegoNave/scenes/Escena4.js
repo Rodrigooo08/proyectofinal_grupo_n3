@@ -93,7 +93,7 @@ class Escena4 extends Phaser.Scene {
         if (this.audioEscena4 != null) {
             this.audioEscena4.stop();
         }
-
+        this.scene.stop('GameUI');
         this.scene.start('Victoria', { puntaje: this.puntaje });
     }
     gameOver(jugador, meteoro) {
@@ -101,6 +101,7 @@ class Escena4 extends Phaser.Scene {
         if (this.audioEscena4 != null) {
             this.audioEscena4.stop();
         }
+        this.scene.stop('GameUI');
         this.scene.start('GameOver', { puntaje: this.puntaje });
     }
     preload() {

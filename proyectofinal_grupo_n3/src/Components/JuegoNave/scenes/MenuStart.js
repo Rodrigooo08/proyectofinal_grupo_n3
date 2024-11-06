@@ -82,7 +82,7 @@ class MenuStart extends Phaser.Scene {
        }
         this.scene.stop('MenuStart'); // Detenemos la escena del menú antes de cambiar
         this.scene.launch('GameUI');
-        this.scene.start('Escena4');  // Cambiar a la escena del juego 
+        this.scene.start('Escena1');  // Cambiar a la escena del juego 
         
     }  
 

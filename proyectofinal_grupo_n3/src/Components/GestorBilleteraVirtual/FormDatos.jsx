@@ -7,7 +7,7 @@ return (
     <div className="containerForm">
       <div className="row">
         <div className="col-12">
-          <h1 className="text-center">Gestor de transacciones en Billeteras Virtuales</h1>
+          <h1 className="textTitulo">Gestor de transacciones en Billeteras Virtuales</h1>
         </div>
       </div>
       <form className="containerForm">

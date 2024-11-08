@@ -79,6 +79,11 @@ class Escena4 extends Phaser.Scene {
     reducirVidaJefe(jefeFinal, bala) {
         bala.disableBody(true, true); // Desactiva la bala
         this.vidaJefe--; // Reduce la vida del jefe
+        // Actualiza la barra de vida
+        const porcentajeVida = this.vidaJefe / 50; // 50 es la vida total del jefe
+        this.barraVidaRelleno.clear(); // Limpia el relleno anterior
+        this.barraVidaRelleno.fillStyle(0x00ff00, 1); // Color verde
+        this.barraVidaRelleno.fillRect(200, 50, porcentajeVida * 300, 20); // Ajusta el relleno
         jefeFinal.setTint(0xff0000);
         this.time.delayedCall(1000, () => {
             jefeFinal.clearTint();
@@ -117,7 +122,7 @@ class Escena4 extends Phaser.Scene {
         this.load.audio('disparoFx', '/sound/juegoNave/LaserSound.mp3')
     }
     create() {
-        
+
         //this.add.image(400,300,'cielo').setDisplaySize(this.scale.width, this.scale.height);
         this.fondo = this.add.tileSprite(400, 300, 800, 600, 'cielo4'); //(x,y,width,height) para marcar la posicion de la imagen y tamaño a ocupar
         //audioo
@@ -173,6 +178,14 @@ class Escena4 extends Phaser.Scene {
             frameRate: 10, // Ajusta la velocidad de la animación
             repeat: -1 // Hace que la animación se repitra indefinidamente
         });
+        // Crear los gráficos para la barra de vida
+        this.barraVidaFondo = this.add.graphics();
+        this.barraVidaFondo.fillStyle(0x555555, 1);  // Color de fondo (gris oscuro)
+        this.barraVidaFondo.fillRect(200, 50, 300, 20); // Dibuja el fondo de la barra
+
+        this.barraVidaRelleno = this.add.graphics();
+        this.barraVidaRelleno.fillStyle(0x00ff00, 1);  // Color del relleno (verde)
+        this.barraVidaRelleno.fillRect(200, 50, 300, 20); // Dibuja el relleno inicial (totalmente lleno)
         //Crea el sprite del jefe final
         this.jefeFinal = this.physics.add.sprite(800, 400, 'jefeFinal').play('jefeAnimado');
         // this.jefeFinal.setCollideWorldBounds(true);

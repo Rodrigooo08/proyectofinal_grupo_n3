@@ -7,8 +7,8 @@
   }
   
   .image-container img {
-    max-width: 80%;
-    
+    max-width: 70%;
+  transform: translate(0%, -10%);
     height: auto;
   }
   
@@ -21,15 +21,15 @@
   }
   
   .imagenTarjeta img {
-    max-width: 80%;
+    max-width: 70%;
     
     height: auto;
   }
   
   .card-desafio {
     position: fixed;
-    right: 350px; 
-    top: 50%; 
+    right: 380px; 
+    top: 45%; 
     transform: translateY(20%); 
     z-index: 11;
       width: 22rem;
@@ -90,9 +90,9 @@
 }
 
 .inicio {
-  position: fixed;
-  top: 50%;
-  left: 20%;
+  position:relative;
+  top: 20%;
+  left: -35%;
   z-index: 12;
 }
 
@@ -102,6 +102,8 @@
   position: relative; 
   width: 300px; 
   text-align: center;
+  transform: translate(-20%, 0%);
+
 }
 
 .Dialogo img {
@@ -113,9 +115,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px;
-  color: #000; 
-  font-size: 1.7em; 
+  font-size: 1.9em; 
   max-width: 80%; 
   word-wrap: break-word; 
 }

@@ -57,27 +57,35 @@
   height: 100vh;
   background-image: url('../public/image/DesafioMatematicoIMG/VegetaFondo2.png');
   background-size: cover;
-  margin: 0;
+  
 
   place-items: center;
  
 }
+
+.inicio {
+  border-radius: 8px;
+  position:relative;
+  top: 10%;
+  left: -37%;
+  z-index: 12;
+}
+
     
 .botonDM {
- margin-top: -500px;
- 
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 00;
   font-family: inherit;
-  background-color: #ffa154;
+  background-color: red;
+  opacity: 0.9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 .botonDM:hover {
-  border-color: #646cff;
+  border-color: #c73dda;
 }
 .botonDM:focus,
 .botonDM:focus-visible {
@@ -96,15 +104,6 @@
   border-radius: 8px;
   
 }
-
-
-.inicio {
-  position:relative;
-  top: 20%;
-  left: -35%;
-  z-index: 12;
-}
-
 
 
 .Dialogo {

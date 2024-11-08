@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FormDatos from './FormDatos';
 import '../../style/GestorBilleteraVirtual.css'
 function MaximaUsuarios() {
 

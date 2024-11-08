@@ -64,10 +64,17 @@
 
 .inicio {
   border-radius: 8px;
-  position:relative;
-  top: 10%;
-  left: -37%;
+  position: fixed;
+  right: 300px;
+  top: 45%;
+  transform: translateY(35%);
   z-index: 12;
+  width: 30rem;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
 
     

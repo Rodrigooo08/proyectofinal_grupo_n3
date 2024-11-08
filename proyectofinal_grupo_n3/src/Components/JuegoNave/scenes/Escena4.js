@@ -23,12 +23,12 @@ class Escena4 extends Phaser.Scene {
         }
     }
     generarMeteoros() {
-        const y = Phaser.Math.Between(0, 600);
+        const y = Phaser.Math.Between(10, 600);
         const meteoro = this.grupoMeteoros.create(800, y, 'meteoro');
         meteoro.setVelocityX(-300);
     }
     generarEnemigos() {
-        const y = Phaser.Math.Between(0, 600);
+        const y = Phaser.Math.Between(50, 580);
         const enemigo = this.grupoEnemigos.create(800, y, 'enemigo').play('movimiento');
         enemigo.setVelocityX(-200);
     }
@@ -119,7 +119,7 @@ class Escena4 extends Phaser.Scene {
         this.load.audio('audioEscena4', '/sound/juegoNave/Boss_theme.mp3');
         this.load.spritesheet('enemigo', 'public/Image/JuegoNave/Sprite enemigo.png', { frameWidth: 46.5, frameHeight: 41 }),
             this.load.spritesheet('proyectil', 'public/Image/JuegoNave/spritesheet_bala.png', { frameWidth: 39.4, frameHeight: 28 });
-        this.load.audio('disparoFx', '/sound/juegoNave/LaserSound.mp3')
+        this.load.audio('disparoFx', '/sound/juegoNave/Laser.mp3')
     }
     create() {
 
@@ -152,7 +152,7 @@ class Escena4 extends Phaser.Scene {
         this.grupoEnemigos = this.physics.add.group();
         // Generar enemigos periódicamente
         this.time.addEvent({
-            delay: 3000,
+            delay: 1500,
             callback: this.generarEnemigos,
             callbackScope: this,
             loop: true
@@ -244,7 +244,7 @@ class Escena4 extends Phaser.Scene {
     }
     update() {
             
-        this.textoVidaJefe = this.add.text(400, 530, 'Vida Jefe Final', {
+        this.textoVidaJefe = this.add.text(400, 570, 'Vida Jefe Final', {
             fontSize: '22px',
             fill: '#FFFFFF', // Blanco
             fontFamily: 'Times New Roman'

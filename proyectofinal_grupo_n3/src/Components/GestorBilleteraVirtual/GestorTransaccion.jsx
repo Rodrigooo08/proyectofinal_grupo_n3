@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FormDatos from './FormDatos';
 import Swal from 'sweetalert2';
+import MaximaUsuario from './MaximaUsuario';
 import '../../style/GestorBilleteraVirtual.css'
 
 function GestorTransacciones() {
@@ -27,6 +28,7 @@ function GestorTransacciones() {
     cargaAlerta();
     ocultarListas();
     listaUsuarios();
+
 
   };
 
@@ -76,6 +78,8 @@ function GestorTransacciones() {
     transaccionMaxima.innerHTML = resultado;
     setTransaccionMaxima(resultado);
     setListaMaximaTransaccionesVisible(true);
+    cargaUsuariosMaximos(resultado);
+
   }
 
   function ocultarListas() {
@@ -84,13 +88,22 @@ function GestorTransacciones() {
     transaccionMaxima.innerHTML = '';
     setListaMaximaTransaccionesVisible(false);
   }
-    function cargaAlerta(){
-      Swal.fire({
-          text: "Se ha cargado correctamente",
-          icon: "success",
-      });
+  function cargaAlerta() {
+    Swal.fire({
+      text: "Se ha cargado correctamente",
+      icon: "success",
+    });
   }
-  
+  function cargaUsuariosMaximos(resultado) {
+    Swal.fire({
+      title: 'Maxima Transaccciones por Usuario',
+      html: resultado,
+      showConfirmButton: true
+    });
+
+  }
+
+
   return (
     <>
       <div className='Formulario'>
@@ -106,6 +119,10 @@ function GestorTransacciones() {
           billeteraMasTransacciones={billeteraMasTransacciones}
           transaccionMaxima={transaccionMaxima}
           GestorTransacciones={GestorTransacciones}
+          listaMaximaTransaccionesVisible={listaMaximaTransaccionesVisible}
+        />
+        <MaximaUsuario
+          transaccionMaxima={transaccionMaxima} 
           listaMaximaTransaccionesVisible={listaMaximaTransaccionesVisible}
         />
       </div>

@@ -55,10 +55,10 @@ return (
           </li>
         ))}
       </ul>
-      <form className="containerForm">
+      {/* <form className="containerForm">
         <h4 className="mt-4 text-center">Máximas Transacciones por Usuario:</h4>
         <p id="transaccionMaxima"></p>
-      </form>
+      </form> */}
     </div>
   );
 }

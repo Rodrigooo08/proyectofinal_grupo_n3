@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FormDatos from './FormDatos';
 import Swal from 'sweetalert2';
+import MaximaUsuario from './MaximaUsuario'; 
 import '../../style/GestorBilleteraVirtual.css'
 
 function GestorTransacciones() {
@@ -27,6 +28,7 @@ function GestorTransacciones() {
     cargaAlerta();
     ocultarListas();
     listaUsuarios();
+    
 
   };
 
@@ -76,6 +78,8 @@ function GestorTransacciones() {
     transaccionMaxima.innerHTML = resultado;
     setTransaccionMaxima(resultado);
     setListaMaximaTransaccionesVisible(true);
+    cargaUsuariosMaximos(resultado);
+
   }
 
   function ocultarListas() {
@@ -90,7 +94,16 @@ function GestorTransacciones() {
           icon: "success",
       });
   }
-  
+  function cargaUsuariosMaximos(resultado){
+     Swal.fire({
+    title: 'Maxima Transaccciones por Usuario', 
+    html: resultado,  
+    showConfirmButton: true 
+  });
+
+  }
+ 
+
   return (
     <>
       <div className='Formulario'>
@@ -108,6 +121,10 @@ function GestorTransacciones() {
           GestorTransacciones={GestorTransacciones}
           listaMaximaTransaccionesVisible={listaMaximaTransaccionesVisible}
         />
+         <MaximaUsuario
+        transaccionMaxima={transaccionMaxima}  // Pasa las props necesarias
+        listaMaximaTransaccionesVisible={listaMaximaTransaccionesVisible}
+      />
       </div>
 
     </>

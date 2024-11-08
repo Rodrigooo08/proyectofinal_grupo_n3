@@ -54,11 +54,13 @@ p {
 
 .btnB{
     padding: 15px;
+    border: none;
     background-color:rgb(221, 66, 66);
     border-radius: 20px;
     margin: 40px;
     color:rgb(226, 248, 243);
     box-shadow: 2px 4px 10px rgb(221, 66, 66);
+
 
 }
 .btnB:hover{

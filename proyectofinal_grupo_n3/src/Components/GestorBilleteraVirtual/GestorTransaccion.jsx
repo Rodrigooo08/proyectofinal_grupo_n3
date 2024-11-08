@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FormDatos from './FormDatos';
+import Swal from 'sweetalert2';
 import '../../style/GestorBilleteraVirtual.css'
 
 function GestorTransacciones() {
@@ -23,7 +24,7 @@ function GestorTransacciones() {
     setNombre('');
     setBilletera('');
     setTransaccion('');
-    // cargaAlerta();
+    cargaAlerta();
     ocultarListas();
     listaUsuarios();
 
@@ -83,12 +84,16 @@ function GestorTransacciones() {
     transaccionMaxima.innerHTML = '';
     setListaMaximaTransaccionesVisible(false);
   }
-  //   function cargaAlerta(){
-  //     swal({
-  //         text: "Se ha cargado correctamente",
-  //         icon: "success",
-  //     });
-  // }
+    function cargaAlerta(){
+      Swal.fire({
+          text: "Se ha cargado correctamente",
+          icon: "success",
+      });
+  }
+  // function cargaAlerta(){
+  //   Swal.fire("SweetAlert2 is working!");
+  // };
+ 
   return (
     <>
       <div className='Formulario'>

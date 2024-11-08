@@ -27,6 +27,10 @@ function Juego() {
                     debug: false
                 }
             },
+            scale:{
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH,
+            }
         }
         let game = new Phaser.Game(config);
     // Detener música antes de cambiar de página o desmontar el componente
@@ -51,7 +55,7 @@ function Juego() {
 }, []);
 
     return (
-        <div id="Conteiner">
+        <div id='JuegoNave'> 
             <h1 id="Titulo">Cosmic Escape🚀</h1>
             <div id="game-container"></div>
         </div>

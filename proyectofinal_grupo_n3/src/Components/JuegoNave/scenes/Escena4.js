@@ -80,24 +80,24 @@ class Escena4 extends Phaser.Scene {
         bala.disableBody(true, true); // Desactiva la bala
         this.vidaJefe--; // Reduce la vida del jefe
         // Actualiza la barra de vida
-        const porcentajeVida = this.vidaJefe / 70; 
+        const porcentajeVida = this.vidaJefe / 70;
         let color;
-        if (porcentajeVida > 0.5){
-            color= 0x00ff00;
-        }else if (porcentajeVida > 0.2){
+        if (porcentajeVida > 0.5) {
+            color = 0x00ff00;
+        } else if (porcentajeVida > 0.2) {
             color = 0xffff00;
         } else {
             color = 0xff0000;
         }
         // Efecto parpadeo
         this.barraVidaRelleno.clear(); // Limpia el relleno 
-        this.barraVidaRelleno.fillStyle(0x555555,1); // Cambia el color segun el porcentaje de vida del jefe
+        this.barraVidaRelleno.fillStyle(0x555555, 1); // Cambia el color segun el porcentaje de vida del jefe
         this.barraVidaRelleno.fillRect(200, 550, porcentajeVida * 400, 20);
         //
-        this.time.delayedCall(50,() =>{
-        this.barraVidaRelleno.clear();
-        this.barraVidaRelleno.fillStyle(color, 1);
-        this.barraVidaRelleno.fillRect(200, 550, porcentajeVida * 400, 20);
+        this.time.delayedCall(50, () => {
+            this.barraVidaRelleno.clear();
+            this.barraVidaRelleno.fillStyle(color, 1);
+            this.barraVidaRelleno.fillRect(200, 550, porcentajeVida * 400, 20);
         });
         jefeFinal.setTint(0xff0000);
         this.time.delayedCall(1000, () => {
@@ -107,6 +107,23 @@ class Escena4 extends Phaser.Scene {
             jefeFinal.disableBody(true, true);
             this.Victoria();
         }
+    }
+    generarVidaExtra() {
+        const y = Phaser.Math.Between(30, 550);
+        const vidasExtras = this.vidasExtras.create(800, y, 'vida');
+        vidasExtras.setVelocityX(-350);
+        vidasExtras.setScale(2);
+
+    }
+    recogerVida(jugador, vidaExtra) {
+        // Aumentar las vidas del jugador
+        this.vidasRestantes++;
+
+        // Actualizar el texto de vidas restantes
+        this.textoVidas.setText(': ' + this.vidasRestantes);
+
+        // Desactivar la vida extra (desaparece después de ser recogida)
+        vidaExtra.disableBody(true, true);
     }
     Victoria() {
 
@@ -150,6 +167,14 @@ class Escena4 extends Phaser.Scene {
         this.jugador = this.physics.add.sprite(10, 300, 'naveVer');
         this.jugador.angle = 90;
         this.jugador.setCollideWorldBounds(true);
+        //Vidas Extras
+        this.vidasExtras = this.physics.add.group();
+        this.time.addEvent({
+            delay: 4000,  // Cada 4 segundos
+            callback: this.generarVidaExtra,
+            callbackScope: this,
+            loop: true
+        });
         // Enemigo
         this.anims.create({
             key: 'movimiento',
@@ -221,6 +246,7 @@ class Escena4 extends Phaser.Scene {
         //collider
         this.physics.add.collider(this.jugador, this.grupoMeteoros, this.reducirVida, null, this);
         this.physics.add.collider(this.jugador, this.proyectiles, this.reducirVidaJugador, null, this);
+        this.physics.add.collider(this.jugador, this.vidasExtras, this.recogerVida, null, this); // Detectar colisión entre el jugador y las vidas extras
         //controles
         this.cursors = this.input.keyboard.createCursorKeys();
         this.barraEspaciadora = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -258,7 +284,7 @@ class Escena4 extends Phaser.Scene {
         this.cascoVida.setScale(2);
     }
     update() {
-            
+
         this.textoVidaJefe = this.add.text(400, 570, 'Vida Jefe Final', {
             fontSize: '22px',
             fill: '#FFFFFF', // Blanco
@@ -268,7 +294,7 @@ class Escena4 extends Phaser.Scene {
         this.textoVidaJefe.setOrigin(0.5, 0); // Centra el texto horizontalmente en el eje X
         //desplazamiento del fondo
         const backgroundSpeed = 2;//velocidad de desplazamiento
-        this.fondo.tilePositionX += backgroundSpeed;
+        this.fondo.tilePositionX += backgroundSpeed;    
 
         this.jugador.setVelocityX(0);
         this.jugador.setVelocityY(0);

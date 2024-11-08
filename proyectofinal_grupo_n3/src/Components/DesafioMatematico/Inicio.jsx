@@ -16,7 +16,10 @@ const Inicio = ({ onStart, onSelectDificultad }) => {
         <option value="avanzado">Avanzado</option>
       </select>
       <button className='botonDM' onClick={onStart}>Empezar</button>
+     
     </div>
+    
+    
   );
 };
 

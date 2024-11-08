@@ -9,6 +9,7 @@ import MenuStart from "./scenes/MenuStart.js";
 import Escena3 from "./scenes/Escena3.js";
 import Escena4 from "./scenes/Escena4.js";
 import Ajustes from "./scenes/Ajustes.js";
+import "../../Style/JuegoNaveStyle.css";
 import { useEffect } from 'react';
 
 function Juego() {

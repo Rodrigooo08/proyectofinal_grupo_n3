@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import '../../style/GestorBilleteraVirtual.css'
+import React from 'react';
 function MaximaUsuarios() {
 
     return (

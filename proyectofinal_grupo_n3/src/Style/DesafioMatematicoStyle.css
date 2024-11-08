@@ -13,89 +13,96 @@
   }
   
   .imagenTarjeta {
-    position: fixed; 
-    right: 100px;
-    top: 50%; 
-    transform: translateY(-25%);
+    position: absolute; 
+    right: 100px;    
+    top: 30%; 
+    
     z-index: 9;
   }
-  
-  .imagenTarjeta img {
-    max-width: 70%;
+  .imagenTarjeta img{
+    width: 75%; 
+  }
     
-    height: auto;
+  
+
+  .juego {
+    position: absolute; 
+    top: 30%; 
+    left: 114%; 
+ 
+    z-index: 1;  
+    
   }
   
   .card-desafio {
-    position: fixed;
-    right: 380px; 
-    top: 45%; 
-    transform: translateY(20%); 
+    position: relative;
+    right: 720px; 
+
+   background-color: rgba(1,0,0,-20);
+   border-radius: 50%;
     z-index: 11;
       width: 22rem;
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 50%  ;
+     color: #ffe573;
+      
     }
     
-    .card-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
+    
     
 .FondoDM {
-  background-image: url('../Image/DesafioMatematicoIMG/VegetaFondo.png');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../public/image/DesafioMatematicoIMG/VegetaFondo2.png');
   background-size: cover;
-  margin: 0;
-  display:block;
+  
+
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+ 
 }
+
+.inicio {
+  border-radius: 8px;
+  position:relative;
+  top: 10%;
+  left: -37%;
+  z-index: 12;
+}
+
     
 .botonDM {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 00;
   font-family: inherit;
-  background-color: #ffa154;
+  background-color: red;
+  opacity: 0.9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 .botonDM:hover {
-  border-color: #646cff;
+  border-color: #c73dda;
 }
 .botonDM:focus,
 .botonDM:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.final {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content:center;
-  text-align: center;
-  height: 100vh;
+.final{
+  position: relative;
+  right: -130px;
+  top: -320px; 
+  color: #ffe573;
 }
 
 .final h2, .final h3 {
-  background-color: #ffcc5e;
+
   border-radius: 8px;
-  padding: 0.4em 1.0em;
+  
 }
-
-.inicio {
-  position:relative;
-  top: 20%;
-  left: -35%;
-  z-index: 12;
-}
-
 
 
 .Dialogo {

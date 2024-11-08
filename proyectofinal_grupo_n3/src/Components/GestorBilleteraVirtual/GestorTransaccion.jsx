@@ -90,10 +90,7 @@ function GestorTransacciones() {
           icon: "success",
       });
   }
-  // function cargaAlerta(){
-  //   Swal.fire("SweetAlert2 is working!");
-  // };
- 
+  
   return (
     <>
       <div className='Formulario'>

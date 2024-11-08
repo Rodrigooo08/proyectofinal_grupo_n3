@@ -52,7 +52,7 @@ p {
    list-style:disclosure-closed ;
 }
 
-.btn{
+.btnB{
     padding: 15px;
     background-color:rgb(221, 66, 66);
     border-radius: 20px;
@@ -61,6 +61,6 @@ p {
     box-shadow: 2px 4px 10px rgb(221, 66, 66);
 
 }
-.btn:hover{
+.btnB:hover{
     background-color: rgb(65, 204, 95);
 }

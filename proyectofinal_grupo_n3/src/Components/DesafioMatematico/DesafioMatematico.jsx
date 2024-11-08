@@ -16,11 +16,15 @@ function DesafioMatematico(){
     const seleccionarDificultad = (nivel)=>{
         setDificultad(nivel);
     }
+    const resetJuego = () =>{
+        setJuegoIniciado(false);
+        setDificultad('facil')
+    }
 
     return(
         <div className="FondoDM">
             {!juegoIniciado && (<Inicio onStart={inciarJuego} onSelectDificultad={seleccionarDificultad}/>)}
-            <Radar juego={juegoIniciado ? <Juego dificultad={dificultad} /> : null} />
+            <Radar juego={juegoIniciado ? <Juego dificultad={dificultad} onReset={resetJuego}/> : null} />
            
            
             

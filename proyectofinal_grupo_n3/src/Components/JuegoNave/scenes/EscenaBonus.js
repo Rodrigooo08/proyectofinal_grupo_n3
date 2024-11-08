@@ -85,11 +85,11 @@ class EscenaBonus extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
 
         //puntaje
-        this.textoPuntaje = this.add.text(16, 16, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' })
+        this.textoPuntaje = this.add.text(16, 46, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' })
 
         //Tiempo
         this.tiempoTranscurrido = 0;
-        this.contadorTexto = this.add.text(580, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
+        this.contadorTexto = this.add.text(16, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
 
         //herramientas
         this.grupoHerramientas = this.physics.add.group();
@@ -104,7 +104,7 @@ class EscenaBonus extends Phaser.Scene {
         });
         //Texto Herramientas
         this.herramientaRecolectadas = 0;
-        this.textoHeramientas = this.add.text(16, 50, 'Herramientas Recoletadas: 0', { fontSize: '32px', fill: '#F5EFFF' });
+        this.textoHeramientas = this.add.text(16, 75, 'Herramientas Recoletadas: 0', { fontSize: '32px', fill: '#F5EFFF' });
 
 
         this.anims.create({

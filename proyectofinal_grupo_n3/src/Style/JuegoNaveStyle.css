@@ -1,4 +1,6 @@
 #game-container{
-    display: flex;
-    justify-content: center;    
+    border: 10px solid #ffffff;
+    margin: 5px auto; /* Centrado en la página */
+    width: 820px; /* Ancho total incluyendo bordes */
+    height: 600px;/* Alto total incluyendo los bordes*/
 }

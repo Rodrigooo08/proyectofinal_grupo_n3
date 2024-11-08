@@ -44,11 +44,11 @@ class Escena3 extends Phaser.Scene{
         this.load.spritesheet('nave','public/Image/JuegoNave/nave.png', {frameWidth:75,frameHeight:80}),
         this.load.image('meteoro3','public/Image/JuegoNave/Basurita_espacial2.png')
         this.load.image('meteoro4','public/Image/JuegoNave/Basurita_espacial.png')
-        this.load.audio('disparoFx','/sound/juegoNave/LaserSound.mp3')
+        this.load.audio('disparoFx','/sound/juegoNave/Laser.mp3')
         this.load.image('meteoro5','public/Image/JuegoNave/Basurita_espacial3.png')
     }
     create(){
-        this.musicaFondo.play();
+       // this.musicaFondo.play();
         //fondo escena
         this.add.image(400,300,'cielo3').setDisplaySize(this.scale.width, this.scale.height);
         this.jugador = this.physics.add.sprite(400,550,'nave');
@@ -60,15 +60,15 @@ class Escena3 extends Phaser.Scene{
         this.grupoMeteoros = this.physics.add.group();
         this.time.addEvent({ delay: 1000, callback: this.generarMeteoros, callbackScope: this, loop: true });
         //puntaje
-        this.textoPuntaje=this.add.text(16,16,'Puntaje: 0',{fontSize:'32px',fill:'#CB80AB'});
+        this.textoPuntaje=this.add.text(16,46,'Puntaje: 0',{fontSize:'32px',fill:'#CB80AB'});
         //collider
         this.physics.add.collider(this.jugador,this.grupoMeteoros,this.gameOver,null,this);
         //balas
         this.balas = this.physics.add.group();
         this.physics.add.overlap(this.balas,this.grupoMeteoros,this.destruirAsteroide, null, this);
-        this.textoBalas = this.add.text(16,50,'Balas: '+this.balasRecolectadas,{ fontSize: '32px', fill: '#F5EFFF' });
+        this.textoBalas = this.add.text(16,75,'Balas: '+this.balasRecolectadas,{ fontSize: '32px', fill: '#F5EFFF' });
         this.tiempoTranscurrido = 0;
-        this.contadorTexto = this.add.text(580, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
+        this.contadorTexto = this.add.text(16, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
         // Temporizador 
         this.temporizador = this.time.addEvent({ delay: 1000, callback: this.actualizarContador,callbackScope: this, loop: true 
         });

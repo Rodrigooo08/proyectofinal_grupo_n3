@@ -210,7 +210,7 @@ class Escena4 extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
         this.barraEspaciadora = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         //puntaje
-        this.textoPuntaje = this.add.text(500, 16, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' });
+        this.textoPuntaje = this.add.text(280, 16, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' });
         //manejo sprite de jugador
         this.anims.create({
             key: 'izquierda',

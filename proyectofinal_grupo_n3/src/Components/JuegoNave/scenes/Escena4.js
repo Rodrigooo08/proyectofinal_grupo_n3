@@ -23,10 +23,18 @@ class Escena4 extends Phaser.Scene {
         }
     }
     generarMeteoros() {
-        const y = Phaser.Math.Between(10, 600);
+        const y = Phaser.Math.Between(10, 600); // Posición aleatoria en el eje Y
         const meteoro = this.grupoMeteoros.create(800, y, 'meteoro');
-        meteoro.setVelocityX(-300);
-    }
+        meteoro.setVelocityX(-300); // Velocidad de movimiento horizontal
+}
+ generarMeteorosVertical(){
+    if(this.vidaJefe <= 35){
+        const x = Phaser.Math.Between(50,750);
+        const meteoroVertical = this.grupoMeteorosVertical.create(x,0,'meteoro');
+        meteoroVertical.setVelocityY(200);
+        meteoroVertical.setTint(0xFF6600);
+       }
+ }
     generarEnemigos() {
         const y = Phaser.Math.Between(50, 580);
         const enemigo = this.grupoEnemigos.create(800, y, 'enemigo').play('movimiento');
@@ -233,6 +241,8 @@ class Escena4 extends Phaser.Scene {
         this.jefeFinal.setVelocityX(-100); // Mover hacia la derecha
         this.jefeFinal.setVelocityY(-100) // mover hacia arriba 
         //meteoros
+        this.grupoMeteorosVertical = this.physics.add.group();
+        this.time.addEvent({ delay: 1500, callback: this.generarMeteorosVertical, callbackScope: this, loop: true });
         this.grupoMeteoros = this.physics.add.group();
         this.time.addEvent({ delay: 500, callback: this.generarMeteoros, callbackScope: this, loop: true });
         //balas

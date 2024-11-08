@@ -80,10 +80,10 @@ class Escena4 extends Phaser.Scene {
         bala.disableBody(true, true); // Desactiva la bala
         this.vidaJefe--; // Reduce la vida del jefe
         // Actualiza la barra de vida
-        const porcentajeVida = this.vidaJefe / 50; // 50 es la vida total del jefe
-        this.barraVidaRelleno.clear(); // Limpia el relleno anterior
-        this.barraVidaRelleno.fillStyle(0x00ff00, 1); // Color verde
-        this.barraVidaRelleno.fillRect(200, 50, porcentajeVida * 300, 20); // Ajusta el relleno
+        const porcentajeVida = this.vidaJefe / 70; 
+        this.barraVidaRelleno.clear(); // Limpia el relleno 
+        this.barraVidaRelleno.fillStyle(0x00ff00, 1); // Color de vida ( Verde)
+        this.barraVidaRelleno.fillRect(200, 550, porcentajeVida * 400, 20);
         jefeFinal.setTint(0xff0000);
         this.time.delayedCall(1000, () => {
             jefeFinal.clearTint();
@@ -171,7 +171,7 @@ class Escena4 extends Phaser.Scene {
 
         // Jefe Final
         //Vidas Jefe
-        this.vidaJefe = 50;
+        this.vidaJefe = 70;
         this.anims.create({
             key: 'jefeAnimado',
             frames: this.anims.generateFrameNumbers('jefeFinal', { start: 1, end: 46 }), // Cambia el rango según la cantidad de fotogramas que tenga tu GIF
@@ -181,11 +181,11 @@ class Escena4 extends Phaser.Scene {
         // Crear los gráficos para la barra de vida
         this.barraVidaFondo = this.add.graphics();
         this.barraVidaFondo.fillStyle(0x555555, 1);  // Color de fondo (gris oscuro)
-        this.barraVidaFondo.fillRect(200, 50, 300, 20); // Dibuja el fondo de la barra
+        this.barraVidaFondo.fillRect(200, 550, 400, 20); // Dibuja el fondo de la barra
 
         this.barraVidaRelleno = this.add.graphics();
         this.barraVidaRelleno.fillStyle(0x00ff00, 1);  // Color del relleno (verde)
-        this.barraVidaRelleno.fillRect(200, 50, 300, 20); // Dibuja el relleno inicial (totalmente lleno)
+        this.barraVidaRelleno.fillRect(200, 550, 400, 20); // Dibuja el relleno inicial (totalmente lleno)
         //Crea el sprite del jefe final
         this.jefeFinal = this.physics.add.sprite(800, 400, 'jefeFinal').play('jefeAnimado');
         // this.jefeFinal.setCollideWorldBounds(true);
@@ -243,6 +243,14 @@ class Escena4 extends Phaser.Scene {
         this.cascoVida.setScale(2);
     }
     update() {
+            
+        this.textoVidaJefe = this.add.text(400, 530, 'Vida Jefe Final', {
+            fontSize: '22px',
+            fill: '#FFFFFF', // Blanco
+            fontFamily: 'Times New Roman'
+        });
+        // Centrar el texto debajo de la barra de vida
+        this.textoVidaJefe.setOrigin(0.5, 0); // Centra el texto horizontalmente en el eje X
         //desplazamiento del fondo
         const backgroundSpeed = 2;//velocidad de desplazamiento
         this.fondo.tilePositionX += backgroundSpeed;

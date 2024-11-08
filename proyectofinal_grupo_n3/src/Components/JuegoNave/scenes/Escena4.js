@@ -81,9 +81,24 @@ class Escena4 extends Phaser.Scene {
         this.vidaJefe--; // Reduce la vida del jefe
         // Actualiza la barra de vida
         const porcentajeVida = this.vidaJefe / 70; 
+        let color;
+        if (porcentajeVida > 0.5){
+            color= 0x00ff00;
+        }else if (porcentajeVida > 0.2){
+            color = 0xffff00;
+        } else {
+            color = 0xff0000;
+        }
+        // Efecto parpadeo
         this.barraVidaRelleno.clear(); // Limpia el relleno 
-        this.barraVidaRelleno.fillStyle(0x00ff00, 1); // Color de vida ( Verde)
+        this.barraVidaRelleno.fillStyle(0x555555,1); // Cambia el color segun el porcentaje de vida del jefe
         this.barraVidaRelleno.fillRect(200, 550, porcentajeVida * 400, 20);
+        //
+        this.time.delayedCall(50,() =>{
+        this.barraVidaRelleno.clear();
+        this.barraVidaRelleno.fillStyle(color, 1);
+        this.barraVidaRelleno.fillRect(200, 550, porcentajeVida * 400, 20);
+        });
         jefeFinal.setTint(0xff0000);
         this.time.delayedCall(1000, () => {
             jefeFinal.clearTint();

@@ -48,7 +48,7 @@ class Escena3 extends Phaser.Scene{
         this.load.image('meteoro5','public/Image/JuegoNave/Basurita_espacial3.png')
     }
     create(){
-       // this.musicaFondo.play();
+        this.musicaFondo.play();
         //fondo escena
         this.add.image(400,300,'cielo3').setDisplaySize(this.scale.width, this.scale.height);
         this.jugador = this.physics.add.sprite(400,550,'nave');

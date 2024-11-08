@@ -29,8 +29,8 @@ class GameUI extends Phaser.Scene {
 
         // Crear botón de pausa
         this.pauseButton = this.add.sprite(700, 30, 'pauseButton').setInteractive();
-        this.pauseButton.displayWidth = 60;
-        this.pauseButton.displayHeight = 60;
+        this.pauseButton.displayWidth = 70;
+        this.pauseButton.displayHeight = 70;
         this.pauseButton.on('pointerdown', () => {
             this.pauseScene();
         });

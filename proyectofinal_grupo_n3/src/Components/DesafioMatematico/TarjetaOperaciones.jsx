@@ -19,7 +19,7 @@ const CardDesafio = ({
     <div className="card-container">
       <div className="card card-desafio">
         <div className="card-body">
-          <h5 className="card-title text-center">Desafío Matemático</h5>
+          <h5 className="card-title text-center text-gold">Desafío Matemático</h5>
           <p className="card-text text-center display-6">
           {operacion.pregunta} =
           </p>
@@ -40,9 +40,9 @@ const CardDesafio = ({
           </div>
 
           <div>
-            <p className="text-center mt-3">Respuesta: {resultado}</p>
-            <p className="text-center mt-3">Puntuacion: {puntos}</p>
-            <p className="text-center mt-3">Desafio{intentos} de 5</p>
+            <p className="text-center mt-3 text-gold">Respuesta: {resultado}</p>
+            <p className="text-center mt-3 text-gold">Puntuacion: {puntos}</p>
+            <p className="text-center mt-3 text-gold">Desafio{intentos} de 5</p>
           </div>
         </div>
       </div>

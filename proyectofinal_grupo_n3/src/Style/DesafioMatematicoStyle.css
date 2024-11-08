@@ -34,8 +34,7 @@
     z-index: 11;
       width: 22rem;
     background-color: rgba(255,255,255,0.1);
-    border-radius: 50%;
-      
+    border-radius: 50%  ;
     }
     
     .card-container {
@@ -120,4 +119,4 @@
   max-width: 80%; 
   word-wrap: break-word; 
 }
-
+.text-gold{color: #FFD700}

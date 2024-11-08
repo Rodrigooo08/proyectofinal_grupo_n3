@@ -62,7 +62,7 @@
   font-size: 1.5em;
   font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ffa154;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -73,3 +73,50 @@
 .botonDM:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.final {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+  height: 100vh;
+}
+
+.final h2, .final h3 {
+  background-color: #ffcc5e;
+  border-radius: 8px;
+  padding: 0.4em 1.0em;
+}
+
+.inicio {
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  z-index: 12;
+}
+
+
+
+.Dialogo {
+  position: relative; 
+  width: 300px; 
+  text-align: center;
+}
+
+.Dialogo img {
+  width: 100%;
+}
+
+.Dialogo h2 {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  color: #000; 
+  font-size: 1.7em; 
+  max-width: 80%; 
+  word-wrap: break-word; 
+}
+

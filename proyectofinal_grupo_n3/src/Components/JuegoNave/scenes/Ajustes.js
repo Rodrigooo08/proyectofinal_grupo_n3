@@ -35,7 +35,7 @@ class Ajustes extends Phaser.Scene{
         }).setOrigin(0.5).setInteractive();  
 
         returnButton.on('pointerdown', () => this.volverMenu());  
-        returnButton.on('pointerover', () => returnButton.setStyle({ fill: '#ff0', fontSize :'50px',backgroundColor:'#68d7c9' }));  
+        returnButton.on('pointerover', () => returnButton.setStyle({ fill: '#ff0', fontSize :'50px'}));  
         returnButton.on('pointerout', () => returnButton.setStyle({ fill: '#ffffff', fontSize :'42px' }));
 
 

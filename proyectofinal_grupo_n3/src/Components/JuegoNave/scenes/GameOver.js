@@ -21,7 +21,7 @@ class GameOver extends Phaser.Scene {
         }
         this.add.image(390, 250, 'GameOver');
 
-        let texto = this.add.text(400, 550, 'Puntaje: ' + this.puntaje, {
+        let texto = this.add.text(400, 550, 'Puntaje: ' + Math.floor(this.puntaje), {
             fontSize: '40px',
             fill: '#ffff'
         }).setOrigin(0.5);
@@ -37,6 +37,7 @@ class GameOver extends Phaser.Scene {
         this.input.keyboard.once('keydown-ENTER', () => {
             this.Final.stop();
             this.scene.start('Escena1');
+            this.scene.launch('GameUI');
         });
     }
 }

@@ -25,7 +25,8 @@ class Victoria extends Phaser.Scene {
         
         victoriaImage.setDisplaySize(800, 600);
 
-        let texto = this.add.text(400, 550, 'Puntaje: ' + this.puntaje, {
+        let texto = this.add.text(400, 550, 'Puntaje: ' + Math.floor(this.puntaje), {
+        
             fontSize: '40px',
             fill: '#ffff'
         }).setOrigin(0.5);
@@ -41,6 +42,7 @@ class Victoria extends Phaser.Scene {
         this.input.keyboard.once('keydown-ENTER', () => {
             this.Final.stop();
             this.scene.start('Escena1');
+            this.scene.launch('GameUI');
         });
     }
 }

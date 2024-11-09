@@ -65,13 +65,13 @@ class MenuStart extends Phaser.Scene {
         exitButton.on('pointerdown', () => this.exitGame());  
 
         // Cambiar color al pasar el mouse  
-        playButton.on('pointerover', () => playButton.setStyle({ fill: '#ff0',fontSize :'50px',backgroundColor:'#68d7c9' }));  
+        playButton.on('pointerover', () => playButton.setStyle({ fill: '#ff0',fontSize :'50px' }));  
         playButton.on('pointerout', () => playButton.setStyle({ fill: '#ffffff',fontSize :'42px' }));  
        
-        configButton.on('pointerover', () => configButton.setStyle({ fill: '#ff0',fontSize :'50px',backgroundColor:'#68d7c9' }));  
+        configButton.on('pointerover', () => configButton.setStyle({ fill: '#ff0',fontSize :'50px'}));  
         configButton.on('pointerout', () => configButton.setStyle({ fill: '#ffffff',fontSize :'42px' }));  
         
-        exitButton.on('pointerover', () => exitButton.setStyle({ fill: '#ff0', fontSize :'50px',backgroundColor:'#68d7c9' }));  
+        exitButton.on('pointerover', () => exitButton.setStyle({ fill: '#ff0', fontSize :'50px' }));  
         exitButton.on('pointerout', () => exitButton.setStyle({ fill: '#ffffff', fontSize :'42px' }));  
     }  
 

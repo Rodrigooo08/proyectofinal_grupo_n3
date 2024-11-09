@@ -297,6 +297,8 @@ class Escena4 extends Phaser.Scene {
         this.textoVidas = this.add.text(39, 20, ': ' + this.vidasRestantes, { fontSize: '32px', fill: '#F5EFFF' });
         //collider
         this.physics.add.collider(this.jugador, this.grupoMeteoros, this.reducirVida, null, this);
+        //Deteccion de colision entre los meteoros verticales y el jugador
+        this.physics.add.collider(this.jugador, this.grupoMeteorosVertical, this.reducirVida, null, this);
         // Detección de colisión entre los proyectiles del jefe y el jugador
         this.physics.add.collider(this.jugador, this.proyectilesJefe, this.reducirVidaJugador, null, this);
         this.physics.add.collider(this.jugador, this.proyectiles, this.reducirVidaJugador, null, this);

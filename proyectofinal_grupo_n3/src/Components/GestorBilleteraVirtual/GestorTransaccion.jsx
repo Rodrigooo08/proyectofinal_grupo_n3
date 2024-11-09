@@ -96,7 +96,7 @@ function GestorTransacciones() {
   }
   function cargaUsuariosMaximos(resultado) {
     Swal.fire({
-      title: 'Maxima Transaccciones por Usuario',
+      title: 'Maxima Transacciones por Usuario',
       html: resultado,
       showConfirmButton: true
     });
@@ -117,9 +117,7 @@ function GestorTransacciones() {
           agregarUsuarios={agregarUsuarios}
           usuarios={usuarios}
           billeteraMasTransacciones={billeteraMasTransacciones}
-          transaccionMaxima={transaccionMaxima}
           GestorTransacciones={GestorTransacciones}
-          listaMaximaTransaccionesVisible={listaMaximaTransaccionesVisible}
         />
         <MaximaUsuario
           transaccionMaxima={transaccionMaxima} 

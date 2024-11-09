@@ -1,4 +1,5 @@
 import Button from 'react-bootstrap/Button'; 
+import { Fade } from "react-awesome-reveal";
 function AboutUs({ lista }) {  
   const colaboradores = lista.map((colaborador) => (  
     <div className="card text-bg-dark border-light mb-3" key={colaborador.id}>  
@@ -23,7 +24,7 @@ function AboutUs({ lista }) {
   ));  
 
   return (  
-    <>  
+    <Fade cascade>  
       <section className="section1">  
         <nav className="navbar bg-body-tertiary">  
           <div className="container-fluid">  
@@ -36,7 +37,7 @@ function AboutUs({ lista }) {
           {colaboradores}  
         </div>  
       </section>  
-    </>  
+    </Fade>  
   );  
 }  
 export default AboutUs;

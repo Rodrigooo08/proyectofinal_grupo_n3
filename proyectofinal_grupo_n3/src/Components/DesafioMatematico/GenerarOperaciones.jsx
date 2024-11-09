@@ -91,14 +91,14 @@ function generarOperacion(dificultad) {
 
           switch (operacionEcuacion) {
               case 0: 
-                  return { pregunta: `X + ${num1} = ${num1 + x}, valor de X`, respuesta: x };
+                  return { pregunta: `X + ${num1} = ${num1 + x}, X`, respuesta: x };
               case 1: 
-                  return { pregunta: `X - ${num1} = ${x - num1}, valor de X`, respuesta: x };
+                  return { pregunta: `X - ${num1} = ${x - num1}, X`, respuesta: x };
               case 2: 
-                  return { pregunta: `${num1} * X = ${num1 * x}, valor de X`, respuesta: x };
+                  return { pregunta: `${num1} * X = ${num1 * x}, X`, respuesta: x };
               case 3: 
                   if (x === 0) x = Math.floor(Math.random() * 9) + 1;
-                  return { pregunta: `${x * num1} ÷ X = ${num1}, valor de X`, respuesta: x };
+                  return { pregunta: `${x * num1} ÷ X = ${num1}, X`, respuesta: x };
           }
       }
       break;

@@ -1,5 +1,5 @@
 function verificarRespuesta(respuesta, operacion, setResultado, setPuntos, puntos) {
-    if (parseInt(respuesta) === operacion.respuesta) {
+    if (respuesta == operacion.respuesta) {
       setResultado('Correcto');
       setPuntos(puntos + 1);
     } else {

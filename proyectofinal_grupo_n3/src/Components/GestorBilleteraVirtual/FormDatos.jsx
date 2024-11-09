@@ -1,9 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Fade } from "react-awesome-reveal";
 
 function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, setTransaccion, agregarUsuarios, usuarios, billeteraMasTransacciones })
 {
 return (
+  <Fade>
     <div className="containerForm">
       <div className="row">
         <div className="col-12">
@@ -57,6 +59,7 @@ return (
       </ul>
     
     </div>
+    </Fade>
   );
 }
 export default FormDatos;

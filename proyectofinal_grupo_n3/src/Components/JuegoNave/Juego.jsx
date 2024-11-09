@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
-import Escena1 from "./scenes/Escena1.js"
-import Escena2 from "./scenes/Escena2.js"
-import EscenaBonus from "./scenes/EscenaBonus.js"
+import Escena1 from "./scenes/Escena1.js";
+import GameUI from './scenes/GameUI.js';    
+import Escena2 from "./scenes/Escena2.js";
+import EscenaBonus from "./scenes/EscenaBonus.js";
 import GameOver from "./scenes/GameOver.js";
 import Victoria from "./scenes/Victoria.js";
 import MenuStart from "./scenes/MenuStart.js";
@@ -18,7 +19,7 @@ function Juego() {
             width: 800,
             height: 600,
             parent: 'game-container',
-            scene: [MenuStart, Escena1, Escena2, EscenaBonus, Escena3, Escena4, GameOver, Ajustes, Victoria],
+            scene: [MenuStart,Ajustes, Escena1, Escena2, EscenaBonus, Escena3, Escena4,GameUI,Victoria, GameOver],
             physics: {
                 default: 'arcade',
                 arcade: {
@@ -26,6 +27,10 @@ function Juego() {
                     debug: false
                 }
             },
+            scale:{
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH,
+            }
         }
         let game = new Phaser.Game(config);
     // Detener música antes de cambiar de página o desmontar el componente
@@ -50,8 +55,8 @@ function Juego() {
 }, []);
 
     return (
-        <div id="Conteiner">
-            <h1 id="Titulo">Esquivando Meteoros🚀</h1>
+        <div id='JuegoNave'> 
+            <h1 id="Titulo">Cosmic Escape🚀</h1>
             <div id="game-container"></div>
         </div>
     )

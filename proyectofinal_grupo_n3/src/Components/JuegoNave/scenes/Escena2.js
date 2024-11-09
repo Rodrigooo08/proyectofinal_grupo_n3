@@ -24,15 +24,20 @@ class Escena2 extends Phaser.Scene {
         this.textoBalas.setText('Balas Recolectadas: ' + this.balasRecolectadas);
     }
     preload() {
-        this.load.image('cielo2', 'public/Image/JuegoNave/gamenave.png'),
+        this.load.image('cielo2', 'public/Image/JuegoNave/FondoEspacial2.png'),
+            this.load.spritesheet('nave', 'public/Image/JuegoNave/nave.png', { frameWidth: 75, frameHeight: 80 }),
+            this.load.image('meteoro2', 'public/Image/JuegoNave/asteroide_32x32.png')
+        this.load.image('bala', 'public/Image/JuegoNave/bala.png');
+        this.load.image('cielo2', 'public/Image/JuegoNave/FondoEspacial2.png'),
             this.load.spritesheet('nave', 'public/Image/JuegoNave/nave.png', { frameWidth: 75, frameHeight: 80 }),
             this.load.image('meteoro2', 'public/Image/JuegoNave/asteroide_32x32.png')
         this.load.image('bala', 'public/Image/JuegoNave/bala.png');
 
     }
     create() {
-        //fondo escena
-        this.add.image(400, 300, 'cielo2');
+        
+        this.add.tileSprite(0, 0, this.sys.game.config.width, this.sys.game.config.height, 'cielo2')
+        .setOrigin(0, 0);  
         //jugador
         this.jugador = this.physics.add.sprite(400, 550, 'nave');
         this.jugador.setCollideWorldBounds(true);
@@ -42,18 +47,18 @@ class Escena2 extends Phaser.Scene {
         this.time.addEvent({ delay: 1000, callback: this.generarMeteoros, callbackScope: this, loop: true });
         //puntaje
         //this.puntaje=0;
-        this.textoPuntaje = this.add.text(16, 16, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' })
+        this.textoPuntaje = this.add.text(16, 46, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' })
         //collider
         this.physics.add.collider(this.jugador, this.grupoMeteoros, this.gameOver, null, this);
         //balas
         this.balas = this.physics.add.group(); // Creando el grupo de meteoritos
         this.time.addEvent({ delay: 1000, callback: this.generarBalas, callbackScope: this, loop: true });
         this.balasRecolectadas = 0; // resetea el contador de balas, cada vez que si inicia la escena
-        this.textoBalas = this.add.text(16, 50, 'Balas Recoletadas: 0', { fontSize: '32px', fill: '#F5EFFF' });
+        this.textoBalas = this.add.text(16, 75, 'Balas Recoletadas: 0', { fontSize: '32px', fill: '#F5EFFF' });
         //deteccion de colicion con balas
         this.physics.add.overlap(this.jugador, this.balas, this.recolertarBala, null, this);
         this.tiempoTranscurrido = 0;
-        this.contadorTexto = this.add.text(580, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
+        this.contadorTexto = this.add.text(16, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
         // Temporizador 
         this.temporizador = this.time.addEvent({
             delay: 1000, callback: this.actualizarContador, callbackScope: this, loop: true
@@ -102,9 +107,8 @@ class Escena2 extends Phaser.Scene {
         }
 
 
-
-        this.puntaje += 1;
-        this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
+        this.puntaje +=1 /5;
+        this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
         //condicion para pasar de escena
         if (this.tiempoTranscurrido >= 20) {
             if (this.musicaFondo != null) {

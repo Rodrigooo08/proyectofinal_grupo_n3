@@ -14,7 +14,7 @@ class MenuStart extends Phaser.Scene {
     create() {  
        // Solo cargar música si no está ya creada
        if (!this.musicaMenu) {
-        this.musicaMenu = this.sound.add('menuMusic', { volume: 1, loop: true });
+        this.musicaMenu = this.sound.add('menuMusic', { volume: 0.25, loop: true });
     }
     // Reproduce la música solo si no está sonando
     if (!this.musicaMenu.isPlaying) {
@@ -30,7 +30,7 @@ class MenuStart extends Phaser.Scene {
         this.add.image(400,300,'menu');
         
         // Título del juego  
-        this.add.text(400, 100, 'Esquivando Meteoros', {  
+        this.add.text(400, 100, 'Cosmic Escape', {  
             fontSize: '64px',  
             fill: '#ffffff' , 
             fontFamily: 'orbitron',
@@ -46,7 +46,7 @@ class MenuStart extends Phaser.Scene {
             
         }).setOrigin(0.5).setInteractive();  
 
-        const configButton = this.add.text(400, 350, 'Ajustes', {  
+        const configButton = this.add.text(400, 350, 'Instrucciones', {  
             fontSize: '42px',  
             fill: "#ffffff",
             fontFamily:"Times New Roman"
@@ -80,7 +80,10 @@ class MenuStart extends Phaser.Scene {
       if(this.musicaMenu){
         this.musicaMenu.stop();
        }
-        this.scene.start('Escena1'); // Cambia a la escena 1  
+        this.scene.stop('MenuStart'); // Detenemos la escena del menú antes de cambiar
+        this.scene.launch('GameUI');
+        this.scene.start('Escena1');  // Cambiar a la escena del juego 
+        
     }  
 
     configGame() {  
@@ -88,7 +91,7 @@ class MenuStart extends Phaser.Scene {
       if(this.musicaMenu){
         this.musicaMenu.stop();
     }
-        this.scene.start('Ajustes'); // Cambia a la escena de ajustes  
+        this.scene.launch('Ajustes'); // Cambia a la escena de ajustes  
     }  
 
     exitGame() {  
@@ -97,7 +100,7 @@ class MenuStart extends Phaser.Scene {
          this.musicaMenu.stop()
      }
 
-        this.game.destroy(true); // Destruir el juego  
+        window.location.href = '/' ;
     }  
 }  
 export default MenuStart;

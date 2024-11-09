@@ -16,11 +16,15 @@ class Escena1 extends Phaser.Scene{
         this.load.image('cielo','public/Image/JuegoNave/Espacio.jpg'),
         this.load.spritesheet('nave','public/Image/JuegoNave/nave2.png', {frameWidth:75,frameHeight:80}),
         this.load.image('meteoro','public/Image/JuegoNave/asteroide.png')
+        this.load.image('cielo','public/Image/JuegoNave/Espacio.jpg'),
+        this.load.spritesheet('nave','public/Image/JuegoNave/nave2.png', {frameWidth:75,frameHeight:80}),
+        this.load.image('meteoro','public/Image/JuegoNave/asteroide.png')
         this.load.audio('musicaFondo','/sound/juegoNave/Star Wars.mp3')
     }
     create(){
+       
        this.musicaFondo = this.sound.add('musicaFondo');
-        const soundConfig={volume:1,loop:true};
+        const soundConfig={volume:0.1,loop:true};
         if(!this.sound.locked){
             this.musicaFondo.play(soundConfig);
         }
@@ -35,11 +39,11 @@ class Escena1 extends Phaser.Scene{
         this.time.addEvent({ delay: 1000, callback: this.generarMeteoros, callbackScope: this, loop: true });
         //puntaje
         this.puntaje=0;
-        this.textoPuntaje=this.add.text(16,16,'Puntaje: 0',{fontSize:'32px',fill:'#CB80AB'})
+        this.textoPuntaje=this.add.text(16,46,'Puntaje: 0',{fontSize:'32px',fill:'#CB80AB'})
         //collider
         this.physics.add.collider(this.jugador,this.grupoMeteoros,this.gameOver,null,this);
         this.tiempoTranscurrido = 0;
-        this.contadorTexto = this.add.text(580, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
+        this.contadorTexto = this.add.text(16, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
         // Temporizador 
         this.temporizador = this.time.addEvent({ delay: 1000, callback: this.actualizarContador,callbackScope: this, loop: true 
         });
@@ -89,8 +93,8 @@ class Escena1 extends Phaser.Scene{
             }
             
             
-        this.puntaje +=1;
-        this.textoPuntaje.setText('Puntaje: '+this.puntaje);
+        this.puntaje +=1 /5;
+        this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
         //Verifica el cambio de escena segun el puntaje
         if (this.tiempoTranscurrido >= 20) {
             this.scene.stop('Escena1'); 

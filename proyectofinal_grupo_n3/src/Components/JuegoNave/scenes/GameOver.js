@@ -15,12 +15,11 @@ class GameOver extends Phaser.Scene {
 
     create() {
         this.Final = this.sound.add('Final');
-        const soundConfig = { volume: 1, loop: true };
+        const soundConfig = { volume: 0.3, loop: true };
         if (!this.sound.locked) {
             this.Final.play(soundConfig);
         }
         this.add.image(390, 250, 'GameOver');
-
 
         let texto = this.add.text(400, 550, 'Puntaje: ' + this.puntaje, {
             fontSize: '40px',

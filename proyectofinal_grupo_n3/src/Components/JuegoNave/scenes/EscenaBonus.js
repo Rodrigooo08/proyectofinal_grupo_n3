@@ -16,41 +16,50 @@ class EscenaBonus extends Phaser.Scene {
 
     generarHerramientas() {
         const x = Phaser.Math.Between(0, 800);
-        const herramientas = ['herramienta1', 'herramienta2', 'herramienta3'];
-        // crea array de las herramientas
+        const herramientas = [
+            { nombre: 'herramienta1', valor: 50 },
+            { nombre: 'herramienta2', valor: 25 },
+            { nombre: 'herramienta3', valor: 100}
+        ];
+
         const herramienta = herramientas[Phaser.Math.Between(0, herramientas.length - 1)];
-        const herramientaG = this.grupoHerramientas.create(x, 0, herramienta);
-        // Velocidad aleatoria
+        const herramientaG = this.grupoHerramientas.create(x, 0, herramienta.nombre);
+        herramientaG.setData('valor', herramienta.valor);
         const velocidadY = Phaser.Math.Between(175, 300);
         herramientaG.setVelocityY(velocidadY);
     }
 
 
+
     recolectarHerramientas(jugador, herramientaG) {
-        //const valorHeramienta = this.obtenerValorHeramienta(herramientaG);
+
+        const valorHerramienta = herramientaG.getData('valor');
+        this.sound.play('Puntos');
         herramientaG.disableBody(true, true);
-        this.herramientaRecolectadas = this.herramientaRecolectadas + 1;
-        this.sumarPuntaje(this.herramientaRecolectadas); //aumenta puntaje
+        this.puntaje += valorHerramienta;
+        this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
+
+        const textoSumado = this.add.text(jugador.x, jugador.y - 50, `+${valorHerramienta}`, {
+            fontSize: '32px',
+            fill: '#CB80AB',
+            fontStyle: 'bold'
+        });
+    
+
+        // Para el texto
+        this.time.addEvent({
+            delay: 500, 
+            callback: () => textoSumado.destroy() 
+        });
+
+        // Actualizacion herramienta
+        this.herramientaRecolectadas += 1;
         this.textoHeramientas.setText('Herramientas Recolectadas: ' + this.herramientaRecolectadas);
     }
 
-    // obtenerValorHeramienta(herramientaG) {
-    //     if (herramientaG.type === 'herramienta1') {
-    //         return 20; 
-    //     } else if (herramientaG.type === 'herramienta2') {
-    //         return 30;
-    //     } else if (herramientaG.type === 'herramienta3') {
-    //         return 40; 
-    //     }
-    //     return 0;
-    // }
 
-    // sumarPuntaje(valor) {
-    //     this.puntaje += valor; 
-    //     this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
-    // }
-    sumarPuntaje(herramientaG) {
-        this.puntaje += herramientaG * 20;
+    sumarPuntaje(valor) {
+        this.puntaje += valor; 
         this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
     }
 
@@ -61,34 +70,36 @@ class EscenaBonus extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bgBonus', 'public/Image/JuegoNave/BG_bonus.png'),
+        this.load.image('bgBonus', 'public/Image/JuegoNave/FondoEspacialBonus.png'),
             this.load.spritesheet('nave', 'public/Image/JuegoNave/nave2.png', { frameWidth: 75, frameHeight: 80 }),
             this.load.image('herramienta2', 'public/Image/JuegoNave/herramientas2_32x32.png'),
             this.load.image('herramienta1', 'public/Image/JuegoNave/herramientas_32x32.png'),
-            this.load.image('herramienta3', 'public/Image/JuegoNave/herramienta3_32x32.png')
-        this.load.audio('MusicaBonus', '/sound/juegoNave/Bonus.mp3')
+            this.load.image('herramienta3', 'public/Image/JuegoNave/herramienta3_32x32.png'),
+        this.load.audio('MusicaBonus', '/sound/juegoNave/Bonus.mp3'),
+        this.load.audio('Puntos', '/sound/juegoNave/Puntos.mp3')
     }
 
 
     create() {
+        
         this.MusicaBonus = this.sound.add('MusicaBonus');
-        const soundConfig = { volume: 1, loop: true };
+        const soundConfig = { volume: 0.3, loop: true };
         if (!this.sound.locked) {
             this.MusicaBonus.play(soundConfig);
         }
         //fondo escena
-        this.add.image(400, 300, 'bgBonus');
+        this.add.image(400, 400, 'bgBonus');
         //jugador
         this.jugador = this.physics.add.sprite(400, 550, 'nave');
         this.jugador.setCollideWorldBounds(true);
         this.cursors = this.input.keyboard.createCursorKeys();
 
         //puntaje
-        this.textoPuntaje = this.add.text(16, 16, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' })
+        this.textoPuntaje = this.add.text(16, 46, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' })
 
         //Tiempo
         this.tiempoTranscurrido = 0;
-        this.contadorTexto = this.add.text(580, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
+        this.contadorTexto = this.add.text(16, 16, 'Tiempo: 0', { fontSize: '32px', fill: '#CB80AB' });
 
         //herramientas
         this.grupoHerramientas = this.physics.add.group();
@@ -103,7 +114,7 @@ class EscenaBonus extends Phaser.Scene {
         });
         //Texto Herramientas
         this.herramientaRecolectadas = 0;
-        this.textoHeramientas = this.add.text(16, 50, 'Herramientas Recoletadas: 0', { fontSize: '32px', fill: '#F5EFFF' });
+        this.textoHeramientas = this.add.text(16, 75, 'Herramientas Recoletadas: 0', { fontSize: '32px', fill: '#F5EFFF' });
 
 
         this.anims.create({
@@ -146,8 +157,8 @@ class EscenaBonus extends Phaser.Scene {
 
 
 
-        this.puntaje += 1;
-        this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
+        this.puntaje +=1 /5;
+        this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
 
         if (this.tiempoTranscurrido >= 20) {
             //this.scene.stop('EscenaBonus'); 

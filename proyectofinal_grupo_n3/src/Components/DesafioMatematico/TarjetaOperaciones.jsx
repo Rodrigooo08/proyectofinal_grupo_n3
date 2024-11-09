@@ -25,7 +25,7 @@ const CardDesafio = ({
           
           <div className="mb-3">
             <input
-              type="number"
+              type="text"
               className="form-control"
               placeholder="Escribe tu respuesta"
               value={respuesta}

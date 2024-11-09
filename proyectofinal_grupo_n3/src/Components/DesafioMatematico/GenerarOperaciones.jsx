@@ -1,5 +1,5 @@
 function generarOperacion(dificultad) {
-  let tipo, num1, num2, num3, num4;
+  let tipo, num1, num2, num3, num4, x;
 
   switch (dificultad) {
     case 'facil':
@@ -86,19 +86,19 @@ function generarOperacion(dificultad) {
           }
       }else { 
           num1 = Math.floor(Math.random() * 10) + 1;
-          const x = Math.floor(Math.random() * 10) + 1;
+          x = Math.floor(Math.random() * 10) + 1;
           const operacionEcuacion = Math.floor(Math.random() * 4);
 
           switch (operacionEcuacion) {
               case 0: 
-                  return { pregunta: `x + ${num1} = ${num1 + x}, valor de x`, respuesta: x };
+                  return { pregunta: `X + ${num1} = ${num1 + x}, valor de X`, respuesta: x };
               case 1: 
-                  return { pregunta: `x - ${num1} = ${x - num1}, valor de x`, respuesta: x };
+                  return { pregunta: `X - ${num1} = ${x - num1}, valor de X`, respuesta: x };
               case 2: 
-                  return { pregunta: `${num1} * x = ${num1 * x}, valor de x`, respuesta: x };
+                  return { pregunta: `${num1} * X = ${num1 * x}, valor de X`, respuesta: x };
               case 3: 
                   if (x === 0) x = Math.floor(Math.random() * 9) + 1;
-                  return { pregunta: `${x * num1} ÷ x = ${num1}, valor de x`, respuesta: x };
+                  return { pregunta: `${x * num1} ÷ X = ${num1}, valor de X`, respuesta: x };
           }
       }
       break;

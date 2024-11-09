@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 import Inicio from './Inicio.jsx';
 import Juego from './Juego.jsx'
-import LogoDesafio from './LogoDesafio.jsx';
+
 import Radar from './RadarDB.jsx';
-import DialogoVegeta from './DialogoVegeta.jsx';
+
 import '../../Style/DesafioMatematicoStyle.css'
 
 function DesafioMatematico(){
@@ -16,13 +16,18 @@ function DesafioMatematico(){
     const seleccionarDificultad = (nivel)=>{
         setDificultad(nivel);
     }
+    const resetJuego = () =>{
+        setJuegoIniciado(false);
+        setDificultad('facil')
+    }
 
     return(
         <div className="FondoDM">
-            {!juegoIniciado ? <Inicio onStart={inciarJuego} onSelectDificultad={seleccionarDificultad}/>:<Juego dificultad={dificultad}/>}
-            <LogoDesafio />
-            <Radar />
-            {!juegoIniciado && <DialogoVegeta />}
+            {!juegoIniciado && (<Inicio onStart={inciarJuego} onSelectDificultad={seleccionarDificultad}/>)}
+            <Radar juego={juegoIniciado ? <Juego dificultad={dificultad} onReset={resetJuego}/> : null} />
+           
+           
+            
         </div>
         
     );

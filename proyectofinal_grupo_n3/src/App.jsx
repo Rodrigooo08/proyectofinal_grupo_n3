@@ -11,7 +11,8 @@ import ErrorPage from './Components/HomePage/ErrorPage';
 import  JuegoNave from './Components/JuegoNave/Juego';
 import  GestorTransacciones from './Components/GestorBilleteraVirtual/GestorTransaccion';
 import '../src/Style/HomeStyle.css';
-function App() {
+
+function App() { 
   
 
   return (

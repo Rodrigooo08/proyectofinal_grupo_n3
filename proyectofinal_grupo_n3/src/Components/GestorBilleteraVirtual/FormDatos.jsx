@@ -39,10 +39,10 @@ return (
       </form>
       <br />
       <div className="text-center">
-        <button type="button" className="btn" onClick={agregarUsuarios}>
+        <button type="button" className="btnB" onClick={agregarUsuarios}>
           <h4>Agregar usuario</h4>
         </button>
-        <button type="button" className="btn" onClick={billeteraMasTransacciones}>
+        <button type="button" className="btnB" onClick={billeteraMasTransacciones}>
           <h4>Billetera con más transacciones</h4>
         </button>
       </div>
@@ -55,10 +55,7 @@ return (
           </li>
         ))}
       </ul>
-      <form className="containerForm">
-        <h4 className="mt-4 text-center">Máximas Transacciones por Usuario:</h4>
-        <p id="transaccionMaxima"></p>
-      </form>
+    
     </div>
   );
 }

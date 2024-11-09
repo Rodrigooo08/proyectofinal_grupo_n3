@@ -5,7 +5,7 @@ import siguienteDesafio from './siguienteDesafio';
 import CardDesafio from './TarjetaOperaciones';
 import Puntuacion from './Puntuacion';
 
-const Juego = ({dificultad}) => {
+const Juego = ({dificultad, onReset}) => {
     const [operacion, setOperacion] = useState(generarOperacion(dificultad));
     const [respuesta, setRespuesta] = useState('');
     const [resultado, setResultado] = useState(null);
@@ -26,7 +26,7 @@ const Juego = ({dificultad}) => {
     };
     
     if (intentos === 5){
-        return <Puntuacion puntos={puntos}/>
+        return <Puntuacion puntos={puntos} reset={onReset}/>
     }
     return (
         <div className="juego">

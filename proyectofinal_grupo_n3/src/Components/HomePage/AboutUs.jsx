@@ -37,7 +37,7 @@ function AboutUs({ lista }) {
           {colaboradores}  
         </div>  
       </section>  
-    </Fade>  
+    </Fade> 
   );  
 }  
 export default AboutUs;

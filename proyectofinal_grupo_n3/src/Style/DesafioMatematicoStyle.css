@@ -1,59 +1,60 @@
 .image-container {
-    position: fixed; 
-    right: -100px;
-    top: 50%; 
-    transform: translateY(-150%);
-    z-index: 10;
-  }
-  
-  .image-container img {
-    max-width: 70%;
+  position: fixed;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-150%);
+  z-index: 10;
+}
+
+.image-container img {
+  max-width: 70%;
   transform: translate(0%, -10%);
-    height: auto;
-  }
-  
-  .imagenTarjeta {
-    position: absolute; 
-    right: 350px;    
-    bottom: 50px; 
-    
-    z-index: 9;
-  }
-  .imagenTarjeta img{
-    width: 75%; 
-    max-width: 500px;
-  }
-    
-  
+  height: auto;
+}
 
-  .juego {
-    position: absolute; 
-    top: 25%; 
-    left: 147%; 
- 
-    z-index: 1;  
-    
-  }
-  
-  .card-desafio {
-    position: relative;
-    right: 720px; 
+.imagenTarjeta {
+  position: absolute;
+  right: 350px;
+  bottom: 50px;
 
-   background-color: rgba(1,0,0,-20);
-   border-radius: 50%;
-    z-index: 11;
-      width: 22rem;
-     color: #ffe573;
-      
-    }
-    
-    
-    
+  z-index: 9;
+}
+
+.imagenTarjeta img {
+  width: 75%;
+  max-width: 500px;
+}
+
+
+
+.juego {
+  position: absolute;
+  top: 25%;
+  left: 147%;
+
+  z-index: 1;
+
+}
+
+.card-desafio {
+  position: relative;
+  right: 720px;
+
+  background-color: rgba(1, 0, 0, -20);
+  border-radius: 50%;
+  z-index: 11;
+  width: 22rem;
+  color: #ffe573;
+
+}
+
+
+
 .FondoDM {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
   background-image: url('../public/image/DesafioMatematicoIMG/VegetaFondo2.png');
@@ -62,25 +63,26 @@
   background-position: center;
   display: flex;
   align-items: center;
- justify-content: center;
+  justify-content: center;
 }
 
 .inicio {
   border-radius: 8px;
   position: fixed;
   right: 425px;
-  top: 45%;
+  top: 38%;
   transform: translateY(35%);
   z-index: 12;
-  width: 30rem;   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #ffe573;
 }
 
-    
+
 .botonDM {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -93,40 +95,43 @@
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 .botonDM:hover {
   border-color: #c73dda;
 }
+
 .botonDM:focus,
 .botonDM:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.final{
+.final {
   border-radius: 8px;
   position: fixed;
   right: 425px;
   top: 38%;
   transform: translateY(35%);
   z-index: 12;
-  width: 30rem;   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
   color: #ffe573;
 }
 
-.final h2, .final h3 {
+.final h2,
+.final h3 {
 
   border-radius: 8px;
-  
+
 }
 
 
 .Dialogo {
-  position: relative; 
-  width: 300px; 
+  position: relative;
+  width: 300px;
   text-align: center;
   transform: translate(-20%, 0%);
 
@@ -137,12 +142,15 @@
 }
 
 .Dialogo h2 {
-  position: absolute; 
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.9em; 
-  max-width: 80%; 
-  word-wrap: break-word; 
+  font-size: 1.9em;
+  max-width: 80%;
+  word-wrap: break-word;
 }
-.text-gold{color: #FFD700}
+
+.text-gold {
+  color: #FFD700
+}

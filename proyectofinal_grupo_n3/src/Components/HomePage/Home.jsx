@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 function Home() {
     return (
         <>
-            <Fade  >
+            <Fade cascade >
                 <section className="section1">
                     <div id="carouselExample" className="carousel slide img-fluid">
                         <div className="carousel-inner">

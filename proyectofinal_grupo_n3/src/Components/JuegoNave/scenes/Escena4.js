@@ -146,7 +146,9 @@ class Escena4 extends Phaser.Scene {
     recogerVida(jugador, vidaExtra) {
         // Aumentar las vidas del jugador
         this.vidasRestantes++;
-
+        const sonidoVidaExtra = this.sound.add('Extra');
+        sonidoVidaExtra.setVolume(0.4);
+        sonidoVidaExtra.play();
         // Actualizar el texto de vidas restantes
         this.textoVidas.setText(': ' + this.vidasRestantes);
 
@@ -179,10 +181,11 @@ class Escena4 extends Phaser.Scene {
         this.load.audio('audioEscena4', '/sound/juegoNave/Boss_theme.mp3');
         this.load.spritesheet('enemigo', 'public/Image/JuegoNave/Sprite enemigo.png', { frameWidth: 46.5, frameHeight: 41 }),
             this.load.spritesheet('proyectil', 'public/Image/JuegoNave/spritesheet_bala.png', { frameWidth: 39.4, frameHeight: 28 });
-        this.load.audio('disparoFx', '/sound/juegoNave/Laser.mp3')
+        this.load.audio('disparoFx', '/sound/juegoNave/Laser.mp3');
         this.load.spritesheet('proyectilJefe', '/Image/JuegoNave/fuegitos.png', { frameWidth: 52, frameHeight: 52 });
-        this.load.audio('Fireball', '/sound/juegoNave/fireball.mp3')
+        this.load.audio('Fireball', '/sound/juegoNave/fireball.mp3');
         this.load.spritesheet('VidaExtra', '/Image/JuegoNave/VidaExtra.png', { frameWidth: 165.2, frameHeight: 167.5 });
+        this.load.audio('Extra', '/sound/juegoNave/vidaExtra.mp3');
     }
     create() {
 

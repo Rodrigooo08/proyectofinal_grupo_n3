@@ -100,7 +100,7 @@ class MenuStart extends Phaser.Scene {
          this.musicaMenu.stop()
      }
 
-        this.game.destroy(true); // Destruir el juego  
+        window.location.href = '/' ;
     }  
 }  
 export default MenuStart;

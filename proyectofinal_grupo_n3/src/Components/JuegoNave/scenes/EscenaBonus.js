@@ -16,41 +16,50 @@ class EscenaBonus extends Phaser.Scene {
 
     generarHerramientas() {
         const x = Phaser.Math.Between(0, 800);
-        const herramientas = ['herramienta1', 'herramienta2', 'herramienta3'];
-        // crea array de las herramientas
+        const herramientas = [
+            { nombre: 'herramienta1', valor: 20 },
+            { nombre: 'herramienta2', valor: 30 },
+            { nombre: 'herramienta3', valor: 40 }
+        ];
+
         const herramienta = herramientas[Phaser.Math.Between(0, herramientas.length - 1)];
-        const herramientaG = this.grupoHerramientas.create(x, 0, herramienta);
-        // Velocidad aleatoria
+        const herramientaG = this.grupoHerramientas.create(x, 0, herramienta.nombre);
+        herramientaG.setData('valor', herramienta.valor);
         const velocidadY = Phaser.Math.Between(175, 300);
         herramientaG.setVelocityY(velocidadY);
     }
 
 
+
     recolectarHerramientas(jugador, herramientaG) {
-        //const valorHeramienta = this.obtenerValorHeramienta(herramientaG);
+
+        const valorHerramienta = herramientaG.getData('valor');
+        this.sound.play('Puntos');
         herramientaG.disableBody(true, true);
-        this.herramientaRecolectadas = this.herramientaRecolectadas + 1;
-        this.sumarPuntaje(this.herramientaRecolectadas); //aumenta puntaje
+        this.puntaje += valorHerramienta;
+        this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
+
+        const textoSumado = this.add.text(jugador.x, jugador.y - 50, `+${valorHerramienta}`, {
+            fontSize: '32px',
+            fill: '#CB80AB',
+            fontStyle: 'bold'
+        });
+    
+
+        // Para el texto
+        this.time.addEvent({
+            delay: 500, 
+            callback: () => textoSumado.destroy() 
+        });
+
+        // Actualizacion herramienta
+        this.herramientaRecolectadas += 1;
         this.textoHeramientas.setText('Herramientas Recolectadas: ' + this.herramientaRecolectadas);
     }
 
-    // obtenerValorHeramienta(herramientaG) {
-    //     if (herramientaG.type === 'herramienta1') {
-    //         return 20; 
-    //     } else if (herramientaG.type === 'herramienta2') {
-    //         return 30;
-    //     } else if (herramientaG.type === 'herramienta3') {
-    //         return 40; 
-    //     }
-    //     return 0;
-    // }
 
-    // sumarPuntaje(valor) {
-    //     this.puntaje += valor; 
-    //     this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
-    // }
-    sumarPuntaje(herramientaG) {
-        this.puntaje += herramientaG * 20;
+    sumarPuntaje(valor) {
+        this.puntaje += valor; 
         this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
     }
 
@@ -65,8 +74,9 @@ class EscenaBonus extends Phaser.Scene {
             this.load.spritesheet('nave', 'public/Image/JuegoNave/nave2.png', { frameWidth: 75, frameHeight: 80 }),
             this.load.image('herramienta2', 'public/Image/JuegoNave/herramientas2_32x32.png'),
             this.load.image('herramienta1', 'public/Image/JuegoNave/herramientas_32x32.png'),
-            this.load.image('herramienta3', 'public/Image/JuegoNave/herramienta3_32x32.png')
-        this.load.audio('MusicaBonus', '/sound/juegoNave/Bonus.mp3')
+            this.load.image('herramienta3', 'public/Image/JuegoNave/herramienta3_32x32.png'),
+        this.load.audio('MusicaBonus', '/sound/juegoNave/Bonus.mp3'),
+        this.load.audio('Puntos', '/sound/juegoNave/Puntos.mp3')
     }
 
 

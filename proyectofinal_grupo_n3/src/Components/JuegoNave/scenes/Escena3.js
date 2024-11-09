@@ -28,6 +28,7 @@ class Escena3 extends Phaser.Scene{
                 bala.body.enable=true;
                 bala.setVelocityY(-400);
                 const sonidoDisparo = this.sound.add('disparoFx'); 
+                sonidoDisparo.setVolume(0.3);
                sonidoDisparo.play(); 
 
             }

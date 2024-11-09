@@ -14,21 +14,22 @@
   
   .imagenTarjeta {
     position: absolute; 
-    right: 100px;    
-    top: 30%; 
+    right: 350px;    
+    bottom: 50px; 
     
     z-index: 9;
   }
   .imagenTarjeta img{
     width: 75%; 
+    max-width: 500px;
   }
     
   
 
   .juego {
     position: absolute; 
-    top: 30%; 
-    left: 114%; 
+    top: 25%; 
+    left: 147%; 
  
     z-index: 1;  
     
@@ -50,22 +51,24 @@
     
 .FondoDM {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   width: 100vw;
   height: 100vh;
   background-image: url('../public/image/DesafioMatematicoIMG/VegetaFondo2.png');
-  background-size: cover;
-  
-
-  place-items: center;
- 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+ justify-content: center;
 }
 
 .inicio {
   border-radius: 8px;
   position: fixed;
-  right: 300px;
+  right: 425px;
   top: 45%;
   transform: translateY(35%);
   z-index: 12;
@@ -99,9 +102,18 @@
 }
 
 .final{
-  position: relative;
-  right: -130px;
-  top: -320px; 
+  border-radius: 8px;
+  position: fixed;
+  right: 425px;
+  top: 38%;
+  transform: translateY(35%);
+  z-index: 12;
+  width: 30rem;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
   color: #ffe573;
 }
 

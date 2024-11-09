@@ -107,9 +107,8 @@ class Escena2 extends Phaser.Scene {
         }
 
 
-
-        this.puntaje += 1;
-        this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
+        this.puntaje +=1 /5;
+        this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
         //condicion para pasar de escena
         if (this.tiempoTranscurrido >= 20) {
             if (this.musicaFondo != null) {

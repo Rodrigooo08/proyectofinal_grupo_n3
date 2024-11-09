@@ -93,8 +93,8 @@ class Escena1 extends Phaser.Scene{
             }
             
             
-        this.puntaje +=1;
-        this.textoPuntaje.setText('Puntaje: '+this.puntaje);
+        this.puntaje +=1 /5;
+        this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
         //Verifica el cambio de escena segun el puntaje
         if (this.tiempoTranscurrido >= 20) {
             this.scene.stop('Escena1'); 

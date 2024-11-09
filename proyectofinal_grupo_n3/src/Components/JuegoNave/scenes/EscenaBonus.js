@@ -17,9 +17,9 @@ class EscenaBonus extends Phaser.Scene {
     generarHerramientas() {
         const x = Phaser.Math.Between(0, 800);
         const herramientas = [
-            { nombre: 'herramienta1', valor: 20 },
-            { nombre: 'herramienta2', valor: 30 },
-            { nombre: 'herramienta3', valor: 40 }
+            { nombre: 'herramienta1', valor: 50 },
+            { nombre: 'herramienta2', valor: 25 },
+            { nombre: 'herramienta3', valor: 100}
         ];
 
         const herramienta = herramientas[Phaser.Math.Between(0, herramientas.length - 1)];
@@ -157,8 +157,8 @@ class EscenaBonus extends Phaser.Scene {
 
 
 
-        this.puntaje += 1;
-        this.textoPuntaje.setText('Puntaje: ' + this.puntaje);
+        this.puntaje +=1 /5;
+        this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
 
         if (this.tiempoTranscurrido >= 20) {
             //this.scene.stop('EscenaBonus'); 

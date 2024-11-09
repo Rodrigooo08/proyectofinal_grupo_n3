@@ -135,8 +135,8 @@ class Escena3 extends Phaser.Scene{
         if(Phaser.Input.Keyboard.JustDown(this.barraEspaciadora)){
             this.dispararBala();
         }
-        this.puntaje +=1;
-        this.textoPuntaje.setText('Puntaje: '+this.puntaje);
+        this.puntaje +=1 /5;
+        this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
 
          //condicion para detener de escena
          if(this.tiempoTranscurrido >= 20){

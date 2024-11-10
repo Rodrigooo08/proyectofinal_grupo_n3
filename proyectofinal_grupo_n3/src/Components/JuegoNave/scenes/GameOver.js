@@ -33,7 +33,6 @@ class GameOver extends Phaser.Scene {
 
         texto.setDepth(1);
      // Texto Volver A Jugar
-     // Crear el texto de "Presiona ENTER para volver a jugar"
      let mensajeReinicio = this.add.text(400, 497, 'Presiona ENTER para volver a jugar', {
         fontSize: '32px',
         fill: '#ffff',

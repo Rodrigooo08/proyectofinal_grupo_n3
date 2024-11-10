@@ -9,6 +9,7 @@ class Escena4 extends Phaser.Scene {
         this.puntaje = data.puntaje;
         this.musicaFondo = data.musicaFondo;
     }
+    //Metodos del Jugador y Vida Extras
     dispararBala() {
         let bala = this.balas.get(this.jugador.x, this.jugador.y, 'bala');
         if (bala) {
@@ -22,19 +23,45 @@ class Escena4 extends Phaser.Scene {
             sonidoDisparo.play();
         }
     }
-    generarMeteoros() {
-        const y = Phaser.Math.Between(10, 600); // Posición aleatoria en el eje Y
-        const meteoro = this.grupoMeteoros.create(800, y, 'meteoro');
-        meteoro.setVelocityX(-300); // Velocidad de movimiento horizontal
-}
- generarMeteorosVertical(){
-    if(this.vidaJefe <= 35){
-        const x = Phaser.Math.Between(50,750);
-        const meteoroVertical = this.grupoMeteorosVertical.create(x,0,'meteoro');
-        meteoroVertical.setVelocityY(200);
-        meteoroVertical.setTint(0xFF6600);
-       }
- }
+    generarVidaExtra() {
+        const y = Phaser.Math.Between(30, 550);
+        const vidasExtras = this.vidasExtras.create(800, y, 'vidaExtra');
+        vidasExtras.setVelocityX(-300);
+        vidasExtras.anims.play('vidaExtra');
+        vidasExtras.setScale(0.5);
+    }
+    recogerVida(jugador, vidaExtra) {
+        // Aumentar las vidas del jugador
+        this.vidasRestantes++;
+        const sonidoVidaExtra = this.sound.add('Extra');
+        sonidoVidaExtra.setVolume(0.4);
+        sonidoVidaExtra.play();
+        // Actualizar el texto de vidas restantes
+        this.textoVidas.setText(': ' + this.vidasRestantes);
+        // Mostrar el "+1" en la pantalla
+        this.mostrarTextoVidaExtra(jugador.x, jugador.y);
+        // Desactivar la vida extra (desaparece después de ser recogida)
+        vidaExtra.disableBody(true, true);
+    }
+    mostrarTextoVidaExtra(x, y) {
+        // Crear el texto "+1"
+        const texto = this.add.text(x + 30, y, '+1', {
+            fontSize: '34px',
+            fill: '#ffffff',  // Color verde para que resalte
+            fontFamily: 'Arial'
+        });
+        // Animación de subida (para que el texto "suba" y se desvanezca)
+        this.tweens.add({
+            targets: texto,
+            y: y - 60,    // Mover el texto hacia arriba
+            alpha: 0,     // Hacerlo desaparecer
+            duration: 500,  // Duración de la animación
+            onComplete: () => {
+                texto.destroy();  // Eliminar el texto después de la animación
+            }
+        });
+    }
+    //Metodos de Enemigo
     generarEnemigos() {
         const y = Phaser.Math.Between(50, 580);
         const enemigo = this.grupoEnemigos.create(800, y, 'enemigo').play('movimiento');
@@ -60,25 +87,6 @@ class Escena4 extends Phaser.Scene {
             }
         }, this);
     }
-    dispararJefe() {
-        const proyectilJefe = this.proyectilesJefe.get(this.jefeFinal.x, this.jefeFinal.y+55, 'proyectilJefe');
-        if (proyectilJefe) {
-            proyectilJefe.setActive(true);
-            proyectilJefe.setVisible(true);
-            proyectilJefe.body.reset(this.jefeFinal.x, this.jefeFinal.y+55);
-            proyectilJefe.body.enable = true;   
-        const angle = 180; // Esto hace que el proyectil dispare hacia la izquierda 
-        proyectilJefe.setAngle(angle); 
-
-        // Establecer la velocidad del proyectil
-        this.physics.velocityFromAngle(angle, 300, proyectilJefe.body.velocity); 
-            proyectilJefe.play('dispararJefe');  
-
-            const sonidoDisparoJefe = this.sound.add('Fireball');
-            sonidoDisparoJefe.setVolume(0.4);
-            sonidoDisparoJefe.play();
-        }
-    }
     reducirVidaJugador(jugador, proyectil) {
         proyectil.disableBody(true, true);
         this.vidasRestantes--;
@@ -87,6 +95,20 @@ class Escena4 extends Phaser.Scene {
         }
         if (this.vidasRestantes <= 0) {
             this.gameOver(jugador);
+        }
+    }
+    //Metodos de Meteoros
+    generarMeteoros() {
+        const y = Phaser.Math.Between(10, 600); // Posición aleatoria en el eje Y
+        const meteoro = this.grupoMeteoros.create(800, y, 'meteoro');
+        meteoro.setVelocityX(-300); // Velocidad de movimiento horizontal
+    }
+    generarMeteorosVertical() {
+        if (this.vidaJefe <= 35) {
+            const x = Phaser.Math.Between(50, 750);
+            const meteoroVertical = this.grupoMeteorosVertical.create(x, 0, 'meteoroVertical');
+            meteoroVertical.setVelocityY(200);
+            meteoroVertical.anims.play('meteoroVertical');
         }
     }
     destruirAsteroide(bala, meteoro) {
@@ -101,6 +123,26 @@ class Escena4 extends Phaser.Scene {
         }
         if (this.vidasRestantes <= 0) {
             this.gameOver(jugador);
+        }
+    }
+    //Metedos del Jefe Final
+    dispararJefe() {
+        const proyectilJefe = this.proyectilesJefe.get(this.jefeFinal.x, this.jefeFinal.y + 55, 'proyectilJefe');
+        if (proyectilJefe) {
+            proyectilJefe.setActive(true);
+            proyectilJefe.setVisible(true);
+            proyectilJefe.body.reset(this.jefeFinal.x, this.jefeFinal.y + 55);
+            proyectilJefe.body.enable = true;
+            const angle = 180; // Esto hace que el proyectil dispare hacia la izquierda 
+            proyectilJefe.setAngle(angle);
+
+            // Establecer la velocidad del proyectil
+            this.physics.velocityFromAngle(angle, 300, proyectilJefe.body.velocity);
+            proyectilJefe.play('dispararJefe');
+
+            const sonidoDisparoJefe = this.sound.add('Fireball');
+            sonidoDisparoJefe.setVolume(0.4);
+            sonidoDisparoJefe.play();
         }
     }
     reducirVidaJefe(jefeFinal, bala) {
@@ -135,26 +177,7 @@ class Escena4 extends Phaser.Scene {
             this.Victoria();
         }
     }
-    generarVidaExtra() {
-        const y = Phaser.Math.Between(30, 550);
-        const vidasExtras = this.vidasExtras.create(800, y, 'vidaExtra');
-        vidasExtras.setVelocityX(-300);
-        vidasExtras.anims.play('vidaExtra');
-        vidasExtras.setScale(0.5);
-
-    }
-    recogerVida(jugador, vidaExtra) {
-        // Aumentar las vidas del jugador
-        this.vidasRestantes++;
-        const sonidoVidaExtra = this.sound.add('Extra');
-        sonidoVidaExtra.setVolume(0.4);
-        sonidoVidaExtra.play();
-        // Actualizar el texto de vidas restantes
-        this.textoVidas.setText(': ' + this.vidasRestantes);
-
-        // Desactivar la vida extra (desaparece después de ser recogida)
-        vidaExtra.disableBody(true, true);
-    }
+    //Metodo para escena De Victoria
     Victoria() {
 
         if (this.audioEscena4 != null) {
@@ -163,6 +186,7 @@ class Escena4 extends Phaser.Scene {
         this.scene.stop('GameUI');
         this.scene.start('Victoria', { puntaje: this.puntaje });
     }
+    //Metodo para escena De GameOver
     gameOver(jugador, meteoro) {
         // this.scene.start('GameOver');
         if (this.audioEscena4 != null) {
@@ -186,10 +210,10 @@ class Escena4 extends Phaser.Scene {
         this.load.audio('Fireball', '/sound/juegoNave/fireball.mp3');
         this.load.spritesheet('VidaExtra', '/Image/JuegoNave/VidaExtra.png', { frameWidth: 165.2, frameHeight: 167.5 });
         this.load.audio('Extra', '/sound/juegoNave/vidaExtra.mp3');
+        this.load.spritesheet('meteoroVertical', '/Image/JuegoNave/MeteoroVertical.png', { frameWidth: 160, frameHeight: 160 });
     }
     create() {
-
-        //this.add.image(400,300,'cielo').setDisplaySize(this.scale.width, this.scale.height);
+        //Fondo
         this.fondo = this.add.tileSprite(400, 300, 800, 600, 'cielo4'); //(x,y,width,height) para marcar la posicion de la imagen y tamaño a ocupar
         //audioo
         this.audioEscena4 = this.sound.add('audioEscena4');
@@ -197,7 +221,6 @@ class Escena4 extends Phaser.Scene {
         if (!this.sound.locked) {
             this.audioEscena4.play(soundConfig);
         }
-        //jugador
         this.jugador = this.physics.add.sprite(10, 300, 'naveVer');
         this.jugador.angle = 90;
         this.jugador.setCollideWorldBounds(true);
@@ -214,56 +237,36 @@ class Escena4 extends Phaser.Scene {
             callbackScope: this,
             loop: true
         });
-          //animacion del sprite de la vida
-          this.anims.create({
+        //ANIMACIONES
+        //animacion del sprite de la vida
+        this.anims.create({
             key: 'vidaExtra',
             frames: this.anims.generateFrameNumbers('VidaExtra', { start: 0, end: 11 }),
             frameRate: 15,
             repeat: -1,
         });
-        // Enemigo
+        // animacion Enemigo
         this.anims.create({
             key: 'movimiento',
             frames: this.anims.generateFrameNumbers('enemigo', { start: 0, end: 28 }),
             frameRate: 20,
             repeat: -1
         });
+        //animacion Proyectil Enemigo
         this.anims.create({
             key: 'disparar',
             frames: this.anims.generateFrameNumbers('proyectil', { start: 0, end: 3 }),
             frameRate: 10,
             repeat: -1 // No repetir, solo una vez
         });
-        //DisparoJefe final
+        // animacion DisparoJefe final
         this.anims.create({
             key: 'dispararJefe',
-            frames: this.anims.generateFrameNumbers('proyectilJefe', { start: 0, end: 1}),
+            frames: this.anims.generateFrameNumbers('proyectilJefe', { start: 0, end: 1 }),
             frameRate: 5,
             repeat: -1 // No repetir, solo una vez
         });
-        // Inicializar grupo de enemigos
-        this.grupoEnemigos = this.physics.add.group();
-        // Generar enemigos periódicamente
-        this.time.addEvent({
-            delay: 1500,
-            callback: this.generarEnemigos,
-            callbackScope: this,
-            loop: true
-        });
-        // Grupo de proyectiles
-        this.proyectiles = this.physics.add.group({
-            defaultKey: 'proyectil',
-            maxSize: 10
-        });
-        this.time.addEvent({
-            delay: 3300,
-            callback: this.disparar,
-            callbackScope: this,
-            loop: true
-        });
-
-        // Jefe Final
-        //Vidas Jefe
+        //Animacion del Jefe Final
         this.vidaJefe = 70;
         this.anims.create({
             key: 'jefeAnimado',
@@ -271,54 +274,7 @@ class Escena4 extends Phaser.Scene {
             frameRate: 10, // Ajusta la velocidad de la animación
             repeat: -1 // Hace que la animación se repitra indefinidamente
         });
-        // Crear los gráficos para la barra de vida
-        this.barraVidaFondo = this.add.graphics();
-        this.barraVidaFondo.fillStyle(0x555555, 1);  // Color de fondo (gris oscuro)
-        this.barraVidaFondo.fillRect(200, 550, 400, 20); // Dibuja el fondo de la barra
-
-        this.barraVidaRelleno = this.add.graphics();
-        this.barraVidaRelleno.fillStyle(0x00ff00, 1);  // Color del relleno (verde)
-        this.barraVidaRelleno.fillRect(200, 550, 400, 20); // Dibuja el relleno inicial (totalmente lleno)
-        //Crea el sprite del jefe final
-        this.jefeFinal = this.physics.add.sprite(800, 400, 'jefeFinal').play('jefeAnimado');
-        // this.jefeFinal.setCollideWorldBounds(true);
-        // Agrega lógica para que el Jefe final se mueva
-        this.jefeFinal.setVelocityX(-100); // Mover hacia la derecha
-        this.jefeFinal.setVelocityY(-100) // mover hacia arriba 
-        //meteoros
-        this.grupoMeteorosVertical = this.physics.add.group();
-        this.time.addEvent({ delay: 1500, callback: this.generarMeteorosVertical, callbackScope: this, loop: true });
-        this.grupoMeteoros = this.physics.add.group();
-        this.time.addEvent({ delay: 500, callback: this.generarMeteoros, callbackScope: this, loop: true });
-        //balas
-        this.balas = this.physics.add.group();
-        this.physics.add.overlap(this.balas, this.grupoMeteoros, this.destruirAsteroide, null, this);
-        this.physics.add.overlap(this.balas, this.jefeFinal, this.reducirVidaJefe, null, this);
-        this.physics.add.overlap(this.balas, this.grupoEnemigos, this.destruirEnemigo, null, this);
-        //vidas
-        this.vidasRestantes = 5;
-        this.textoVidas = this.add.text(39, 20, ': ' + this.vidasRestantes, { fontSize: '32px', fill: '#F5EFFF' });
-        //collider
-        this.physics.add.collider(this.jugador, this.grupoMeteoros, this.reducirVida, null, this);
-        //Deteccion de colision entre los meteoros verticales y el jugador
-        this.physics.add.collider(this.jugador, this.grupoMeteorosVertical, this.reducirVida, null, this);
-        // Detección de colisión entre los proyectiles del jefe y el jugador
-        this.physics.add.collider(this.jugador, this.proyectilesJefe, this.reducirVidaJugador, null, this);
-        this.physics.add.collider(this.jugador, this.proyectiles, this.reducirVidaJugador, null, this);
-        this.physics.add.collider(this.jugador, this.vidasExtras, this.recogerVida, null, this); // Detectar colisión entre el jugador y las vidas extras
-        // Disparo del jefe
-        this.time.addEvent({
-            delay: 2000,  // El jefe disparará cada 2 segundos
-            callback: this.dispararJefe,
-            callbackScope: this,
-            loop: true
-        });
-        //controles
-        this.cursors = this.input.keyboard.createCursorKeys();
-        this.barraEspaciadora = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        //puntaje
-        this.textoPuntaje = this.add.text(280, 16, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' });
-        //manejo sprite de jugador
+        //Animacion manejo de jugador
         this.anims.create({
             key: 'izquierda',
             frames: [{ key: 'naveVer', frame: 0 }],
@@ -344,7 +300,81 @@ class Escena4 extends Phaser.Scene {
             frameRate: 4,
             repeat: -1,
         });
-        //
+        //Animacion de meteoros vertical
+        this.anims.create({
+            key: 'meteoroVertical',
+            frames: this.anims.generateFrameNumbers('meteoroVertical', { start: 0, end: 4 }),
+            frameRate: 10,
+            repeat: -1,
+        });
+        // Inicializar grupo de enemigos
+        this.grupoEnemigos = this.physics.add.group();
+        // Generar enemigos periódicamente
+        this.time.addEvent({
+            delay: 1500,
+            callback: this.generarEnemigos,
+            callbackScope: this,
+            loop: true
+        });
+        // Grupo de proyectiles
+        this.proyectiles = this.physics.add.group({
+            defaultKey: 'proyectil',
+            maxSize: 10
+        });
+        this.time.addEvent({
+            delay: 3300,
+            callback: this.disparar,
+            callbackScope: this,
+            loop: true
+        });
+        // Crear los gráficos para la barra de vida
+        this.barraVidaFondo = this.add.graphics();
+        this.barraVidaFondo.fillStyle(0x555555, 1);  // Color de fondo (gris oscuro)
+        this.barraVidaFondo.fillRect(200, 550, 400, 20); // Dibuja el fondo de la barra
+        this.barraVidaRelleno = this.add.graphics();
+        this.barraVidaRelleno.fillStyle(0x00ff00, 1);  // Color del relleno (verde)
+        this.barraVidaRelleno.fillRect(200, 550, 400, 20); // Dibuja el relleno inicial (totalmente lleno)
+        //Crea el sprite del jefe final
+        this.jefeFinal = this.physics.add.sprite(800, 400, 'jefeFinal').play('jefeAnimado');
+        // this.jefeFinal.setCollideWorldBounds(true);
+        // Agrega lógica para que el Jefe final se mueva
+        this.jefeFinal.setVelocityX(-100); // Mover hacia la derecha
+        this.jefeFinal.setVelocityY(-100) // mover hacia arriba 
+        //meteoros
+        this.grupoMeteorosVertical = this.physics.add.group();
+        this.time.addEvent({ delay: 1500, callback: this.generarMeteorosVertical, callbackScope: this, loop: true });
+        this.grupoMeteoros = this.physics.add.group();
+        this.time.addEvent({ delay: 500, callback: this.generarMeteoros, callbackScope: this, loop: true });
+        //balas
+        this.balas = this.physics.add.group();
+        this.physics.add.overlap(this.balas, this.grupoMeteoros, this.destruirAsteroide, null, this);
+        this.physics.add.overlap(this.balas, this.jefeFinal, this.reducirVidaJefe, null, this);
+        this.physics.add.overlap(this.balas, this.grupoEnemigos, this.destruirEnemigo, null, this);
+        //vidas
+        this.vidasRestantes = 5;
+        this.textoVidas = this.add.text(39, 20, ': ' + this.vidasRestantes, { fontSize: '32px', fill: '#F5EFFF' });
+        //collider
+        // //Deteccion de colision entre los meteoros y el jugador
+        this.physics.add.collider(this.jugador, this.grupoMeteoros, this.reducirVida, null, this);
+        //Deteccion de colision entre los meteoros verticales y el jugador
+        this.physics.add.collider(this.jugador, this.grupoMeteorosVertical, this.reducirVida, null, this);
+        // Detección de colisión entre los proyectiles del jefe y el jugador
+        this.physics.add.collider(this.jugador, this.proyectilesJefe, this.reducirVidaJugador, null, this);
+        this.physics.add.collider(this.jugador, this.proyectiles, this.reducirVidaJugador, null, this);
+        this.physics.add.collider(this.jugador, this.vidasExtras, this.recogerVida, null, this); // Detectar colisión entre el jugador y las vidas extras
+        // Disparo del jefe
+        this.time.addEvent({
+            delay: 2000, 
+            callback: this.dispararJefe,
+            callbackScope: this,
+            loop: true
+        });
+        //controles
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.barraEspaciadora = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        //puntaje
+        this.textoPuntaje = this.add.text(280, 16, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' });
+        //Crea el sprite de la vida
         this.cascoVida = this.physics.add.sprite(38, 30, 'vida');
         this.cascoVida.anims.play('v');
         this.cascoVida.setScale(2);
@@ -360,7 +390,7 @@ class Escena4 extends Phaser.Scene {
         this.textoVidaJefe.setOrigin(0.5, 0); // Centra el texto horizontalmente en el eje X
         //desplazamiento del fondo
         const backgroundSpeed = 2;//velocidad de desplazamiento
-        this.fondo.tilePositionX += backgroundSpeed;    
+        this.fondo.tilePositionX += backgroundSpeed;
 
         this.jugador.setVelocityX(0);
         this.jugador.setVelocityY(0);
@@ -380,7 +410,7 @@ class Escena4 extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.barraEspaciadora)) {
             this.dispararBala();
         }
-        this.puntaje +=1 /5;
+        this.puntaje += 1 / 5;
         this.textoPuntaje.setText('Puntaje: ' + Math.floor(this.puntaje));
         //Direccion del jefe Final en X
         if (this.jefeFinal.x < 400) {

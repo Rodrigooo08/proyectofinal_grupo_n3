@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, setPeso, setAltura, calcular }) {
+  const [botonEnCalcular,setBotonEnCalcular] = useState(true);
+  const precionarBoton = () =>{
+    if (botonEnCalcular){
+      calcular();
+      setBotonEnCalcular(false);
+    } else {
+      window.location.href = '/calculadoraIMC' ;
+    }
+  }
   const limitacionTexto = (settext) => (e) => {
     const value = e.target.value;
     if (/^[A-Za-z\s]*$/.test(value) || value === "") { 
@@ -33,7 +42,7 @@ function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, se
        <label className='letras'>Altura (m):</label>
       <input className='entradaIMC' type="number" value={altura} onChange={limitacionAltura} min="0.5" max="2.5" step="0.01" />
 
-      <button className="boton" onClick={calcular}>Calcular IMC</button>
+      <button className="boton" onClick={precionarBoton}>{botonEnCalcular ? "Calcular IMC" : "Limpiar Formulario"}</button>
     </div>
   );
 }

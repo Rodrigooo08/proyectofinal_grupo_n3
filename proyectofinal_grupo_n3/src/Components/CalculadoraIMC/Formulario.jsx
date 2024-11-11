@@ -1,24 +1,52 @@
 import React from 'react';
 import { Fade } from "react-awesome-reveal";
+import React, { useState } from 'react';
 
 function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, setPeso, setAltura, calcular }) {
+  const [botonEnCalcular,setBotonEnCalcular] = useState(true);
+  const precionarBoton = () =>{
+    if (botonEnCalcular){
+      calcular();
+      setBotonEnCalcular(false);
+    } else {
+      window.location.href = '/calculadoraIMC' ;
+    }
+  }
+  const limitacionTexto = (settext) => (e) => {
+    const value = e.target.value;
+    if (/^[A-Za-z\s]*$/.test(value) || value === "") { 
+      settext(value);
+    }
+  };
+  const limitacionPeso= (e) =>{
+    const value = e.target.value;
+    if (value === "" || (parseFloat(value) >= 1 && parseFloat(value) <= 300)) {
+      setPeso(value);
+    }
+  };
+  const limitacionAltura=(e) =>{
+    const value = e.target.value;
+    if (value === "" || (parseFloat(value) >= 0.5 && parseFloat(value) <= 2)) {
+      setAltura(value); 
+    }
+  };  
   return (
     <Fade>
-      <div>
-        <label className='letras'>Nombre:</label>
-        <input className='entradaIMC' type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+    <div>
+      <label className='letras'>Nombre:</label>
+      <input className='entradaIMC' type="text" value={nombre} onChange={limitacionTexto(setNombre)} />
 
         <label className='letras'>Apellido:</label>
-        <input className='entradaIMC' type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
+      <input className='entradaIMC' type="text" value={apellido} onChange={limitacionTexto(setApellido)}/>
 
-        <label className='letras'>Peso (Kg):</label>
-        <input className='entradaIMC' type="number" value={peso} onChange={(e) => setPeso(e.target.value)} />
+       <label className='letras'>Peso (Kg):</label>
+      <input className='entradaIMC' type="number" value={peso} onChange={limitacionPeso} min="1" max="300" title="Ingrese un peso entre 1 y 300 kg"/>
 
-        <label className='letras'>Altura (m):</label>
-        <input className='entradaIMC' type="number" value={altura} onChange={(e) => setAltura(e.target.value)} />
+       <label className='letras'>Altura (m):</label>
+      <input className='entradaIMC' type="number" value={altura} onChange={limitacionAltura} min="0.5" max="2.5" step="0.01" />
 
-        <button className="boton" onClick={calcular}>Calcular IMC</button>
-      </div>
+      <button className="boton" onClick={precionarBoton}>{botonEnCalcular ? "Calcular IMC" : "Limpiar Formulario"}</button>
+    </div>
     </Fade>
   );
 }

@@ -1,35 +1,35 @@
 [
     {
         "id": 1,
-        "image": "/Image/HomePage/download.jpg",
+        "image": "/Image/HomePage/fabrego1.jpg",
         "name": "Lucas Ivan Fabrego",
         "descripcion": "Entusiasta de los videojuegos y estudiante de programación de videojuegos. Me encanta experimentar con cada juego y disfrutar de cada detalle. Siempre estoy explorando nuevos géneros y experimentando con las mecanicas que tienen para ofrecer.",
         "url": "https://github.com/LIFabrego"
     },
     {
         "id": 2,
-        "image": "/Image/HomePage/futuristic-blue-glasses-metaverse-boy-avatar-mascot-gaming-vector.jpg",
+        "image": "/Image/HomePage/fines1.jpg",
         "name": "Fines Rodrigo",
         "descripcion": "Hola, soy alumno de la carrera de Videojuegos en la UNJu. Me gustan mucho los videojuegos, la musica y el futbol... Mi pasatiempo es estar en la compu y entrenar.",
         "url": "https://github.com/Rodrigooo08"
     },
     {
         "id": 3,
-        "image": "/Image/HomePage/draw-your-gaming-avatar.webp",
+        "image": "/Image/HomePage/floresCin1.jpg",
         "name": "Noemi Cintia Flores",
         "descripcion": "Hola, soy una chica apasionada por la música y el deporte. Me encanta tocar el violín, es mi forma de expresarme y relajarme. Cuando no estoy tocando, me gusta mantenerme activa y hacer ejercicio.",
         "url": "https://github.com/CintiaFlores"
     },
     {
         "id": 4,
-        "image": "/Image/HomePage/AJ.png",
+        "image": "/Image/HomePage/axel1.jpg",
         "name": "Axel Jurado",
         "descripcion": "Solo juego multijugadores si es con amigos sino solo juego casuales o de cartas. Aguanten las novelas graficas y las bandas sonoras. Esperando que salga tjoc en steam.",
         "url": "https://github.com/Ralseik"
     },
     {
         "id": 5,
-        "image": "/Image/HomePage/images.jpg",
+        "image": "/Image/HomePage/floresMili1.jpg",
         "name": "Milagros Flores",
         "descripcion": "Estudiante de la carrera de videojuegos de UNJU_FI. Me dedico mayormente a la ilustracion en especial cuando se trata de diseños de personajes. Constantemente busco aprender dentro de este entorno, en lo que se refiera a la animaciÓn y la programación.",
         "url": "https://github.com/Solefloo"

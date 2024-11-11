@@ -64,20 +64,21 @@
 
 .inicio {
   border-radius: 8px;
-  position: fixed;
-  right: 425px;
-  top: 38%;
-  transform: translateY(35%);
-  z-index: 12;
+  position: absolute;
+  top: 55%;
+  left: 56%;
   width: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  text-align: center;
   color: #ffe573;
 }
-
+.text-inicio{
+  font-size: 2.3rem;
+}
 
 .botonDM {
   border-radius: 8px;

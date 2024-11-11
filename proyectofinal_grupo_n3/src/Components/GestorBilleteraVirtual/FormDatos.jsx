@@ -34,7 +34,26 @@ function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, se
           <div className="input-group mb-2">
             <label className="input-group-text" htmlFor="transaccion">Número de transacción</label>
             <input type="number" id="transaccion" aria-label="Número de transacción" className="form-control"
-              value={transaccion} onChange={(e) => setTransaccion(e.target.value)}
+              min="1"
+              max="1000"
+              step="1" 
+              // value={transaccion} onChange={(e) => setTransaccion(e.target.value)
+                value={transaccion} 
+                onChange={(e) => {
+                  let value = e.target.value;
+                  if (value > 1000) {
+                    value = "";
+                    alert("El número de transacción no debe superar a 1000.");
+                  }
+                  if (value.includes('.') && value.indexOf('.') !== -1) {
+                    alert("Por favor, ingresa un número válido.");
+                    value = value.slice(0, value.indexOf('.'));  
+                    value = "";
+                  }
+              
+                  setTransaccion(value);  }
+                
+              }
             />
           </div>
         </form>

@@ -42,7 +42,7 @@
   background-color: rgba(1, 0, 0, -20);
   border-radius: 50%;
   width: 400px;
-  color: #ffe573;
+  color: #FFD700;
 
 }
 
@@ -72,7 +72,7 @@
   justify-content: center;
   padding: 2rem;
   text-align: center;
-  color: #ffe573;
+  color: #FFD700;
 }
 .text-inicio{
   font-size: 2rem;
@@ -100,7 +100,7 @@
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.final {
+/* .final {
   border-radius: 8px;
   position: fixed;
   right: 425px;
@@ -114,16 +114,16 @@
   justify-content: center;
   padding: 2rem;
   color: #ffe573;
-}
+} */
 
-.final h2,
+/* .final h2,
 .final h3 {
 
   border-radius: 8px;
 
-}
+} */
 
-
+/* 
 .Dialogo {
   position: relative;
   width: 300px;
@@ -144,7 +144,7 @@
   font-size: 1.9em;
   max-width: 80%;
   word-wrap: break-word;
-}
+} */
 
 .text-gold {
   color: #FFD700

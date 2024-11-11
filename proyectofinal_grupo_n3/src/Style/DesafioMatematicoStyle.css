@@ -51,19 +51,15 @@
 
 
 .FondoDM {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 100vh;
-  background-image: url('../public/image/DesafioMatematicoIMG/VegetaFondo2.png');
-  background-size: contain;
+  width: 1300px;
+  height: 800px;
+  background-image: url('../public/image/DesafioMatematicoIMG/VegetaFondoCompleto.png');
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 2px solid #000;
+  position: relative; /*para posicionar los componentes dentro del area*/
+  overflow: hidden; /*oculta el contenido que sale del area de trabajo*/
 }
 
 .inicio {

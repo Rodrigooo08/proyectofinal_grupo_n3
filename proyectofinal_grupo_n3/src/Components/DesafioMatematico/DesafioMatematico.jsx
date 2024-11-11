@@ -23,11 +23,8 @@ function DesafioMatematico(){
 
     return(
         <div className="FondoDM">
-            {!juegoIniciado && (<Inicio onStart={inciarJuego} onSelectDificultad={seleccionarDificultad}/>)}
-            <Radar juego={juegoIniciado ? <Juego dificultad={dificultad} onReset={resetJuego}/> : null} />
-           
-           
-            
+            {!juegoIniciado ? (<Inicio onStart={inciarJuego} onSelectDificultad={seleccionarDificultad}/>):
+            ( <Juego dificultad={dificultad} onReset={resetJuego}/> )}
         </div>
         
     );

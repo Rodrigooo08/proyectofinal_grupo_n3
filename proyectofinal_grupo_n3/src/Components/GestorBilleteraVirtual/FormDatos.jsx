@@ -36,24 +36,19 @@ function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, se
             <input type="number" id="transaccion" aria-label="Número de transacción" className="form-control"
               min="1"
               max="1000"
-              step="1" 
+              step="1"
               // value={transaccion} onChange={(e) => setTransaccion(e.target.value)
-                value={transaccion} 
-                onChange={(e) => {
-                  let value = e.target.value;
-                  if (value > 1000) {
-                    value = "";
-                    alert("El número de transacción no debe superar a 1000.");
-                  }
-                  if (value.includes('.') && value.indexOf('.') !== -1) {
-                    alert("Por favor, ingresa un número válido.");
-                    value = value.slice(0, value.indexOf('.'));  
-                    value = "";
-                  }
-              
-                  setTransaccion(value);  }
-                
-              }
+              value={transaccion}
+              onChange={(e) => {
+                let value = e.target.value;
+                if (value === "0" || parseInt(value, 10) < 0 || value > 1000 || value.includes('.') && value.indexOf('.') !== -1) {
+                  value = value.slice(0, value.indexOf('.'));
+                  alert("Por favor, ingrese un número válido.");
+                  value = "";
+                }
+
+                setTransaccion(value);
+              } }
             />
           </div>
         </form>

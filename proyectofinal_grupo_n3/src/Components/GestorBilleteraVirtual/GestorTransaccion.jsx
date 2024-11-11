@@ -64,7 +64,7 @@ function GestorTransacciones() {
       }
       //en caso de que las billeteras esten repetidas para un mismo usuario se suma el numero de transacciones
       if (transaccionesPorUsuario[transaccion.nombre][transaccion.billetera]) {
-        transaccionesPorUsuario[transaccion.nombre][transaccion.billetera] += transaccionLimitada;
+        // transaccionesPorUsuario[transaccion.nombre][transaccion.billetera] += transaccion.transaccion;
       } else {
         transaccionesPorUsuario[transaccion.nombre][transaccion.billetera] = transaccionLimitada;
       }

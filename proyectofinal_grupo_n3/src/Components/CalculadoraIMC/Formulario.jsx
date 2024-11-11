@@ -8,23 +8,17 @@ function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, se
     }
   };
   const limitacionPeso= (e) =>{
-    let value = e.target.value;
-    if (value === "") {
+    const value = e.target.value;
+    if (value === "" || (parseFloat(value) >= 1 && parseFloat(value) <= 300)) {
       setPeso(value);
-    } else {
-      value = Math.min(parseFloat(value), 300); 
-      if (value >= 1 && value <= 300) setPeso(value);
     }
   };
   const limitacionAltura=(e) =>{
-    let value = e.target.value;
-    if (value === ""){
-      setPeso(value);
-    } else {
-      value = Math.min(parseFloat(value), 2.5);
-      if (value >= 0.5 && value <= 2.5) setAltura(value);
+    const value = e.target.value;
+    if (value === "" || (parseFloat(value) >= 0.5 && parseFloat(value) <= 2)) {
+      setAltura(value); 
     }
-  }
+  };  
   return (
     <div>
       <label className='letras'>Nombre:</label>

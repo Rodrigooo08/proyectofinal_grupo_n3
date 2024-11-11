@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import { Fade } from "react-awesome-reveal";
 function Home() {
     return (
         <>
-           
+
             <section className="section1">
                 <div id="carouselExample" className="carousel slide img-fluid">
                     <div className="carousel-inner">
@@ -28,15 +29,6 @@ function Home() {
                         <span className="visually-hidden">Next</span>
                     </button>
                 </div>
-            </section>
-            <section >
-                <Link>
-                    <nav className="navbar bg-body-tertiary" data-bs-theme="dark">
-                        <div className="container-fluid">
-                            <span className="navbar-brand mb-0 h1"></span>
-                        </div>
-                    </nav>
-                </Link>
             </section>
 
             <section className="section2" >
@@ -105,6 +97,7 @@ function Home() {
                     </div>
                 </div>
             </section>
+
         </>
     )
 }

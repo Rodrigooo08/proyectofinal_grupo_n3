@@ -1,3 +1,4 @@
+import { Fade } from "react-awesome-reveal";
 import React, { useState } from 'react';
 
 function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, setPeso, setAltura, calcular }) {
@@ -29,6 +30,7 @@ function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, se
     }
   };  
   return (
+    <Fade>
     <div>
       <label className='letras'>Nombre:</label>
       <input className='entradaIMC' type="text" value={nombre} onChange={limitacionTexto(setNombre)} />
@@ -44,6 +46,7 @@ function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, se
 
       <button className="boton" onClick={precionarBoton}>{botonEnCalcular ? "Calcular IMC" : "Limpiar Formulario"}</button>
     </div>
+    </Fade>
   );
 }
 

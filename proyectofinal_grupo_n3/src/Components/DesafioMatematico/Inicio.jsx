@@ -10,7 +10,7 @@ const Inicio = ({ onStart, onSelectDificultad }) => {
   }
   return (
     <div className="inicio">
-      <h3>Seleccione Difucultad</h3>
+      <h3 className='text-inicio'>Seleccione Difucultad</h3>
       <select className="form-select-lg mb-3 " value={dificultadSeleccionada} onChange={manejarCambio}>
         <option value="facil">Basico</option>
         <option value="intermedio">Intermedio</option>

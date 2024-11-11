@@ -5,6 +5,7 @@ class Escena4 extends Phaser.Scene {
         this.vidasRestantes = 0;
         this.textoVidas = '';
     }
+    // Método de inicialización que asigna valores a las propiedades del objeto
     init(data) {
         this.puntaje = data.puntaje;
         this.musicaFondo = data.musicaFondo;
@@ -162,7 +163,6 @@ class Escena4 extends Phaser.Scene {
         this.barraVidaRelleno.clear(); // Limpia el relleno 
         this.barraVidaRelleno.fillStyle(0x555555, 1); // Cambia el color segun el porcentaje de vida del jefe
         this.barraVidaRelleno.fillRect(200, 550, porcentajeVida * 400, 20);
-        //
         this.time.delayedCall(50, () => {
             this.barraVidaRelleno.clear();
             this.barraVidaRelleno.fillStyle(color, 1);
@@ -197,14 +197,14 @@ class Escena4 extends Phaser.Scene {
     }
     preload() {
         this.load.image('cielo4', 'public/Image/JuegoNave/EspacioHorizontal.png'),
-            this.load.spritesheet('naveVer', 'public/Image/JuegoNave/naveVer.png', { frameWidth: 82, frameHeight: 77 }),
-            this.load.image('bala', 'public/Image/JuegoNave/bala.png'),
-            this.load.image('meteoro', 'public/Image/JuegoNave/asteroide.png')
+        this.load.spritesheet('naveVer', 'public/Image/JuegoNave/naveVer.png', { frameWidth: 82, frameHeight: 77 }),
+        this.load.image('bala', 'public/Image/JuegoNave/bala.png'),
+        this.load.image('meteoro', 'public/Image/JuegoNave/asteroide.png')
         this.load.spritesheet('jefeFinal', 'public/Image/JuegoNave/Jefe Final.png', { frameWidth: 304, frameHeight: 235 }),
-            this.load.spritesheet('vida', 'public/Image/JuegoNave/spritesheet_cascotime_32x32.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('vida', 'public/Image/JuegoNave/spritesheet_cascotime_32x32.png', { frameWidth: 32, frameHeight: 32 });
         this.load.audio('audioEscena4', '/sound/juegoNave/Boss_theme.mp3');
         this.load.spritesheet('enemigo', 'public/Image/JuegoNave/Sprite enemigo.png', { frameWidth: 46.5, frameHeight: 41 }),
-            this.load.spritesheet('proyectil', 'public/Image/JuegoNave/spritesheet_bala.png', { frameWidth: 39.4, frameHeight: 28 });
+        this.load.spritesheet('proyectil', 'public/Image/JuegoNave/spritesheet_bala.png', { frameWidth: 39.4, frameHeight: 28 });
         this.load.audio('disparoFx', '/sound/juegoNave/Laser.mp3');
         this.load.spritesheet('proyectilJefe', '/Image/JuegoNave/fuegitos.png', { frameWidth: 52, frameHeight: 52 });
         this.load.audio('Fireball', '/sound/juegoNave/fireball.mp3');
@@ -364,7 +364,7 @@ class Escena4 extends Phaser.Scene {
         this.physics.add.collider(this.jugador, this.vidasExtras, this.recogerVida, null, this); // Detectar colisión entre el jugador y las vidas extras
         // Disparo del jefe
         this.time.addEvent({
-            delay: 2000, 
+            delay: 2000,
             callback: this.dispararJefe,
             callbackScope: this,
             loop: true
@@ -380,7 +380,7 @@ class Escena4 extends Phaser.Scene {
         this.cascoVida.setScale(2);
     }
     update() {
-
+        // Texto de barra de vida del jefe final 
         this.textoVidaJefe = this.add.text(400, 570, 'Vida Jefe Final', {
             fontSize: '22px',
             fill: '#FFFFFF', // Blanco
@@ -391,7 +391,6 @@ class Escena4 extends Phaser.Scene {
         //desplazamiento del fondo
         const backgroundSpeed = 2;//velocidad de desplazamiento
         this.fondo.tilePositionX += backgroundSpeed;
-
         this.jugador.setVelocityX(0);
         this.jugador.setVelocityY(0);
         if (this.cursors.left.isDown) {

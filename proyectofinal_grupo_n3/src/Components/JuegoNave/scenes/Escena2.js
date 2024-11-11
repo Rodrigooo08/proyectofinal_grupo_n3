@@ -5,10 +5,12 @@ class Escena2 extends Phaser.Scene {
         this.textoBalas = '';
         this.balasRecolectadas = 0;
     }
+    //Metodo de contador del tiempo
     actualizarContador() {
         this.tiempoTranscurrido += 1;
         this.contadorTexto.setText('Tiempo: ' + this.tiempoTranscurrido);
     }
+    //Método de inicialización que asigna valores a las propiedades del objeto
     init(data) {
         this.puntaje = data.puntaje;
         this.musicaFondo = data.musicaFondo;
@@ -63,7 +65,7 @@ class Escena2 extends Phaser.Scene {
         this.temporizador = this.time.addEvent({
             delay: 1000, callback: this.actualizarContador, callbackScope: this, loop: true
         });
-
+        //Animacion del player
         this.anims.create({
             key: 'izquierda',
             frames: [{ key: 'nave', frame: 2 }],
@@ -84,6 +86,7 @@ class Escena2 extends Phaser.Scene {
         });
 
     }
+    //Metodo para generar de manera aleatoria los meteoros
     generarMeteoros() {
         const x = Phaser.Math.Between(0, 800);
         const meteoro = this.grupoMeteoros.create(x, 0, 'meteoro2');
@@ -117,7 +120,7 @@ class Escena2 extends Phaser.Scene {
             this.scene.start('EscenaBonus', { puntaje: this.puntaje, balasRecolectadas: this.balasRecolectadas, musicaFondo: this.musicaFondo });
         }
     }
-
+    // metodo para llamar ala escena GameOver
     gameOver(jugador, meteoro) {
         if (this.musicaFondo != null) {
             this.musicaFondo.stop();

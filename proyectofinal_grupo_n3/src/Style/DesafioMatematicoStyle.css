@@ -1,49 +1,47 @@
-.image-container {
+/* .image-container {
   position: fixed;
   right: -100px;
   top: 50%;
   transform: translateY(-150%);
   z-index: 10;
-}
+} */
 
-.image-container img {
+/* .image-container img {
   max-width: 70%;
   transform: translate(0%, -10%);
   height: auto;
-}
+} */
 
-.imagenTarjeta {
+/* .imagenTarjeta {
   position: absolute;
   right: 350px;
   bottom: 50px;
 
-  z-index: 9;
 }
 
 .imagenTarjeta img {
   width: 75%;
   max-width: 500px;
-}
+} */
 
 
 
-.juego {
+/* .juego {
   position: absolute;
   top: 25%;
   left: 147%;
 
   z-index: 1;
 
-}
+} */
 
 .card-desafio {
-  position: relative;
-  right: 720px;
-
+  position: absolute;
+  left: 58.5%;
+  top: 48%;
   background-color: rgba(1, 0, 0, -20);
   border-radius: 50%;
-  z-index: 11;
-  width: 22rem;
+  width: 400px;
   color: #ffe573;
 
 }
@@ -77,7 +75,7 @@
   color: #ffe573;
 }
 .text-inicio{
-  font-size: 2.3rem;
+  font-size: 2rem;
 }
 
 .botonDM {
@@ -150,4 +148,7 @@
 
 .text-gold {
   color: #FFD700
+}
+.text-resp{
+  font-size: 1.5rem;
 }

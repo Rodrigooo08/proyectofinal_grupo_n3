@@ -22,3 +22,9 @@ header{
     padding-top: 80px;
     padding-bottom: 80px;
 }
+.section2 .card img {  
+    width: 350px; /* ancho */  
+    height: 200px; /* alto */  
+    object-fit: cover; /* ajusta la imagen al tamaño */  
+    margin:auto; /* centrar la imagen */
+  }

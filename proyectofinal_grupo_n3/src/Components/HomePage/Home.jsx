@@ -7,15 +7,12 @@ function Home() {
                 <div id="carouselExample" className="carousel slide img-fluid">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="Image/HomePage/comenzopag.png" className="d-block w-100" alt="..." />
+                            <img src="Image/HomePage/construccion3.1.png" className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
                             <Link to="/nosotros">
-                                <img src="Image/HomePage/colab2.jpeg" className="d-block w-100" alt="..." />
+                                <img src="Image/HomePage/construccion1.2.png" className="d-block w-100" alt="..." />
                             </Link>
-                        </div>
-                        <div className="carousel-item">
-                            <img src="Image/HomePage/construccion3.jpg" className="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

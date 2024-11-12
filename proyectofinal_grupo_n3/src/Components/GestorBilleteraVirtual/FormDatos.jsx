@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fade } from "react-awesome-reveal";
+import '../../Style/GestorBilleteraVirtual.css'
 
 function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, setTransaccion, agregarUsuarios, usuarios, billeteraMasTransacciones }) {
   const limiteNombre = (setNombre) => (e) => {

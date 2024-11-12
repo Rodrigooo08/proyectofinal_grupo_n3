@@ -3,6 +3,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fade } from "react-awesome-reveal";
 
 function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, setTransaccion, agregarUsuarios, usuarios, billeteraMasTransacciones }) {
+  const limiteNombre = (setNombre) => (e) => {
+    const value = e.target.value;
+    if (/^[A-Za-z\s]*$/.test(value) || value === "") {
+      setNombre(value);
+    }
+  };
+  const limiteNumTransaccion = (setTransaccion) => (e) => {
+    let value = e.target.value;
+    if (value === "0" || isNaN(value) || parseInt(value, 10) < 0 || parseInt(value, 10) > 1000 || value.includes(".")) {
+      if (value.includes(".")) {
+        value = value.slice(0, value.indexOf('.'));
+      }
+      alert("Por favor, ingrese un número válido.");
+      value = ""
+      setTransaccion(value);
+
+    } else {
+      setTransaccion(value);
+    }
+  };
+
   return (
     <Fade>
       <div className="containerForm">
@@ -15,7 +36,7 @@ function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, se
           <div className="input-group mb-2">
             <label className="input-group-text" htmlFor="nombre">Nombre</label>
             <input type="text" id="nombre" aria-label="First name" className="form-control"
-              value={nombre} onChange={(e) => setNombre(e.target.value)}
+              value={nombre} onChange={limiteNombre(setNombre)}
             />
           </div>
           <div className="input-group mb-2">
@@ -37,18 +58,7 @@ function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, se
               min="1"
               max="1000"
               step="1"
-              // value={transaccion} onChange={(e) => setTransaccion(e.target.value)
-              value={transaccion}
-              onChange={(e) => {
-                let value = e.target.value;
-                if (value === "0" || parseInt(value, 10) < 0 || value > 1000 || value.includes('.') && value.indexOf('.') !== -1) {
-                  value = value.slice(0, value.indexOf('.'));
-                  alert("Por favor, ingrese un número válido.");
-                  value = "";
-                }
-
-                setTransaccion(value);
-              } }
+              value={transaccion} onChange={limiteNumTransaccion(setTransaccion)}
             />
           </div>
         </form>

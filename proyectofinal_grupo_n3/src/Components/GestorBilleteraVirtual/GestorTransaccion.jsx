@@ -108,6 +108,9 @@ function GestorTransacciones() {
 
   return (
     <>
+    <div className="fondo">
+      <img src="../Image/GestorBilleteraVirtual/bg.png" className="fondogestor"/>
+    </div>
       <div className='Formulario'>
         <FormDatos
           nombre={nombre}

@@ -30,16 +30,25 @@ p {
     font-family:'Times New Roman', Times, serif
 }
 
-/* .fondogestor {
-    background-image: url(../images/bg.png);
+.fondogestor {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../Image/GestorBilleteraVirtual/bg.png'); 
+    background-size: cover;  
+    background-position: center;  
+    z-index: -1; 
+    /* background-image: url(../Image/GestorBilleteraVirtual/bg.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-} */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+}
 .containerForm{
     background-color: rgb(226, 248, 243);
     border-radius: 10px;

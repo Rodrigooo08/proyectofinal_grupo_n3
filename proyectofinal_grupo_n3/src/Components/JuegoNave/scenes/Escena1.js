@@ -8,21 +8,25 @@ class Escena1 extends Phaser.Scene{
         this.textoPuntaje='';
         
     }
+     //Metodo de contador del tiempo
     actualizarContador() {
         this.tiempoTranscurrido += 1; 
         this.contadorTexto.setText('Tiempo: ' + this.tiempoTranscurrido); 
     }
+    //Metodo para generar aleatoriamente los meteoros
+    generarMeteoros() {
+        const x = Phaser.Math.Between(0, 800); 
+        const meteoro = this.grupoMeteoros.create(x, 0, 'meteoro');
+        meteoro.setVelocityY(200); 
+    }
     preload(){
-        this.load.image('cielo','public/Image/JuegoNave/Espacio.jpg'),
-        this.load.spritesheet('nave','public/Image/JuegoNave/nave2.png', {frameWidth:75,frameHeight:80}),
-        this.load.image('meteoro','public/Image/JuegoNave/asteroide.png')
-        this.load.image('cielo','public/Image/JuegoNave/Espacio.jpg'),
-        this.load.spritesheet('nave','public/Image/JuegoNave/nave2.png', {frameWidth:75,frameHeight:80}),
-        this.load.image('meteoro','public/Image/JuegoNave/asteroide.png')
+        this.load.image('cielo','/Image/JuegoNave/Espacio.jpg'),
+        this.load.spritesheet('nave','/Image/JuegoNave/nave2.png', {frameWidth:75,frameHeight:80}),
+        this.load.image('meteoro','/Image/JuegoNave/asteroide.png')
         this.load.audio('musicaFondo','/sound/juegoNave/Star Wars.mp3')
     }
     create(){
-       
+       //Musica de fondo 
        this.musicaFondo = this.sound.add('musicaFondo');
         const soundConfig={volume:0.1,loop:true};
         if(!this.sound.locked){
@@ -47,7 +51,7 @@ class Escena1 extends Phaser.Scene{
         // Temporizador 
         this.temporizador = this.time.addEvent({ delay: 1000, callback: this.actualizarContador,callbackScope: this, loop: true 
         });
-
+       //Animacion del player (nave)
         this.anims.create({
             key: 'izquierda',
             frames: [{key:'nave',frame:2}], 
@@ -65,15 +69,7 @@ class Escena1 extends Phaser.Scene{
             frames: [{key:'nave',frame:0}], 
             frameRate: 20,
     
-        });
-
-      
-                        
-    }
-    generarMeteoros() {
-        const x = Phaser.Math.Between(0, 800); 
-        const meteoro = this.grupoMeteoros.create(x, 0, 'meteoro');
-        meteoro.setVelocityY(200); 
+        });                
     }
     update(){
         this.jugador.setVelocityX(0);
@@ -100,10 +96,8 @@ class Escena1 extends Phaser.Scene{
             this.scene.stop('Escena1'); 
             this.scene.start('Escena2', { puntaje: this.puntaje,musicaFondo:this.musicaFondo });
         }
-
-    
     }
-  
+  //Metodo que llama la escena Game Over
     gameOver(jugador,meteoro){
         // this.scene.start('GameOver');
        if(this.musicaFondo != null){

@@ -19,8 +19,9 @@ function GestorTransacciones() {
       alert('Por favor, completa todos los campos correctamente.');
       return;
     }
+    const transaccionLimitada = Math.min(parseInt(transaccion, 10), 1000);
 
-    const nuevaTransaccion = { nombre, billetera, transaccion: parseInt(transaccion, 10) };
+    const nuevaTransaccion = { nombre, billetera, transaccion: transaccionLimitada };
     setUsuarios([...usuarios, nuevaTransaccion]);
     setNombre('');
     setBilletera('');
@@ -57,14 +58,15 @@ function GestorTransacciones() {
     if (usuarios.length === 0) return;
     const transaccionesPorUsuario = {};
     usuarios.forEach(function (transaccion) {
+      const transaccionLimitada = Math.min(transaccion.transaccion, 1000);
       if (!transaccionesPorUsuario[transaccion.nombre]) {
         transaccionesPorUsuario[transaccion.nombre] = {};
       }
       //en caso de que las billeteras esten repetidas para un mismo usuario se suma el numero de transacciones
       if (transaccionesPorUsuario[transaccion.nombre][transaccion.billetera]) {
-        transaccionesPorUsuario[transaccion.nombre][transaccion.billetera] += transaccion.transaccion;
+        // transaccionesPorUsuario[transaccion.nombre][transaccion.billetera] += transaccion.transaccion;
       } else {
-        transaccionesPorUsuario[transaccion.nombre][transaccion.billetera] = transaccion.transaccion;
+        transaccionesPorUsuario[transaccion.nombre][transaccion.billetera] = transaccionLimitada;
       }
     });
     //muestra del resultado maximo por cada uno de los usuarios
@@ -96,7 +98,7 @@ function GestorTransacciones() {
   }
   function cargaUsuariosMaximos(resultado) {
     Swal.fire({
-      title: 'Maxima Transaccciones por Usuario',
+      title: 'Maxima Transacciones por Usuario',
       html: resultado,
       showConfirmButton: true
     });
@@ -117,9 +119,7 @@ function GestorTransacciones() {
           agregarUsuarios={agregarUsuarios}
           usuarios={usuarios}
           billeteraMasTransacciones={billeteraMasTransacciones}
-          transaccionMaxima={transaccionMaxima}
           GestorTransacciones={GestorTransacciones}
-          listaMaximaTransaccionesVisible={listaMaximaTransaccionesVisible}
         />
         <MaximaUsuario
           transaccionMaxima={transaccionMaxima} 

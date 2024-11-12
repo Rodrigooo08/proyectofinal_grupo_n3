@@ -34,24 +34,30 @@ function CalculadoraIMC() {
 
   return (
     <>
-
-      <div className="Calculadora">
-        <h1 className='text-center'>Calculadora del Índice de Masa Corporal</h1>
-        <Formulario
-          nombre={nombre}
-          apellido={apellido}
-          peso={peso}
-          altura={altura}
-          setNombre={setNombre}
-          setApellido={setApellido}
-          setPeso={setPeso}
-          setAltura={setAltura}
-          calcular={manejarCalculo}
-        />
-        {imc && <ResultadoIMC nombre={nombre} apellido={apellido} imc={imc} nivelIMC={nivelIMC} />}
+      <div className="ContainerForm">
+        <div className="ImagFormContainer">
+          <img src="Image/CalculadoraIMC/DoctorIMC.png" alt="Imagen ilustrativa" className="imagen-formulario" />
+        </div>
+        <div className="formularioIMC">
+          <div className="Calculadora">
+            <h1 className='text-center'>Calculadora del Índice de Masa Corporal</h1>
+            <Formulario
+              nombre={nombre}
+              apellido={apellido}
+              peso={peso}
+              altura={altura}
+              setNombre={setNombre}
+              setApellido={setApellido}
+              setPeso={setPeso}
+              setAltura={setAltura}
+              calcular={manejarCalculo}
+            />
+            {imc && <ResultadoIMC nombre={nombre} apellido={apellido} imc={imc} nivelIMC={nivelIMC} />}
+          </div>
+        </div>
       </div>
-    </>
-  );
+      </>
+      );
 }
 
-export default CalculadoraIMC;
+      export default CalculadoraIMC;

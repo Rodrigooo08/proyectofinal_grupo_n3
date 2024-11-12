@@ -1,14 +1,15 @@
 :root {
-    --colorBg:  rgb(195, 172, 208) ;
-    --colorBoton1: rgb(41,167,68); 
+    --colorBg: rgb(195, 172, 208);
+    --colorBoton1: rgb(41, 167, 68);
     --colorBoton2: rgb(150, 201, 62);
     --colorLetra1: rgb(103, 65, 136);
     --colorLetra2: white;
-    --colorBgCalculator:rgb(247, 239, 229) ; 
+    --colorBgCalculator: rgb(247, 239, 229);
     --colorBorder: rgb(103, 65, 136);
-    --colorInput1:rgb(154, 193, 231) ;
+    --colorInput1: rgb(154, 193, 231);
     --colorInput2: rgb(255, 251, 245);
 }
+
 .Calculadora {
     background-color: var(--colorBgCalculator);
     max-width: 600px;
@@ -17,8 +18,9 @@
     padding: 20px;
     border: 10px solid var(--colorBorder);
     border-radius: 8px;
-    
+
 }
+
 .entradaIMC {
     width: 100%;
     padding: 8px;
@@ -28,14 +30,17 @@
     background: var(--colorInput2);
 
 }
-.entradaIMC:hover{
+
+.entradaIMC:hover {
     background-color: var(--colorInput1)
 }
+
 .letras {
     display: block;
     margin-bottom: 4px;
     color: var(--colorLetra1);
 }
+
 .resultado {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 20px;
@@ -59,22 +64,39 @@
     margin: 10px auto 0;
     display: block;
 }
+
 .boton:hover {
     background-color: var(--colorBg);
-} 
-.ContainerForm{
-  display: flex;
-  align-items: center;
-  gap: 0px;
 }
-.ImagFormContainer{
+
+.ContainerForm {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.ImagFormContainer {
     flex: 1;
-    margin-left: 150px;
+    margin-left: 50px;
 }
+
 .imagen-formulario {
-    width: 350px; 
+    width: 350px;
     height: 550px;
-  }
+}
+
 .formularioIMC {
     flex: 2;
-  }
+}
+
+.ImagenResultadoContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-resultado {
+    width: 350px;
+    height: 550px;
+}

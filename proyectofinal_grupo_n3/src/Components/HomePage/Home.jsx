@@ -1,9 +1,31 @@
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Fade } from "react-awesome-reveal";
 function Home() {
+    const audioRef = useRef(null);
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.play();
+            audioRef.current.volume = 0.5;
+        }
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0; 
+            }
+        };
+    }, []);
     return (
         <>
        < Fade> 
+            <audio
+                    ref={audioRef}
+                    loop
+                    muted={false}
+                    autoPlay
+                > 
+                 <source src="/sound/Home/HomeMusica.mp3" type="audio/mp3" />
+                </audio>
             <section className="section1">
                 <div id="carouselExample" className="carousel slide img-fluid">
                     <div className="carousel-inner">

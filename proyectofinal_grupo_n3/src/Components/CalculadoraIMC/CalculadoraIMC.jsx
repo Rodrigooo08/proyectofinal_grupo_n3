@@ -12,7 +12,6 @@ function CalculadoraIMC() {
   const [altura, setAltura] = useState('');
   const [imc, setImc] = useState(null);
   const [nivelIMC, setNivelIMC] = useState('');
-  const [imagenResultado, setImagenResultado] = useState('');
 
   const calcularIMC = (peso, altura) => peso / (altura * altura);
 
@@ -31,18 +30,7 @@ function CalculadoraIMC() {
 
     const imcCalculado = calcularIMC(parseFloat(peso), parseFloat(altura));
     setImc(imcCalculado);
-    const nivel = determinarNivel(imcCalculado);
-    setNivelIMC(nivel);
-
-    if (nivel === 'Bajo peso') {
-      setImagenResultado("Image/CalculadoraIMC/bajo_peso.png"); // Cambia la ruta por la correcta
-  } else if (nivel === 'Peso saludable') {
-      setImagenResultado("Image/CalculadoraIMC/peso_saludable.png");
-  } else if (nivel === 'Sobrepeso') {
-      setImagenResultado("Image/CalculadoraIMC/sobrepeso.png");
-  } else if (nivel === 'Obesidad') {
-      setImagenResultado("Image/CalculadoraIMC/obesidad.png");
-  }
+    setNivelIMC(determinarNivel(imcCalculado));
   };
   useEffect(() => {
     if (audioRef.current) {
@@ -87,11 +75,6 @@ function CalculadoraIMC() {
             {imc && <ResultadoIMC nombre={nombre} apellido={apellido} imc={imc} nivelIMC={nivelIMC} />}
           </div>
         </div>
-        {imagenResultado && (
-          <div className="ImagenResultadoContainer">
-            <img src={imagenResultado} alt="Resultado de IMC" className="imagen-resultado" />
-          </div>
-        )}
       </div>
       </>
       );

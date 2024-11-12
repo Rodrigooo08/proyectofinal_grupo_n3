@@ -1,40 +1,3 @@
-/* .image-container {
-  position: fixed;
-  right: -100px;
-  top: 50%;
-  transform: translateY(-150%);
-  z-index: 10;
-} */
-
-/* .image-container img {
-  max-width: 70%;
-  transform: translate(0%, -10%);
-  height: auto;
-} */
-
-/* .imagenTarjeta {
-  position: absolute;
-  right: 350px;
-  bottom: 50px;
-
-}
-
-.imagenTarjeta img {
-  width: 75%;
-  max-width: 500px;
-} */
-
-
-
-/* .juego {
-  position: absolute;
-  top: 25%;
-  left: 147%;
-
-  z-index: 1;
-
-} */
-
 .card-desafio {
   position: absolute;
   left: 58.5%;
@@ -45,8 +8,6 @@
   color: #FFD700;
 
 }
-
-
 
 .FondoDM {
   width: 1300px;
@@ -99,52 +60,6 @@
 .botonDM:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-/* .final {
-  border-radius: 8px;
-  position: fixed;
-  right: 425px;
-  top: 38%;
-  transform: translateY(35%);
-  z-index: 12;
-  width: 30rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  color: #ffe573;
-} */
-
-/* .final h2,
-.final h3 {
-
-  border-radius: 8px;
-
-} */
-
-/* 
-.Dialogo {
-  position: relative;
-  width: 300px;
-  text-align: center;
-  transform: translate(-20%, 0%);
-
-}
-
-.Dialogo img {
-  width: 100%;
-}
-
-.Dialogo h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.9em;
-  max-width: 80%;
-  word-wrap: break-word;
-} */
 
 .text-gold {
   color: #FFD700

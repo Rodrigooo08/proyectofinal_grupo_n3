@@ -61,4 +61,20 @@
 }
 .boton:hover {
     background-color: var(--colorBg);
-}   
+} 
+.ContainerForm{
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+.ImagFormContainer{
+    flex: 1;
+    margin-left: 150px;
+}
+.imagen-formulario {
+    width: 350px; 
+    height: 550px;
+  }
+.formularioIMC {
+    flex: 2;
+  }

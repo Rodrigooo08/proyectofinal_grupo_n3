@@ -87,12 +87,8 @@ class MenuStart extends Phaser.Scene {
     // Método para ir a la escena de configuraciones (instrucciones)
     configGame() {
         console.log("Configurando el juego...");
-        // Detener la música del menú
-        if (this.musicaMenu) {
-            this.musicaMenu.stop();
-        }
         // Lanzar la escena de ajustes
-        this.scene.launch('Ajustes');
+        this.scene.launch('Ajustes', {musicaMenu:this.musicaMenu});
     }
     // Método para salir del juego (cerrar la ventana)
     exitGame() {

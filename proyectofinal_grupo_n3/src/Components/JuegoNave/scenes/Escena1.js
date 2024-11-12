@@ -69,10 +69,7 @@ class Escena1 extends Phaser.Scene{
             frames: [{key:'nave',frame:0}], 
             frameRate: 20,
     
-        });
-
-      
-                        
+        });                
     }
     update(){
         this.jugador.setVelocityX(0);
@@ -99,8 +96,6 @@ class Escena1 extends Phaser.Scene{
             this.scene.stop('Escena1'); 
             this.scene.start('Escena2', { puntaje: this.puntaje,musicaFondo:this.musicaFondo });
         }
-
-    
     }
   //Metodo que llama la escena Game Over
     gameOver(jugador,meteoro){

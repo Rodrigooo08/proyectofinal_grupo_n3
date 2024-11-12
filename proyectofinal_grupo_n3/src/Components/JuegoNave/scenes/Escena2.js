@@ -48,7 +48,6 @@ class Escena2 extends Phaser.Scene {
         this.grupoMeteoros = this.physics.add.group();
         this.time.addEvent({ delay: 1000, callback: this.generarMeteoros, callbackScope: this, loop: true });
         //puntaje
-        //this.puntaje=0;
         this.textoPuntaje = this.add.text(16, 46, 'Puntaje: 0', { fontSize: '32px', fill: '#CB80AB' })
         //collider
         this.physics.add.collider(this.jugador, this.grupoMeteoros, this.gameOver, null, this);

@@ -1,22 +1,21 @@
 import { Link } from 'react-router-dom';
+
 function Home() {
     return (
         <>
-           
             <section className="section1">
                 <div id="carouselExample" className="carousel slide img-fluid">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="Image/HomePage/construccion4.jpg" className="d-block w-100" alt="..." />
+                            <img src="Image/HomePage/comenzopag.png" className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src="Image/HomePage/construccion1.jpg" className="d-block w-100" alt="..." />
+                            <Link to="/nosotros">
+                                <img src="Image/HomePage/colab2.jpeg" className="d-block w-100" alt="..." />
+                            </Link>
                         </div>
                         <div className="carousel-item">
                             <img src="Image/HomePage/construccion3.jpg" className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src="Image/HomePage/construccion5.jpg" className="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -29,76 +28,47 @@ function Home() {
                     </button>
                 </div>
             </section>
-            <section >
-                <Link>
-                    <nav className="navbar bg-body-tertiary" data-bs-theme="dark">
-                        <div className="container-fluid">
-                            <span className="navbar-brand mb-0 h1"></span>
-                        </div>
-                    </nav>
-                </Link>
-            </section>
 
-            <section className="section2" >
+            <section className="section2">
                 <div className="grid text-center" data-bs-theme="dark">
                     <div className="row">
-                        <div className="col-12 col-md-4">
-                            <div className="card" >
-                                <img src="Image/HomePage/construccion1.jpg" className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Inicio</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Link to="http://localhost:5173/" className="btn btn-primary">Go somewhere</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4">
+                        <div className="col-12 col-md-6 mb-4">
                             <div className="card">
                                 <img src="Image/HomePage/capIMC.png" className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">Calculador IMC</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Link to="http://localhost:5173/calculadoraIMC" className="btn btn-primary">Go somewhere</Link>
+                                    <p className="card-text">Descubre tu IMC con esta herramienta interactiva. Ingresa tu nombre, apellido, peso y altura para obtener tu Índice de Masa Corporal al instante. Ideal para quienes desean monitorear su salud de manera rápida y fácil.</p>
+                                    <Link to="http://localhost:5173/calculadoraIMC" className="btn btn-primary">Ir a pagina</Link>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-md-4">
-                            <div className="card" >
-                                <img src="Image/HomePage/capGB.png" className="card-img-top" alt="..." />
+                        <div className="col-12 col-md-6 mb-4">
+                            <div className="card">
+                                <img src="Image/HomePage/billetera.png" className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">Gestor de Billeteras</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Link to="http://localhost:5173/gestorbilleteras" className="btn btn-primary">Go somewhere</Link>
+                                    <p className="card-text">Administra las cuentas y transacciones en billeteras virtuales de manera eficiente. Visualiza un listado completo de usuarios, con el nombre, la billetera asociada y el número de transacciones realizadas. Además, descubre la billetera más activa y su usuario.</p>
+                                    <Link to="http://localhost:5173/gestorbilleteras" className="btn btn-primary">Ir a pagina</Link>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-md-4">
-                            <div className="card" >
+                        <div className="col-12 col-md-6 mb-4">
+                            <div className="card">
                                 <img src="Image/HomePage/capNave.png" className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">Juego Nave</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Link to="http://localhost:5173/juegonave" className="btn btn-primary">Go somewhere</Link>
+                                    <p className="card-text">Pon a prueba tus reflejos con este emocionante juego en Phaser. Controla una nave espacial y esquiva los meteoros que caen sin cesar desde el cielo. ¿Cuánto tiempo puedes sobrevivir en esta lluvia de meteoros?</p>
+                                    <Link to="http://localhost:5173/juegonave" className="btn btn-primary">Ir a pagina</Link>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-md-4">
-                            <div className="card" >
-                                <img src="Image/HomePage/capDM..png" className="card-img-top" alt="..." />
+                        <div className="col-12 col-md-6 mb-4">
+                            <div className="card">
+                                <img src="Image/HomePage/desafioMat.png" className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">Desafio Matematico</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Link to="http://localhost:5173/desafiomatematico" className="btn btn-primary">Go somewhere</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4">
-                            <div className="card" >
-                                <img src="Image/HomePage/capcol.png" className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Colaboradores</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Link to="http://localhost:5173/nosotros" className="btn btn-primary">Go somewhere</Link>
+                                    <p className="card-text">Un divertido juego educativo de Matemáticas. Resuelve diferentes operaciones mientras te diviertes, ¡ideal para aprender matemáticas de manera entretenida!</p>
+                                    <Link to="http://localhost:5173/desafiomatematico" className="btn btn-primary">Ir a pagina</Link>
                                 </div>
                             </div>
                         </div>
@@ -106,6 +76,7 @@ function Home() {
                 </div>
             </section>
         </>
-    )
+    );
 }
+
 export default Home;

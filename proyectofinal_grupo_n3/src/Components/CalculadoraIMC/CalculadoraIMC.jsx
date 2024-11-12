@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState , useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Formulario from './Formulario';
 import ResultadoIMC from './ResultadoIMC';
 import '../../style/CalculadoraIMCStyle.css'
 
 function CalculadoraIMC() {
+  const audioRef = useRef(null);
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [peso, setPeso] = useState('');
@@ -31,11 +32,30 @@ function CalculadoraIMC() {
     setImc(imcCalculado);
     setNivelIMC(determinarNivel(imcCalculado));
   };
-
+  useEffect(() => {
+    if (audioRef.current) {
+        audioRef.current.play();
+        audioRef.current.volume = 0.5;
+    }
+    return () => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; 
+        }
+    };
+}, []);
   return (
     <>
       <div className="ContainerForm">
         <div className="ImagFormContainer">
+        <audio
+                    ref={audioRef}
+                    loop
+                    muted={false}
+                    autoPlay
+                > 
+                 <source src="/sound/IMC/MusicaIMC.mp3" type="audio/mp3" />
+                </audio>
           <img src="Image/CalculadoraIMC/DoctorIMC.png" alt="Imagen ilustrativa" className="imagen-formulario" />
         </div>
         <div className="formularioIMC">

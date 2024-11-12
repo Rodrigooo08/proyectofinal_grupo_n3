@@ -1,14 +1,27 @@
-import React from 'react';
+import React,{ useRef,  useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fade } from "react-awesome-reveal";
 
 function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, setTransaccion, agregarUsuarios, usuarios, billeteraMasTransacciones }) {
+  const audioRef = useRef(null);
   const limiteNombre = (setNombre) => (e) => {
     const value = e.target.value;
     if (/^[A-Za-z\s]*$/.test(value) || value === "") {
       setNombre(value);
     }
   };
+  useEffect(() => {
+    if (audioRef.current) {
+        audioRef.current.play();
+        audioRef.current.volume = 0.5;
+    }
+    return () => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; 
+        }
+    };
+}, []);
   const limiteNumTransaccion = (setTransaccion) => (e) => {
     let value = e.target.value;
     if (value === "0" || isNaN(value) || parseInt(value, 10) < 0 || parseInt(value, 10) > 1000 || value.includes(".")) {
@@ -27,6 +40,14 @@ function FormDatos({ nombre, billetera, transaccion, setNombre, setBilletera, se
   return (
     <Fade>
       <div className="containerForm">
+      <audio
+                    ref={audioRef}
+                    loop
+                    muted={false}
+                    autoPlay
+                > 
+                 <source src="/sound/GestorBilletera/GestorBilletera.mp3" type="audio/mp3" />
+                </audio>
         <div className="row">
           <div className="col-12">
             <h1 className="textTitulo">Gestor de transacciones en Billeteras Virtuales</h1>

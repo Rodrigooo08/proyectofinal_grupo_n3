@@ -49,7 +49,8 @@ const Juego = ({ dificultad, onReset }) => {
             {dialogoVisible && (
                 <div className='Dialogoconteiner'>
                     <DialogoVegeta
-                        resultado={resultado}
+                        Resultado={resultado}
+                        respuestacorrecta={operacion.respuesta}
                     />
                 </div>
             )}

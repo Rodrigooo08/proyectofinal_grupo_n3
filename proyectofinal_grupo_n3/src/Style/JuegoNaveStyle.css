@@ -3,7 +3,7 @@
     justify-content: center;
     text-align: center;
     background-image: url('/proyectofinal_grupo_n3/public/Image/JuegoNave/Espacion-Fondo.gif');
-    background-size: auto;
+    background-size: cover;
     background-position: center;
 }
 #Titulo{

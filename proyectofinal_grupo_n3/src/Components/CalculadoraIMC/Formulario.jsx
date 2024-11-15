@@ -25,7 +25,7 @@ function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, se
   };
   const limitacionAltura = (e) => {
     const value = e.target.value;
-    if (value === "" || (parseFloat(value) >= 0.5 && parseFloat(value) <= 2)) {
+    if (value === "" || (parseFloat(value) >= 0.5 && parseFloat(value) <= 2.5)) {
       setAltura(value);
     }
   };
@@ -38,10 +38,10 @@ function Formulario({ nombre, apellido, peso, altura, setNombre, setApellido, se
           <input className='entradaIMC' type="text" value={apellido} onChange={limitacionTexto(setApellido)} />
 
           <label className='letras'>Peso (Kg):</label>
-          <input className='entradaIMC' type="number" value={peso} onChange={limitacionPeso} min="1" max="300" title="Ingrese un peso entre 1 y 300 kg" />
+          <input className='entradaIMC' type="number" value={peso} onChange={limitacionPeso} title="Ingrese un peso entre 1 y 300 kg" />
 
           <label className='letras'>Altura (m):</label>
-          <input className='entradaIMC' type="number" value={altura} onChange={limitacionAltura} min="0.5" max="2.5" step="0.01" />
+          <input className='entradaIMC' type="number" value={altura} onChange={limitacionAltura}  />
 
           <button className="boton" onClick={precionarBoton}>{botonEnCalcular ? "Calcular IMC" : "Limpiar Formulario"}</button>
     </Fade>

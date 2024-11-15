@@ -13,6 +13,7 @@ function CalculadoraIMC() {
   const [imc, setImc] = useState(null);
   const [nivelIMC, setNivelIMC] = useState('');
   const [imagenResultado, setImagenResultado] = useState('');
+  const [recomendaciones, setRecomendaciones] = useState([]);
 
   const calcularIMC = (peso, altura) => peso / (altura * altura);
 
@@ -43,7 +44,41 @@ function CalculadoraIMC() {
   } else if (nivel === 'Obesidad') {
       setImagenResultado("Image/CalculadoraIMC/obesidad.png");
   }
+  
+  const recomendacionCalculada = (nivel) => {
+    const recomendacionesRandom = {
+      "Bajo peso": [
+        "Incrementa el consumo de alimentos ricos en proteínas y carbohidratos saludables.",
+        "Añade frutos secos y aguacates a tu dieta diaria.",
+        "Realiza ejercicios de fuerza para ganar masa muscular.",
+        "Consulta a un nutricionista para un plan personalizado."
+      ],
+      "Peso saludable": [
+        "Tienes un buen peso! sigue asi, recuerda hidratarte y moderar tu consumo de azucar.",
+        "Evita el consumo excesivo de alimentos procesados.",
+        "Realiza actividad física regular para mantener tu peso ideal.",
+        "Hidrátate bien, al menos 2 litros de agua al día."
+      ],
+      "Sobrepeso": [
+        "Reduce el consumo de alimentos ultraprocesados y azúcares.",
+        "Prefiere opciones integrales como arroz integral y pan de grano entero.",
+        "Incluye más vegetales en tus comidas.",
+        "Aumenta tu actividad física diaria, como caminar o andar en bicicleta."
+      ],
+      "Obesidad": [
+        "Elimina las bebidas azucaradas y reemplázalas con agua o infusiones.",
+        "Inicia un plan de alimentación saludable con ayuda de un experto.",
+        "Comienza con ejercicios de baja intensidad, como caminatas diarias.",
+        "Prioriza porciones más pequeñas y mastica lentamente al comer."
+      ]
+    };
+    const recomendacionNivel= recomendacionesRandom[nivel] || [];
+    return recomendacionNivel[Math.floor(Math.random() * recomendacionNivel.length)];
+   };
+   setRecomendaciones(recomendacionCalculada (nivel));
   };
+
+
   useEffect(() => {
     if (audioRef.current) {
         audioRef.current.play();
@@ -84,7 +119,7 @@ function CalculadoraIMC() {
               setAltura={setAltura}
               calcular={manejarCalculo}
             />
-            {imc && <ResultadoIMC nombre={nombre} apellido={apellido} imc={imc} nivelIMC={nivelIMC} />}
+            {imc && <ResultadoIMC nombre={nombre} apellido={apellido} imc={imc} nivelIMC={nivelIMC} recomendaciones={recomendaciones} />}
           </div>
         </div>
         {imagenResultado && (

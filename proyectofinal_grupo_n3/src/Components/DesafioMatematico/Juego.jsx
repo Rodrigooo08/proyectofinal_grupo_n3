@@ -4,6 +4,7 @@ import verificarRespuesta from './verificarRespuesta';
 import siguienteDesafio from './siguienteDesafio';
 import CardDesafio from './TarjetaOperaciones';
 import Puntuacion from './Puntuacion';
+import DialogoVegeta from './DialogoVegeta';
 
 const Juego = ({dificultad, onReset}) => {
     const [operacion, setOperacion] = useState(generarOperacion(dificultad));
@@ -42,6 +43,8 @@ const Juego = ({dificultad, onReset}) => {
                 botonHabilitado={botonHabilitado}
                 botonSiguiente={botonSiguiente}
             />
+            <div className='Dialogoconteiner'><DialogoVegeta /></div>
+            
         </div>
     );
 }

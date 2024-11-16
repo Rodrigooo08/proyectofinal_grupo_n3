@@ -147,9 +147,6 @@ class Escena3 extends Phaser.Scene {
         //condicion para detener de escena
         if (this.tiempoTranscurrido >= 20) {
             this.scene.stop('Escena3');
-            if (this.musicaFondo != null) {
-                this.musicaFondo.stop();
-            }
             this.scene.start('Escena4', { puntaje: this.puntaje, musicaFondo: this.musicaFondo });
         }
     }

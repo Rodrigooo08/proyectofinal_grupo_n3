@@ -127,6 +127,7 @@ class Escena4 extends Phaser.Scene {
         }
     }
     //Metedos del Jefe Final
+
     dispararJefe() {
         const proyectilJefe = this.proyectilesJefe.get(this.jefeFinal.x, this.jefeFinal.y + 55, 'proyectilJefe');
         if (proyectilJefe) {
@@ -197,14 +198,14 @@ class Escena4 extends Phaser.Scene {
     }
     preload() {
         this.load.image('cielo4', 'public/Image/JuegoNave/EspacioHorizontal.png'),
-        this.load.spritesheet('naveVer', 'public/Image/JuegoNave/naveVer.png', { frameWidth: 82, frameHeight: 77 }),
-        this.load.image('bala', 'public/Image/JuegoNave/bala.png'),
-        this.load.image('meteoro', 'public/Image/JuegoNave/asteroide.png')
+            this.load.spritesheet('naveVer', 'public/Image/JuegoNave/naveVer.png', { frameWidth: 82, frameHeight: 77 }),
+            this.load.image('bala', 'public/Image/JuegoNave/bala.png'),
+            this.load.image('meteoro', 'public/Image/JuegoNave/asteroide.png')
         this.load.spritesheet('jefeFinal', 'public/Image/JuegoNave/Jefe Final.png', { frameWidth: 304, frameHeight: 235 }),
-        this.load.spritesheet('vida', 'public/Image/JuegoNave/spritesheet_cascotime_32x32.png', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('vida', 'public/Image/JuegoNave/spritesheet_cascotime_32x32.png', { frameWidth: 32, frameHeight: 32 });
         this.load.audio('audioEscena4', '/sound/juegoNave/Boss_theme.mp3');
         this.load.spritesheet('enemigo', 'public/Image/JuegoNave/Sprite enemigo.png', { frameWidth: 46.5, frameHeight: 41 }),
-        this.load.spritesheet('proyectil', 'public/Image/JuegoNave/spritesheet_bala.png', { frameWidth: 39.4, frameHeight: 28 });
+            this.load.spritesheet('proyectil', 'public/Image/JuegoNave/spritesheet_bala.png', { frameWidth: 39.4, frameHeight: 28 });
         this.load.audio('disparoFx', '/sound/juegoNave/Laser.mp3');
         this.load.spritesheet('proyectilJefe', '/Image/JuegoNave/fuegitos.png', { frameWidth: 52, frameHeight: 52 });
         this.load.audio('Fireball', '/sound/juegoNave/fireball.mp3');
@@ -215,12 +216,7 @@ class Escena4 extends Phaser.Scene {
     create() {
         //Fondo
         this.fondo = this.add.tileSprite(400, 300, 800, 600, 'cielo4'); //(x,y,width,height) para marcar la posicion de la imagen y tamaño a ocupar
-        //audioo
-        this.audioEscena4 = this.sound.add('audioEscena4');
-        const soundConfig = { volume: 0.5, loop: true };
-        if (!this.sound.locked) {
-            this.audioEscena4.play(soundConfig);
-        }
+
         this.jugador = this.physics.add.sprite(10, 300, 'naveVer');
         this.jugador.angle = 90;
         this.jugador.setCollideWorldBounds(true);
@@ -327,19 +323,47 @@ class Escena4 extends Phaser.Scene {
             callbackScope: this,
             loop: true
         });
-        // Crear los gráficos para la barra de vida
-        this.barraVidaFondo = this.add.graphics();
-        this.barraVidaFondo.fillStyle(0x555555, 1);  // Color de fondo (gris oscuro)
-        this.barraVidaFondo.fillRect(200, 550, 400, 20); // Dibuja el fondo de la barra
-        this.barraVidaRelleno = this.add.graphics();
-        this.barraVidaRelleno.fillStyle(0x00ff00, 1);  // Color del relleno (verde)
-        this.barraVidaRelleno.fillRect(200, 550, 400, 20); // Dibuja el relleno inicial (totalmente lleno)
+
         //Crea el sprite del jefe final
         this.jefeFinal = this.physics.add.sprite(800, 400, 'jefeFinal').play('jefeAnimado');
+        this.jefeFinal.disableBody(true, true);
         // this.jefeFinal.setCollideWorldBounds(true);
         // Agrega lógica para que el Jefe final se mueva
-        this.jefeFinal.setVelocityX(-100); // Mover hacia la derecha
-        this.jefeFinal.setVelocityY(-100) // mover hacia arriba 
+        this.time.delayedCall(15000, () => {
+            if (this.musicaFondo != null) {
+                this.musicaFondo.stop();
+            }
+            //audioo
+            this.audioEscena4 = this.sound.add('audioEscena4');
+            const soundConfig = { volume: 0.5, loop: true };
+            if (!this.sound.locked) {
+                this.audioEscena4.play(soundConfig);
+            }
+            this.jefeFinal.enableBody(true, this.jefeFinal.x, this.jefeFinal.y, true, true);
+            this.jefeFinal.setVelocityX(-100); // Mover hacia la derecha
+            this.jefeFinal.setVelocityY(-100) // mover hacia arriba
+            this.time.addEvent({
+                delay: 2000,
+                callback: this.dispararJefe,
+                callbackScope: this,
+                loop: true
+            });
+            // Texto de barra de vida del jefe final 
+            this.textoVidaJefe = this.add.text(400, 570, 'Vida Jefe Final', {
+                fontSize: '22px',
+                fill: '#FFFFFF', // Blanco
+                fontFamily: 'Times New Roman'
+            });
+            // Centrar el texto debajo de la barra de vida
+            this.textoVidaJefe.setOrigin(0.5, 0); // Centra el texto horizontalmente en el eje X
+            // Crear los gráficos para la barra de vida
+            this.barraVidaFondo = this.add.graphics();
+            this.barraVidaFondo.fillStyle(0x555555, 1);  // Color de fondo (gris oscuro)
+            this.barraVidaFondo.fillRect(200, 550, 400, 20); // Dibuja el fondo de la barra
+            this.barraVidaRelleno = this.add.graphics();
+            this.barraVidaRelleno.fillStyle(0x00ff00, 1);  // Color del relleno (verde)
+            this.barraVidaRelleno.fillRect(200, 550, 400, 20); // Dibuja el relleno inicial (totalmente lleno)
+        })
         //meteoros
         this.grupoMeteorosVertical = this.physics.add.group();
         this.time.addEvent({ delay: 1500, callback: this.generarMeteorosVertical, callbackScope: this, loop: true });
@@ -362,13 +386,13 @@ class Escena4 extends Phaser.Scene {
         this.physics.add.collider(this.jugador, this.proyectilesJefe, this.reducirVidaJugador, null, this);
         this.physics.add.collider(this.jugador, this.proyectiles, this.reducirVidaJugador, null, this);
         this.physics.add.collider(this.jugador, this.vidasExtras, this.recogerVida, null, this); // Detectar colisión entre el jugador y las vidas extras
-        // Disparo del jefe
+        /*// Disparo del jefe
         this.time.addEvent({
             delay: 2000,
             callback: this.dispararJefe,
             callbackScope: this,
             loop: true
-        });
+        });*/
         //controles
         this.cursors = this.input.keyboard.createCursorKeys();
         this.barraEspaciadora = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -380,14 +404,6 @@ class Escena4 extends Phaser.Scene {
         this.cascoVida.setScale(2);
     }
     update() {
-        // Texto de barra de vida del jefe final 
-        this.textoVidaJefe = this.add.text(400, 570, 'Vida Jefe Final', {
-            fontSize: '22px',
-            fill: '#FFFFFF', // Blanco
-            fontFamily: 'Times New Roman'
-        });
-        // Centrar el texto debajo de la barra de vida
-        this.textoVidaJefe.setOrigin(0.5, 0); // Centra el texto horizontalmente en el eje X
         //desplazamiento del fondo
         const backgroundSpeed = 2;//velocidad de desplazamiento
         this.fondo.tilePositionX += backgroundSpeed;
